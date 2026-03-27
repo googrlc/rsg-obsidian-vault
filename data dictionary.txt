@@ -1,0 +1,67 @@
+FILE START: RiskSolutions_Data_Dictionary.txt
+1. GLOBAL ID STRATEGY
+	•	Primary Key for Clients: insureds.id (Internal SQL ID) and insureds.nowcerts_id (External System ID).
+	•	Matching Key (GHL <-> SQL): email and nowcerts_id.
+	•	Agent Identification: agents.id maps to insureds.primary_agent.
+2. GOOGLE CLOUD SQL SCHEMA
+Table: insureds (The Master Client Table)
+	•	Context: Source of truth for client demographics and stats.
+	•	id (Integer) - Primary Key
+	•	nowcerts_id (String) - Critical Link to Momentum/NowCerts.
+	•	full_name (String)
+	•	email (String)
+	•	primary_agent (String) - Likely the Agent's Name or ID.
+	•	total_premium (Numeric) - Used for High-Value Client logic.
+	•	policy_count (Integer)
+	•	active (Boolean) - True = Current Client; False = Prospect/Churned.
+	•	retention_risk (String) - High Value: Use for "Save the Deal" automations.
+	•	customer_lifetime_value (Numeric)
+Table: commercial_pipeline (The Sales Tracker)
+	•	Context: Mirrors the GHL Deal Pipeline.
+	•	id (Integer)
+	•	business_name (String)
+	•	status (String) - Matches GHL Deal Stages.
+	•	urgency (String) - Use for sorting tasks.
+	•	lines_selected (JSONB) - Note: Contains array of lines (e.g., ["GL", "WC"]).
+	•	sync_status (String) - tracks if pushed to NowCerts.
+Table: commissions (Financial & Policy Detail)
+	•	Context: Used for Renewal and Revenue reporting.
+	•	policy_number (String)
+	•	insured_id (Integer) - Foreign Key to insureds.
+	•	expiration_date (Date) - Trigger: Used for "45-Day Renewal" workflows.
+	•	carrier_name (String)
+	•	commission_amount (Numeric)
+	•	is_renewal (Boolean)
+	•	variance_flag (Boolean) - Alert: If True, commission received != expected.
+Table: agents (Staff Directory)
+	•	Context: Used to route tasks and notifications.
+	•	id (Integer)
+	•	full_name (String)
+	•	email (String)
+	•	active (Boolean)
+	•	total_premium (Numeric) - Agent's book size.
+Table: agent_performance (KPIs)
+	•	Context: Pre-calculated stats for "Mode 3: Agent Assessment".
+	•	agent_name (String)
+	•	contacts_30d (BigInt) - Activity metric.
+	•	quotes_bound_30d (BigInt) - Success metric.
+	•	retention_rate (Calculated field inferred from successful_renewals / assigned_renewals).
+Table: daily_intake_summary (Quick Stats)
+	•	Context: Used for "Mode 2: Morning Brief".
+	•	intake_date (Date)
+	•	total_intakes (BigInt) - Volume of new leads.
+	•	failed (BigInt) - Error count for integrations.
+Table: executive_dashboard (High-Level View)
+	•	Context: Real-time agency health.
+	•	renewals_due (BigInt)
+	•	open_tasks (BigInt)
+	•	percent_to_1m_goal (Numeric) - Gamification metric.
+3. KEY RELATIONSHIPS
+	1	Client -> Policies: insureds.id matches commissions.insured_id.
+	2	Agent -> Clients: agents.full_name (or ID) matches insureds.primary_agent.
+	3	Agent -> Performance: agents.full_name matches agent_performance.agent_name.
+4. AUTOMATION TRIGGERS (SQL BASED)
+	•	Renewal Trigger: SELECT * FROM commissions WHERE expiration_date = CURRENT_DATE + 45.
+	•	Churn Risk: SELECT * FROM insureds WHERE retention_risk = 'High' AND active = true.
+	•	Integration Error: SELECT * FROM daily_intake_summary WHERE failed > 0.
+FILE END

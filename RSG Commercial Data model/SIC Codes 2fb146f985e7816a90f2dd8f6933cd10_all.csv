@@ -1,0 +1,445 @@
+﻿SIC Code,Level 3 Term,Mapped NAICS,SIC Description,Source,Subcategory,Subcategory 2
+100,100 - AGRICULTURAL PRODUCTION-CROPS,,AGRICULTURAL PRODUCTION-CROPS,Standard Industrial Classification Codes,"Agriculture, Forestry & Fishing",Agricultural Production
+200,200 - AGRICULTURAL PROD-LIVESTOCK & ANIMAL SPECIALTIES,,AGRICULTURAL PROD-LIVESTOCK & ANIMAL SPECIALTIES,Standard Industrial Classification Codes,"Agriculture, Forestry & Fishing",Agricultural Production
+700,700 - AGRICULTURAL SERVICES,,AGRICULTURAL SERVICES,Standard Industrial Classification Codes,"Agriculture, Forestry & Fishing",Agricultural Services
+800,800 - FORESTRY,,FORESTRY,Standard Industrial Classification Codes,"Agriculture, Forestry & Fishing",Forestry & Fishing
+900,"900 - FISHING, HUNTING AND TRAPPING",,"FISHING, HUNTING AND TRAPPING",Standard Industrial Classification Codes,"Agriculture, Forestry & Fishing",Forestry & Fishing
+1000,1000 - METAL MINING,,METAL MINING,Standard Industrial Classification Codes,Mining & Extraction,Metal Mining
+1040,1040 - GOLD AND SILVER ORES,,GOLD AND SILVER ORES,Standard Industrial Classification Codes,Mining & Extraction,Metal Mining
+1090,1090 - MISCELLANEOUS METAL ORES,,MISCELLANEOUS METAL ORES,Standard Industrial Classification Codes,Mining & Extraction,Metal Mining
+1220,1220 - BITUMINOUS COAL & LIGNITE MINING,,BITUMINOUS COAL & LIGNITE MINING,Standard Industrial Classification Codes,Mining & Extraction,Coal Mining
+1221,1221 - BITUMINOUS COAL & LIGNITE SURFACE MINING,,BITUMINOUS COAL & LIGNITE SURFACE MINING,Standard Industrial Classification Codes,Mining & Extraction,Coal Mining
+1311,1311 - CRUDE PETROLEUM & NATURAL GAS,,CRUDE PETROLEUM & NATURAL GAS,Standard Industrial Classification Codes,Mining & Extraction,Oil & Gas Extraction
+1381,1381 - DRILLING OIL & GAS WELLS,,DRILLING OIL & GAS WELLS,Standard Industrial Classification Codes,Mining & Extraction,Oil & Gas Extraction
+1382,1382 - OIL & GAS FIELD EXPLORATION SERVICES,,OIL & GAS FIELD EXPLORATION SERVICES,Standard Industrial Classification Codes,Mining & Extraction,Oil & Gas Extraction
+1389,"1389 - OIL & GAS FIELD SERVICES, NEC",,"OIL & GAS FIELD SERVICES, NEC",Standard Industrial Classification Codes,Mining & Extraction,Oil & Gas Extraction
+1400,1400 - MINING & QUARRYING OF NONMETALLIC MINERALS (NO FUELS),,MINING & QUARRYING OF NONMETALLIC MINERALS (NO FUELS),Standard Industrial Classification Codes,Mining & Extraction,Nonmetallic Minerals
+1520,1520 - GENERAL BLDG CONTRACTORS - RESIDENTIAL BLDGS,,GENERAL BLDG CONTRACTORS - RESIDENTIAL BLDGS,Standard Industrial Classification Codes,Construction,General Building Contractors
+1531,1531 - OPERATIVE BUILDERS,,OPERATIVE BUILDERS,Standard Industrial Classification Codes,Construction,General Building Contractors
+1540,1540 - GENERAL BLDG CONTRACTORS - NONRESIDENTIAL BLDGS,,GENERAL BLDG CONTRACTORS - NONRESIDENTIAL BLDGS,Standard Industrial Classification Codes,Construction,General Building Contractors
+1600,1600 - HEAVY CONSTRUCTION OTHER THAN BLDG CONST - CONTRACTORS,,HEAVY CONSTRUCTION OTHER THAN BLDG CONST - CONTRACTORS,Standard Industrial Classification Codes,Construction,Heavy Construction
+1623,"1623 - WATER, SEWER, PIPELINE, COMM & POWER LINE CONSTRUCTION",,"WATER, SEWER, PIPELINE, COMM & POWER LINE CONSTRUCTION",Standard Industrial Classification Codes,Construction,Heavy Construction
+1700,1700 - CONSTRUCTION - SPECIAL TRADE CONTRACTORS,,CONSTRUCTION - SPECIAL TRADE CONTRACTORS,Standard Industrial Classification Codes,Construction,Special Trade Contractors
+1731,1731 - ELECTRICAL WORK,,ELECTRICAL WORK,Standard Industrial Classification Codes,Construction,Special Trade Contractors
+2000,2000 - FOOD AND KINDRED PRODUCTS,,FOOD AND KINDRED PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2011,2011 - MEAT PACKING PLANTS,,MEAT PACKING PLANTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2013,2013 - SAUSAGES & OTHER PREPARED MEAT PRODUCTS,,SAUSAGES & OTHER PREPARED MEAT PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2015,2015 - POULTRY SLAUGHTERING AND PROCESSING,,POULTRY SLAUGHTERING AND PROCESSING,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2020,2020 - DAIRY PRODUCTS,,DAIRY PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2024,2024 - ICE CREAM & FROZEN DESSERTS,,ICE CREAM & FROZEN DESSERTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2030,"2030 - CANNED, FROZEN & PRESERVD FRUIT, VEG & FOOD SPECIALTIES",,"CANNED, FROZEN & PRESERVD FRUIT, VEG & FOOD SPECIALTIES",Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2033,"2033 - CANNED, FRUITS, VEG, PRESERVES, JAMS & JELLIES",,"CANNED, FRUITS, VEG, PRESERVES, JAMS & JELLIES",Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2040,2040 - GRAIN MILL PRODUCTS,,GRAIN MILL PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2050,2050 - BAKERY PRODUCTS,,BAKERY PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2052,2052 - COOKIES & CRACKERS,,COOKIES & CRACKERS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2060,2060 - SUGAR & CONFECTIONERY PRODUCTS,,SUGAR & CONFECTIONERY PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2070,2070 - FATS & OILS,,FATS & OILS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2080,2080 - BEVERAGES,,BEVERAGES,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2082,2082 - MALT BEVERAGES,,MALT BEVERAGES,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2086,2086 - BOTTLED & CANNED SOFT DRINKS & CARBONATED WATERS,,BOTTLED & CANNED SOFT DRINKS & CARBONATED WATERS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2090,2090 - MISCELLANEOUS FOOD PREPARATIONS & KINDRED PRODUCTS,,MISCELLANEOUS FOOD PREPARATIONS & KINDRED PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2092,2092 - PREPARED FRESH OR FROZEN FISH & SEAFOODS,,PREPARED FRESH OR FROZEN FISH & SEAFOODS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2100,2100 - TOBACCO PRODUCTS,,TOBACCO PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2111,2111 - CIGARETTES,,CIGARETTES,Standard Industrial Classification Codes,Manufacturing,Food & Beverages
+2200,2200 - TEXTILE MILL PRODUCTS,,TEXTILE MILL PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2211,"2211 - BROADWOVEN FABRIC MILLS, COTTON",,"BROADWOVEN FABRIC MILLS, COTTON",Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2221,"2221 - BROADWOVEN FABRIC MILLS, MAN MADE FIBER & SILK",,"BROADWOVEN FABRIC MILLS, MAN MADE FIBER & SILK",Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2250,2250 - KNITTING MILLS,,KNITTING MILLS,Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2253,2253 - KNIT OUTERWEAR MILLS,,KNIT OUTERWEAR MILLS,Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2273,2273 - CARPETS & RUGS,,CARPETS & RUGS,Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2300,2300 - APPAREL & OTHER FINISHD PRODS OF FABRICS & SIMILAR MATL,,APPAREL & OTHER FINISHD PRODS OF FABRICS & SIMILAR MATL,Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2320,"2320 - MEN'S & BOYS' FURNISHGS, WORK CLOTHG, & ALLIED GARMENTS",,"MEN'S & BOYS' FURNISHGS, WORK CLOTHG, & ALLIED GARMENTS",Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2330,"2330 - WOMEN'S, MISSES', AND JUNIORS OUTERWEAR",,"WOMEN'S, MISSES', AND JUNIORS OUTERWEAR",Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2340,"2340 - WOMEN'S, MISSES', CHILDREN'S & INFANTS' UNDERGARMENTS",,"WOMEN'S, MISSES', CHILDREN'S & INFANTS' UNDERGARMENTS",Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2390,2390 - MISCELLANEOUS FABRICATED TEXTILE PRODUCTS,,MISCELLANEOUS FABRICATED TEXTILE PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Textiles & Apparel
+2400,2400 - LUMBER & WOOD PRODUCTS (NO FURNITURE),,LUMBER & WOOD PRODUCTS (NO FURNITURE),Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2421,"2421 - SAWMILLS & PLANTING MILLS, GENERAL",,"SAWMILLS & PLANTING MILLS, GENERAL",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2430,"2430 - MILLWOOD, VENEER, PLYWOOD, & STRUCTURAL WOOD MEMBERS",,"MILLWOOD, VENEER, PLYWOOD, & STRUCTURAL WOOD MEMBERS",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2451,2451 - MOBILE HOMES,,MOBILE HOMES,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2452,2452 - PREFABRICATED WOOD BLDGS & COMPONENTS,,PREFABRICATED WOOD BLDGS & COMPONENTS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2510,2510 - HOUSEHOLD FURNITURE,,HOUSEHOLD FURNITURE,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2511,"2511 - WOOD HOUSEHOLD FURNITURE, (NO UPHOLSTERED)",,"WOOD HOUSEHOLD FURNITURE, (NO UPHOLSTERED)",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2520,2520 - OFFICE FURNITURE,,OFFICE FURNITURE,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2522,2522 - OFFICE FURNITURE (NO WOOD),,OFFICE FURNITURE (NO WOOD),Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2531,2531 - PUBLIC BLDG & RELATED FURNITURE,,PUBLIC BLDG & RELATED FURNITURE,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2540,"2540 - PARTITIONS, SHELVG, LOCKERS, & OFFICE & STORE FIXTURES",,"PARTITIONS, SHELVG, LOCKERS, & OFFICE & STORE FIXTURES",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2590,2590 - MISCELLANEOUS FURNITURE & FIXTURES,,MISCELLANEOUS FURNITURE & FIXTURES,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2600,2600 - PAPERS & ALLIED PRODUCTS,,PAPERS & ALLIED PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2611,2611 - PULP MILLS,,PULP MILLS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2621,2621 - PAPER MILLS,,PAPER MILLS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2631,2631 - PAPERBOARD MILLS,,PAPERBOARD MILLS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2650,2650 - PAPERBOARD CONTAINERS & BOXES,,PAPERBOARD CONTAINERS & BOXES,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2670,2670 - CONVERTED PAPER & PAPERBOARD PRODS (NO CONTANERS/BOXES),,CONVERTED PAPER & PAPERBOARD PRODS (NO CONTANERS/BOXES),Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2673,"2673 - PLASTICS, FOIL & COATED PAPER BAGS",,"PLASTICS, FOIL & COATED PAPER BAGS",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2711,2711 - NEWSPAPERS: PUBLISHING OR PUBLISHING & PRINTING,,NEWSPAPERS: PUBLISHING OR PUBLISHING & PRINTING,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2721,2721 - PERIODICALS: PUBLISHING OR PUBLISHING & PRINTING,,PERIODICALS: PUBLISHING OR PUBLISHING & PRINTING,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2731,2731 - BOOKS: PUBLISHING OR PUBLISHING & PRINTING,,BOOKS: PUBLISHING OR PUBLISHING & PRINTING,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2732,2732 - BOOK PRINTING,,BOOK PRINTING,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2741,2741 - MISCELLANEOUS PUBLISHING,,MISCELLANEOUS PUBLISHING,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2750,2750 - COMMERCIAL PRINTING,,COMMERCIAL PRINTING,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2761,2761 - MANIFOLD BUSINESS FORMS,,MANIFOLD BUSINESS FORMS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2771,2771 - GREETING CARDS,,GREETING CARDS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2780,"2780 - BLANKBOOKS, LOOSELEAF BINDERS & BOOKBINDG & RELATD WORK",,"BLANKBOOKS, LOOSELEAF BINDERS & BOOKBINDG & RELATD WORK",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2790,2790 - SERVICE INDUSTRIES FOR THE PRINTING TRADE,,SERVICE INDUSTRIES FOR THE PRINTING TRADE,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2800,2800 - CHEMICALS & ALLIED PRODUCTS,,CHEMICALS & ALLIED PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2810,2810 - INDUSTRIAL INORGANIC CHEMICALS,,INDUSTRIAL INORGANIC CHEMICALS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2820,"2820 - PLASTIC MATERIAL, SYNTH RESIN/RUBBER, CELLULOS (NO GLASS)",,"PLASTIC MATERIAL, SYNTH RESIN/RUBBER, CELLULOS (NO GLASS)",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2821,"2821 - PLASTIC MATERIALS, SYNTH RESINS & NONVULCAN ELASTOMERS",,"PLASTIC MATERIALS, SYNTH RESINS & NONVULCAN ELASTOMERS",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2833,2833 - MEDICINAL CHEMICALS & BOTANICAL PRODUCTS,,MEDICINAL CHEMICALS & BOTANICAL PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2834,2834 - PHARMACEUTICAL PREPARATIONS,,PHARMACEUTICAL PREPARATIONS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2835,2835 - IN VITRO & IN VIVO DIAGNOSTIC SUBSTANCES,,IN VITRO & IN VIVO DIAGNOSTIC SUBSTANCES,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2836,"2836 - BIOLOGICAL PRODUCTS, (NO DISGNOSTIC SUBSTANCES)",,"BIOLOGICAL PRODUCTS, (NO DISGNOSTIC SUBSTANCES)",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2840,"2840 - SOAP, DETERGENTS, CLEANG PREPARATIONS, PERFUMES, COSMETICS",,"SOAP, DETERGENTS, CLEANG PREPARATIONS, PERFUMES, COSMETICS",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2842,"2842 - SPECIALTY CLEANING, POLISHING AND SANITATION PREPARATIONS",,"SPECIALTY CLEANING, POLISHING AND SANITATION PREPARATIONS",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2844,"2844 - PERFUMES, COSMETICS & OTHER TOILET PREPARATIONS",,"PERFUMES, COSMETICS & OTHER TOILET PREPARATIONS",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2851,"2851 - PAINTS, VARNISHES, LACQUERS, ENAMELS & ALLIED PRODS",,"PAINTS, VARNISHES, LACQUERS, ENAMELS & ALLIED PRODS",Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2860,2860 - INDUSTRIAL ORGANIC CHEMICALS,,INDUSTRIAL ORGANIC CHEMICALS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2870,2870 - AGRICULTURAL CHEMICALS,,AGRICULTURAL CHEMICALS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2890,2890 - MISCELLANEOUS CHEMICAL PRODUCTS,,MISCELLANEOUS CHEMICAL PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2891,2891 - ADHESIVES & SEALANTS,,ADHESIVES & SEALANTS,Standard Industrial Classification Codes,Manufacturing,Paper & Chemicals
+2911,2911 - PETROLEUM REFINING,,PETROLEUM REFINING,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+2950,2950 - ASPHALT PAVING & ROOFING MATERIALS,,ASPHALT PAVING & ROOFING MATERIALS,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+2990,2990 - MISCELLANEOUS PRODUCTS OF PETROLEUM & COAL,,MISCELLANEOUS PRODUCTS OF PETROLEUM & COAL,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3011,3011 - TIRES & INNER TUBES,,TIRES & INNER TUBES,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3021,3021 - RUBBER & PLASTICS FOOTWEAR,,RUBBER & PLASTICS FOOTWEAR,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3050,"3050 - GASKETS, PACKG & SEALG DEVICES & RUBBER & PLASTICS HOSE",,"GASKETS, PACKG & SEALG DEVICES & RUBBER & PLASTICS HOSE",Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3060,"3060 - FABRICATED RUBBER PRODUCTS, NEC",,"FABRICATED RUBBER PRODUCTS, NEC",Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3080,3080 - MISCELLANEOUS PLASTICS PRODUCTS,,MISCELLANEOUS PLASTICS PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3081,3081 - UNSUPPORTED PLASTICS FILM & SHEET,,UNSUPPORTED PLASTICS FILM & SHEET,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3086,3086 - PLASTICS FOAM PRODUCTS,,PLASTICS FOAM PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3089,"3089 - PLASTICS PRODUCTS, NEC",,"PLASTICS PRODUCTS, NEC",Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3100,3100 - LEATHER & LEATHER PRODUCTS,,LEATHER & LEATHER PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3140,"3140 - FOOTWEAR, (NO RUBBER)",,"FOOTWEAR, (NO RUBBER)",Standard Industrial Classification Codes,Manufacturing,Petroleum & Rubber
+3211,3211 - FLAT GLASS,,FLAT GLASS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3220,"3220 - GLASS & GLASSWARE, PRESSED OR BLOWN",,"GLASS & GLASSWARE, PRESSED OR BLOWN",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3221,3221 - GLASS CONTAINERS,,GLASS CONTAINERS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3231,"3231 - GLASS PRODUCTS, MADE OF PURCHASED GLASS",,"GLASS PRODUCTS, MADE OF PURCHASED GLASS",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3241,"3241 - CEMENT, HYDRAULIC",,"CEMENT, HYDRAULIC",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3250,3250 - STRUCTURAL CLAY PRODUCTS,,STRUCTURAL CLAY PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3260,3260 - POTTERY & RELATED PRODUCTS,,POTTERY & RELATED PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3270,"3270 - CONCRETE, GYPSUM & PLASTER PRODUCTS",,"CONCRETE, GYPSUM & PLASTER PRODUCTS",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3272,"3272 - CONCRETE PRODUCTS, EXCEPT BLOCK & BRICK",,"CONCRETE PRODUCTS, EXCEPT BLOCK & BRICK",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3281,3281 - CUT STONE & STONE PRODUCTS,,CUT STONE & STONE PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3290,"3290 - ABRASIVE, ASBESTOS & MISC NONMETALLIC MINERAL PRODS",,"ABRASIVE, ASBESTOS & MISC NONMETALLIC MINERAL PRODS",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3310,"3310 - STEEL WORKS, BLAST FURNACES & ROLLING & FINISHING MILLS",,"STEEL WORKS, BLAST FURNACES & ROLLING & FINISHING MILLS",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3312,"3312 - STEEL WORKS, BLAST FURNACES & ROLLING MILLS (COKE OVENS)",,"STEEL WORKS, BLAST FURNACES & ROLLING MILLS (COKE OVENS)",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3317,3317 - STEEL PIPE & TUBES,,STEEL PIPE & TUBES,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3320,3320 - IRON & STEEL FOUNDRIES,,IRON & STEEL FOUNDRIES,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3330,3330 - PRIMARY SMELTING & REFINING OF NONFERROUS METALS,,PRIMARY SMELTING & REFINING OF NONFERROUS METALS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3334,3334 - PRIMARY PRODUCTION OF ALUMINUM,,PRIMARY PRODUCTION OF ALUMINUM,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3341,3341 - SECONDARY SMELTING & REFINING OF NONFERROUS METALS,,SECONDARY SMELTING & REFINING OF NONFERROUS METALS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3350,3350 - ROLLING DRAWING & EXTRUDING OF NONFERROUS METALS,,ROLLING DRAWING & EXTRUDING OF NONFERROUS METALS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3357,3357 - DRAWING & INSULATING OF NONFERROUS WIRE,,DRAWING & INSULATING OF NONFERROUS WIRE,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3360,3360 - NONFERROUS FOUNDRIES (CASTINGS),,NONFERROUS FOUNDRIES (CASTINGS),Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3390,3390 - MISCELLANEOUS PRIMARY METAL PRODUCTS,,MISCELLANEOUS PRIMARY METAL PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3411,3411 - METAL CANS,,METAL CANS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3412,"3412 - METAL SHIPPING BARRELS, DRUMS, KEGS & PAILS",,"METAL SHIPPING BARRELS, DRUMS, KEGS & PAILS",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3420,"3420 - CUTLERY, HANDTOOLS & GENERAL HARDWARE",,"CUTLERY, HANDTOOLS & GENERAL HARDWARE",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3430,"3430 - HEATING EQUIP, EXCEPT ELEC & WARM AIR; & PLUMBING FIXTURES",,"HEATING EQUIP, EXCEPT ELEC & WARM AIR; & PLUMBING FIXTURES",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3433,"3433 - HEATING EQUIPMENT, EXCEPT ELECTRIC & WARM AIR FURNACES",,"HEATING EQUIPMENT, EXCEPT ELECTRIC & WARM AIR FURNACES",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3440,3440 - FABRICATED STRUCTURAL METAL PRODUCTS,,FABRICATED STRUCTURAL METAL PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3442,"3442 - METAL DOORS, SASH, FRAMES, MOLDINGS & TRIM",,"METAL DOORS, SASH, FRAMES, MOLDINGS & TRIM",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3443,3443 - FABRICATED PLATE WORK (BOILER SHOPS),,FABRICATED PLATE WORK (BOILER SHOPS),Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3444,3444 - SHEET METAL WORK,,SHEET METAL WORK,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3448,3448 - PREFABRICATED METAL BUILDINGS & COMPONENTS,,PREFABRICATED METAL BUILDINGS & COMPONENTS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3451,3451 - SCREW MACHINE PRODUCTS,,SCREW MACHINE PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3452,"3452 - BOLTS, NUTS, SCREWS, RIVETS & WASHERS",,"BOLTS, NUTS, SCREWS, RIVETS & WASHERS",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3460,3460 - METAL FORGINGS & STAMPINGS,,METAL FORGINGS & STAMPINGS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3470,"3470 - COATING, ENGRAVING & ALLIED SERVICES",,"COATING, ENGRAVING & ALLIED SERVICES",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3480,"3480 - ORDNANCE & ACCESSORIES, (NO VEHICLES/GUIDED MISSILES)",,"ORDNANCE & ACCESSORIES, (NO VEHICLES/GUIDED MISSILES)",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3490,3490 - MISCELLANEOUS FABRICATED METAL PRODUCTS,,MISCELLANEOUS FABRICATED METAL PRODUCTS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3510,3510 - ENGINES & TURBINES,,ENGINES & TURBINES,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3523,3523 - FARM MACHINERY & EQUIPMENT,,FARM MACHINERY & EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3524,3524 - LAWN & GARDEN TRACTORS & HOME LAWN & GARDENS EQUIP,,LAWN & GARDEN TRACTORS & HOME LAWN & GARDENS EQUIP,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3530,"3530 - CONSTRUCTION, MINING & MATERIALS HANDLING MACHINERY & EQUIP",,"CONSTRUCTION, MINING & MATERIALS HANDLING MACHINERY & EQUIP",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3531,3531 - CONSTRUCTION MACHINERY & EQUIP,,CONSTRUCTION MACHINERY & EQUIP,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3532,3532 - MINING MACHINERY & EQUIP (NO OIL & GAS FIELD MACH & EQUIP),,MINING MACHINERY & EQUIP (NO OIL & GAS FIELD MACH & EQUIP),Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3533,3533 - OIL & GAS FIELD MACHINERY & EQUIPMENT,,OIL & GAS FIELD MACHINERY & EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3537,"3537 - INDUSTRIAL TRUCKS, TRACTORS, TRAILORS & STACKERS",,"INDUSTRIAL TRUCKS, TRACTORS, TRAILORS & STACKERS",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3540,3540 - METALWORKG MACHINERY & EQUIPMENT,,METALWORKG MACHINERY & EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3541,"3541 - MACHINE TOOLS, METAL CUTTING TYPES",,"MACHINE TOOLS, METAL CUTTING TYPES",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3550,3550 - SPECIAL INDUSTRY MACHINERY (NO METALWORKING MACHINERY),,SPECIAL INDUSTRY MACHINERY (NO METALWORKING MACHINERY),Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3555,3555 - PRINTING TRADES MACHINERY & EQUIPMENT,,PRINTING TRADES MACHINERY & EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3559,"3559 - SPECIAL INDUSTRY MACHINERY, NEC",,"SPECIAL INDUSTRY MACHINERY, NEC",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3560,3560 - GENERAL INDUSTRIAL MACHINERY & EQUIPMENT,,GENERAL INDUSTRIAL MACHINERY & EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3561,3561 - PUMPS & PUMPING EQUIPMENT,,PUMPS & PUMPING EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3562,3562 - BALL & ROLLER BEARINGS,,BALL & ROLLER BEARINGS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3564,3564 - INDUSTRIAL & COMMERCIAL FANS & BLOWERS & AIR PURIFING EQUIP,,INDUSTRIAL & COMMERCIAL FANS & BLOWERS & AIR PURIFING EQUIP,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3567,3567 - INDUSTRIAL PROCESS FURNACES & OVENS,,INDUSTRIAL PROCESS FURNACES & OVENS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3569,"3569 - GENERAL INDUSTRIAL MACHINERY & EQUIPMENT, NEC",,"GENERAL INDUSTRIAL MACHINERY & EQUIPMENT, NEC",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3570,3570 - COMPUTER & OFFICE EQUIPMENT,,COMPUTER & OFFICE EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3571,3571 - ELECTRONIC COMPUTERS,,ELECTRONIC COMPUTERS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3572,3572 - COMPUTER STORAGE DEVICES,,COMPUTER STORAGE DEVICES,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3575,3575 - COMPUTER TERMINALS,,COMPUTER TERMINALS,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3576,3576 - COMPUTER COMMUNICATIONS EQUIPMENT,,COMPUTER COMMUNICATIONS EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3577,"3577 - COMPUTER PERIPHERAL EQUIPMENT, NEC",,"COMPUTER PERIPHERAL EQUIPMENT, NEC",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3578,3578 - CALCULATING & ACCOUNTING MACHINES (NO ELECTRONIC COMPUTERS),,CALCULATING & ACCOUNTING MACHINES (NO ELECTRONIC COMPUTERS),Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3579,"3579 - OFFICE MACHINES, NEC",,"OFFICE MACHINES, NEC",Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3580,3580 - REFRIGERATION & SERVICE INDUSTRY MACHINERY,,REFRIGERATION & SERVICE INDUSTRY MACHINERY,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3585,3585 - AIR-COND & WARM AIR HEATG EQUIP & COMM & INDL REFRIG EQUIP,,AIR-COND & WARM AIR HEATG EQUIP & COMM & INDL REFRIG EQUIP,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3590,3590 - MISC INDUSTRIAL & COMMERCIAL MACHINERY & EQUIPMENT,,MISC INDUSTRIAL & COMMERCIAL MACHINERY & EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Metal & Machinery
+3600,3600 - ELECTRONIC & OTHER ELECTRICAL EQUIPMENT (NO COMPUTER EQUIP),,ELECTRONIC & OTHER ELECTRICAL EQUIPMENT (NO COMPUTER EQUIP),Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3612,"3612 - POWER, DISTRIBUTION & SPECIALTY TRANSFORMERS",,"POWER, DISTRIBUTION & SPECIALTY TRANSFORMERS",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3613,3613 - SWITCHGEAR & SWITCHBOARD APPARATUS,,SWITCHGEAR & SWITCHBOARD APPARATUS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3620,3620 - ELECTRICAL INDUSTRIAL APPARATUS,,ELECTRICAL INDUSTRIAL APPARATUS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3621,3621 - MOTORS & GENERATORS,,MOTORS & GENERATORS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3630,3630 - HOUSEHOLD APPLIANCES,,HOUSEHOLD APPLIANCES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3634,3634 - ELECTRIC HOUSEWARES & FANS,,ELECTRIC HOUSEWARES & FANS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3640,3640 - ELECTRIC LIGHTING & WIRING EQUIPMENT,,ELECTRIC LIGHTING & WIRING EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3651,3651 - HOUSEHOLD AUDIO & VIDEO EQUIPMENT,,HOUSEHOLD AUDIO & VIDEO EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3652,3652 - PHONOGRAPH RECORDS & PRERECORDED AUDIO TAPES & DISKS,,PHONOGRAPH RECORDS & PRERECORDED AUDIO TAPES & DISKS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3661,3661 - TELEPHONE & TELEGRAPH APPARATUS,,TELEPHONE & TELEGRAPH APPARATUS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3663,3663 - RADIO & TV BROADCASTING & COMMUNICATIONS EQUIPMENT,,RADIO & TV BROADCASTING & COMMUNICATIONS EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3669,"3669 - COMMUNICATIONS EQUIPMENT, NEC",,"COMMUNICATIONS EQUIPMENT, NEC",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3670,3670 - ELECTRONIC COMPONENTS & ACCESSORIES,,ELECTRONIC COMPONENTS & ACCESSORIES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3672,3672 - PRINTED CIRCUIT BOARDS,,PRINTED CIRCUIT BOARDS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3674,3674 - SEMICONDUCTORS & RELATED DEVICES,,SEMICONDUCTORS & RELATED DEVICES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3677,"3677 - ELECTRONIC COILS, TRANSFORMERS & OTHER INDUCTORS",,"ELECTRONIC COILS, TRANSFORMERS & OTHER INDUCTORS",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3678,3678 - ELECTRONIC CONNECTORS,,ELECTRONIC CONNECTORS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3679,"3679 - ELECTRONIC COMPONENTS, NEC",,"ELECTRONIC COMPONENTS, NEC",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3690,"3690 - MISCELLANEOUS ELECTRICAL MACHINERY, EQUIPMENT & SUPPLIES",,"MISCELLANEOUS ELECTRICAL MACHINERY, EQUIPMENT & SUPPLIES",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3695,3695 - MAGNETIC & OPTICAL RECORDING MEDIA,,MAGNETIC & OPTICAL RECORDING MEDIA,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3711,3711 - MOTOR VEHICLES & PASSENGER CAR BODIES,,MOTOR VEHICLES & PASSENGER CAR BODIES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3713,3713 - TRUCK & BUS BODIES,,TRUCK & BUS BODIES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3714,3714 - MOTOR VEHICLE PARTS & ACCESSORIES,,MOTOR VEHICLE PARTS & ACCESSORIES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3715,3715 - TRUCK TRAILERS,,TRUCK TRAILERS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3716,3716 - MOTOR HOMES,,MOTOR HOMES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3720,3720 - AIRCRAFT & PARTS,,AIRCRAFT & PARTS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3721,3721 - AIRCRAFT,,AIRCRAFT,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3724,3724 - AIRCRAFT ENGINES & ENGINE PARTS,,AIRCRAFT ENGINES & ENGINE PARTS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3728,"3728 - AIRCRAFT PARTS & AUXILIARY EQUIPMENT, NEC",,"AIRCRAFT PARTS & AUXILIARY EQUIPMENT, NEC",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3730,3730 - SHIP & BOAT BUILDING & REPAIRING,,SHIP & BOAT BUILDING & REPAIRING,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3743,3743 - RAILROAD EQUIPMENT,,RAILROAD EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3751,"3751 - MOTORCYCLES, BICYCLES & PARTS",,"MOTORCYCLES, BICYCLES & PARTS",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3760,3760 - GUIDED MISSILES & SPACE VEHICLES & PARTS,,GUIDED MISSILES & SPACE VEHICLES & PARTS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3790,3790 - MISCELLANEOUS TRANSPORTATION EQUIPMENT,,MISCELLANEOUS TRANSPORTATION EQUIPMENT,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3812,"3812 - SEARCH, DETECTION, NAVAGATION, GUIDANCE, AERONAUTICAL SYS",,"SEARCH, DETECTION, NAVAGATION, GUIDANCE, AERONAUTICAL SYS",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3821,3821 - LABORATORY APPARATUS & FURNITURE,,LABORATORY APPARATUS & FURNITURE,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3822,3822 - AUTO CONTROLS FOR REGULATING RESIDENTIAL & COMML ENVIRONMENTS,,AUTO CONTROLS FOR REGULATING RESIDENTIAL & COMML ENVIRONMENTS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3823,"3823 - INDUSTRIAL INSTRUMENTS FOR MEASUREMENT, DISPLAY, AND CONTROL",,"INDUSTRIAL INSTRUMENTS FOR MEASUREMENT, DISPLAY, AND CONTROL",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3824,3824 - TOTALIZING FLUID METERS & COUNTING DEVICES,,TOTALIZING FLUID METERS & COUNTING DEVICES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3825,3825 - INSTRUMENTS FOR MEAS & TESTING OF ELECTRICITY & ELEC SIGNALS,,INSTRUMENTS FOR MEAS & TESTING OF ELECTRICITY & ELEC SIGNALS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3826,3826 - LABORATORY ANALYTICAL INSTRUMENTS,,LABORATORY ANALYTICAL INSTRUMENTS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3827,3827 - OPTICAL INSTRUMENTS & LENSES,,OPTICAL INSTRUMENTS & LENSES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3829,"3829 - MEASURING & CONTROLLING DEVICES, NEC",,"MEASURING & CONTROLLING DEVICES, NEC",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3841,3841 - SURGICAL & MEDICAL INSTRUMENTS & APPARATUS,,SURGICAL & MEDICAL INSTRUMENTS & APPARATUS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3842,"3842 - ORTHOPEDIC, PROSTHETIC & SURGICAL APPLIANCES & SUPPLIES",,"ORTHOPEDIC, PROSTHETIC & SURGICAL APPLIANCES & SUPPLIES",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3843,3843 - DENTAL EQUIPMENT & SUPPLIES,,DENTAL EQUIPMENT & SUPPLIES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3844,3844 - X-RAY APPARATUS & TUBES & RELATED IRRADIATION APPARATUS,,X-RAY APPARATUS & TUBES & RELATED IRRADIATION APPARATUS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3845,3845 - ELECTROMEDICAL & ELECTROTHERAPEUTIC APPARATUS,,ELECTROMEDICAL & ELECTROTHERAPEUTIC APPARATUS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3851,3851 - OPHTHALMIC GOODS,,OPHTHALMIC GOODS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3861,3861 - PHOTOGRAPHIC EQUIPMENT & SUPPLIES,,PHOTOGRAPHIC EQUIPMENT & SUPPLIES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3873,"3873 - WATCHES, CLOCKS, CLOCKWORK OPERATED DEVICES/PARTS",,"WATCHES, CLOCKS, CLOCKWORK OPERATED DEVICES/PARTS",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3910,"3910 - JEWELRY, SILVERWARE & PLATED WARE",,"JEWELRY, SILVERWARE & PLATED WARE",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3911,"3911 - JEWELRY, PRECIOUS METAL",,"JEWELRY, PRECIOUS METAL",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3931,3931 - MUSICAL INSTRUMENTS,,MUSICAL INSTRUMENTS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3942,3942 - DOLLS & STUFFED TOYS,,DOLLS & STUFFED TOYS,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3944,"3944 - GAMES, TOYS & CHILDREN'S VEHICLES (NO DOLLS & BICYCLES)",,"GAMES, TOYS & CHILDREN'S VEHICLES (NO DOLLS & BICYCLES)",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3949,"3949 - SPORTING & ATHLETIC GOODS, NEC",,"SPORTING & ATHLETIC GOODS, NEC",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3950,"3950 - PENS, PENCILS & OTHER ARTISTS' MATERIALS",,"PENS, PENCILS & OTHER ARTISTS' MATERIALS",Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3960,3960 - COSTUME JEWELRY & NOVELTIES,,COSTUME JEWELRY & NOVELTIES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+3990,3990 - MISCELLANEOUS MANUFACTURING INDUSTRIES,,MISCELLANEOUS MANUFACTURING INDUSTRIES,Standard Industrial Classification Codes,Manufacturing,Electronics & Transportation Equipment
+4011,"4011 - RAILROADS, LINE-HAUL OPERATING",,"RAILROADS, LINE-HAUL OPERATING",Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4013,4013 - RAILROAD SWITCHING & TERMINAL ESTABLISHMENTS,,RAILROAD SWITCHING & TERMINAL ESTABLISHMENTS,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4100,4100 - LOCAL & SUBURBAN TRANSIT & INTERURBAN HWY PASSENGER TRANS,,LOCAL & SUBURBAN TRANSIT & INTERURBAN HWY PASSENGER TRANS,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4210,4210 - TRUCKING & COURIER SERVICES (NO AIR),,TRUCKING & COURIER SERVICES (NO AIR),Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4213,4213 - TRUCKING (NO LOCAL),,TRUCKING (NO LOCAL),Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4220,4220 - PUBLIC WAREHOUSING & STORAGE,,PUBLIC WAREHOUSING & STORAGE,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4231,4231 - TERMINAL MAINTENANCE FACILITIES FOR MOTOR FREIGHT TRANSPORT,,TERMINAL MAINTENANCE FACILITIES FOR MOTOR FREIGHT TRANSPORT,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4400,4400 - WATER TRANSPORTATION,,WATER TRANSPORTATION,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4412,4412 - DEEP SEA FOREIGN TRANSPORTATION OF FREIGHT,,DEEP SEA FOREIGN TRANSPORTATION OF FREIGHT,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4512,"4512 - AIR TRANSPORTATION, SCHEDULED",,"AIR TRANSPORTATION, SCHEDULED",Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4513,4513 - AIR COURIER SERVICES,,AIR COURIER SERVICES,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4522,"4522 - AIR TRANSPORTATION, NONSCHEDULED",,"AIR TRANSPORTATION, NONSCHEDULED",Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4581,"4581 - AIRPORTS, FLYING FIELDS & AIRPORT TERMINAL SERVICES",,"AIRPORTS, FLYING FIELDS & AIRPORT TERMINAL SERVICES",Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4610,4610 - PIPE LINES (NO NATURAL GAS),,PIPE LINES (NO NATURAL GAS),Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4700,4700 - TRANSPORTATION SERVICES,,TRANSPORTATION SERVICES,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4731,4731 - ARRANGEMENT OF TRANSPORTATION OF FREIGHT & CARGO,,ARRANGEMENT OF TRANSPORTATION OF FREIGHT & CARGO,Standard Industrial Classification Codes,Transportation & Utilities,Transportation
+4812,4812 - RADIOTELEPHONE COMMUNICATIONS,,RADIOTELEPHONE COMMUNICATIONS,Standard Industrial Classification Codes,Transportation & Utilities,Communications
+4813,4813 - TELEPHONE COMMUNICATIONS (NO RADIOTELEPHONE),,TELEPHONE COMMUNICATIONS (NO RADIOTELEPHONE),Standard Industrial Classification Codes,Transportation & Utilities,Communications
+4822,4822 - TELEGRAPH & OTHER MESSAGE COMMUNICATIONS,,TELEGRAPH & OTHER MESSAGE COMMUNICATIONS,Standard Industrial Classification Codes,Transportation & Utilities,Communications
+4832,4832 - RADIO BROADCASTING STATIONS,,RADIO BROADCASTING STATIONS,Standard Industrial Classification Codes,Transportation & Utilities,Communications
+4833,4833 - TELEVISION BROADCASTING STATIONS,,TELEVISION BROADCASTING STATIONS,Standard Industrial Classification Codes,Transportation & Utilities,Communications
+4841,4841 - CABLE & OTHER PAY TELEVISION SERVICES,,CABLE & OTHER PAY TELEVISION SERVICES,Standard Industrial Classification Codes,Transportation & Utilities,Communications
+4899,"4899 - COMMUNICATIONS SERVICES, NEC",,"COMMUNICATIONS SERVICES, NEC",Standard Industrial Classification Codes,Transportation & Utilities,Communications
+4900,"4900 - ELECTRIC, GAS & SANITARY SERVICES",,"ELECTRIC, GAS & SANITARY SERVICES",Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4911,4911 - ELECTRIC SERVICES,,ELECTRIC SERVICES,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4922,4922 - NATURAL GAS TRANSMISSION,,NATURAL GAS TRANSMISSION,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4923,4923 - NATURAL GAS TRANSMISISON & DISTRIBUTION,,NATURAL GAS TRANSMISISON & DISTRIBUTION,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4924,4924 - NATURAL GAS DISTRIBUTION,,NATURAL GAS DISTRIBUTION,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4931,4931 - ELECTRIC & OTHER SERVICES COMBINED,,ELECTRIC & OTHER SERVICES COMBINED,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4932,4932 - GAS & OTHER SERVICES COMBINED,,GAS & OTHER SERVICES COMBINED,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4941,4941 - WATER SUPPLY,,WATER SUPPLY,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4950,4950 - SANITARY SERVICES,,SANITARY SERVICES,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4953,4953 - REFUSE SYSTEMS,,REFUSE SYSTEMS,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4955,4955 - HAZARDOUS WASTE MANAGEMENT,,HAZARDOUS WASTE MANAGEMENT,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4961,4961 - STEAM & AIR-CONDITIONING SUPPLY,,STEAM & AIR-CONDITIONING SUPPLY,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+4991,4991 - COGENERATION SERVICES & SMALL POWER PRODUCERS,,COGENERATION SERVICES & SMALL POWER PRODUCERS,Standard Industrial Classification Codes,Transportation & Utilities,"Electric, Gas & Sanitary Services"
+5000,5000 - WHOLESALE-DURABLE GOODS,,WHOLESALE-DURABLE GOODS,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5010,5010 - WHOLESALE-MOTOR VEHICLES & MOTOR VEHICLE PARTS & SUPPLIES,,WHOLESALE-MOTOR VEHICLES & MOTOR VEHICLE PARTS & SUPPLIES,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5013,5013 - WHOLESALE-MOTOR VEHICLE SUPPLIES & NEW PARTS,,WHOLESALE-MOTOR VEHICLE SUPPLIES & NEW PARTS,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5020,5020 - WHOLESALE-FURNITURE & HOME FURNISHINGS,,WHOLESALE-FURNITURE & HOME FURNISHINGS,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5030,5030 - WHOLESALE-LUMBER & OTHER CONSTRUCTION MATERIALS,,WHOLESALE-LUMBER & OTHER CONSTRUCTION MATERIALS,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5031,"5031 - WHOLESALE-LUMBER, PLYWOOD, MILLWORK & WOOD PANELS",,"WHOLESALE-LUMBER, PLYWOOD, MILLWORK & WOOD PANELS",Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5040,5040 - WHOLESALE-PROFESSIONAL & COMMERCIAL EQUIPMENT & SUPPLIES,,WHOLESALE-PROFESSIONAL & COMMERCIAL EQUIPMENT & SUPPLIES,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5045,5045 - WHOLESALE-COMPUTERS & PERIPHERAL EQUIPMENT & SOFTWARE,,WHOLESALE-COMPUTERS & PERIPHERAL EQUIPMENT & SOFTWARE,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5047,"5047 - WHOLESALE-MEDICAL, DENTAL & HOSPITAL EQUIPMENT & SUPPLIES",,"WHOLESALE-MEDICAL, DENTAL & HOSPITAL EQUIPMENT & SUPPLIES",Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5050,5050 - WHOLESALE-METALS & MINERALS (NO PETROLEUM),,WHOLESALE-METALS & MINERALS (NO PETROLEUM),Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5051,5051 - WHOLESALE-METALS SERVICE CENTERS & OFFICES,,WHOLESALE-METALS SERVICE CENTERS & OFFICES,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5063,"5063 - WHOLESALE-ELECTRICAL APPARATUS & EQUIPMENT, WIRING SUPPLIES",,"WHOLESALE-ELECTRICAL APPARATUS & EQUIPMENT, WIRING SUPPLIES",Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5064,"5064 - WHOLESALE-ELECTRICAL APPLIANCES, TV & RADIO SETS",,"WHOLESALE-ELECTRICAL APPLIANCES, TV & RADIO SETS",Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5065,"5065 - WHOLESALE-ELECTRONIC PARTS & EQUIPMENT, NEC",,"WHOLESALE-ELECTRONIC PARTS & EQUIPMENT, NEC",Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5070,5070 - WHOLESALE-HARDWARE & PLUMBING & HEATING EQUIPMENT & SUPPLIES,,WHOLESALE-HARDWARE & PLUMBING & HEATING EQUIPMENT & SUPPLIES,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5072,5072 - WHOLESALE-HARDWARE,,WHOLESALE-HARDWARE,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5080,"5080 - WHOLESALE-MACHINERY, EQUIPMENT & SUPPLIES",,"WHOLESALE-MACHINERY, EQUIPMENT & SUPPLIES",Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5082,5082 - WHOLESALE-CONSTRUCTION & MINING (NO PETRO) MACHINERY & EQUIP,,WHOLESALE-CONSTRUCTION & MINING (NO PETRO) MACHINERY & EQUIP,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5084,5084 - WHOLESALE-INDUSTRIAL MACHINERY & EQUIPMENT,,WHOLESALE-INDUSTRIAL MACHINERY & EQUIPMENT,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5090,5090 - WHOLESALE-MISC DURABLE GOODS,,WHOLESALE-MISC DURABLE GOODS,Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5094,"5094 - WHOLESALE-JEWELRY, WATCHES, PRECIOUS STONES & METALS",,"WHOLESALE-JEWELRY, WATCHES, PRECIOUS STONES & METALS",Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5099,"5099 - WHOLESALE-DURABLE GOODS, NEC",,"WHOLESALE-DURABLE GOODS, NEC",Standard Industrial Classification Codes,Wholesale Trade,Durable Goods
+5110,5110 - WHOLESALE-PAPER & PAPER PRODUCTS,,WHOLESALE-PAPER & PAPER PRODUCTS,Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5122,"5122 - WHOLESALE-DRUGS, PROPRIETARIES & DRUGGISTS' SUNDRIES",,"WHOLESALE-DRUGS, PROPRIETARIES & DRUGGISTS' SUNDRIES",Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5130,"5130 - WHOLESALE-APPAREL, PIECE GOODS & NOTIONS",,"WHOLESALE-APPAREL, PIECE GOODS & NOTIONS",Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5140,5140 - WHOLESALE-GROCERIES & RELATED PRODUCTS,,WHOLESALE-GROCERIES & RELATED PRODUCTS,Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5141,"5141 - WHOLESALE-GROCERIES, GENERAL LINE",,"WHOLESALE-GROCERIES, GENERAL LINE",Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5150,5150 - WHOLESALE-FARM PRODUCT RAW MATERIALS,,WHOLESALE-FARM PRODUCT RAW MATERIALS,Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5160,5160 - WHOLESALE-CHEMICALS & ALLIED PRODUCTS,,WHOLESALE-CHEMICALS & ALLIED PRODUCTS,Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5171,5171 - WHOLESALE-PETROLEUM BULK STATIONS & TERMINALS,,WHOLESALE-PETROLEUM BULK STATIONS & TERMINALS,Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5172,5172 - WHOLESALE-PETROLEUM & PETROLEUM PRODUCTS (NO BULK STATIONS),,WHOLESALE-PETROLEUM & PETROLEUM PRODUCTS (NO BULK STATIONS),Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5180,"5180 - WHOLESALE-BEER, WINE & DISTILLED ALCOHOLIC BEVERAGES",,"WHOLESALE-BEER, WINE & DISTILLED ALCOHOLIC BEVERAGES",Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5190,5190 - WHOLESALE-MISCELLANEOUS NONDURABLE GOODS,,WHOLESALE-MISCELLANEOUS NONDURABLE GOODS,Standard Industrial Classification Codes,Wholesale Trade,Nondurable Goods
+5200,"5200 - RETAIL-BUILDING MATERIALS, HARDWARE, GARDEN SUPPLY",,"RETAIL-BUILDING MATERIALS, HARDWARE, GARDEN SUPPLY",Standard Industrial Classification Codes,Retail Trade,Building Materials & Garden
+5211,5211 - RETAIL-LUMBER & OTHER BUILDING MATERIALS DEALERS,,RETAIL-LUMBER & OTHER BUILDING MATERIALS DEALERS,Standard Industrial Classification Codes,Retail Trade,Building Materials & Garden
+5271,5271 - RETAIL-MOBILE HOME DEALERS,,RETAIL-MOBILE HOME DEALERS,Standard Industrial Classification Codes,Retail Trade,Building Materials & Garden
+5311,5311 - RETAIL-DEPARTMENT STORES,,RETAIL-DEPARTMENT STORES,Standard Industrial Classification Codes,Retail Trade,General Merchandise
+5331,5331 - RETAIL-VARIETY STORES,,RETAIL-VARIETY STORES,Standard Industrial Classification Codes,Retail Trade,General Merchandise
+5399,5399 - RETAIL-MISC GENERAL MERCHANDISE STORES,,RETAIL-MISC GENERAL MERCHANDISE STORES,Standard Industrial Classification Codes,Retail Trade,General Merchandise
+5400,5400 - RETAIL-FOOD STORES,,RETAIL-FOOD STORES,Standard Industrial Classification Codes,Retail Trade,Food Stores
+5411,5411 - RETAIL-GROCERY STORES,,RETAIL-GROCERY STORES,Standard Industrial Classification Codes,Retail Trade,Food Stores
+5412,5412 - RETAIL-CONVENIENCE STORES,,RETAIL-CONVENIENCE STORES,Standard Industrial Classification Codes,Retail Trade,Food Stores
+5500,5500 - RETAIL-AUTO DEALERS & GASOLINE STATIONS,,RETAIL-AUTO DEALERS & GASOLINE STATIONS,Standard Industrial Classification Codes,Retail Trade,Automotive & Gas Stations
+5531,5531 - RETAIL-AUTO & HOME SUPPLY STORES,,RETAIL-AUTO & HOME SUPPLY STORES,Standard Industrial Classification Codes,Retail Trade,Automotive & Gas Stations
+5600,5600 - RETAIL-APPAREL & ACCESSORY STORES,,RETAIL-APPAREL & ACCESSORY STORES,Standard Industrial Classification Codes,Retail Trade,Apparel & Accessories
+5621,5621 - RETAIL-WOMEN'S CLOTHING STORES,,RETAIL-WOMEN'S CLOTHING STORES,Standard Industrial Classification Codes,Retail Trade,Apparel & Accessories
+5651,5651 - RETAIL-FAMILY CLOTHING STORES,,RETAIL-FAMILY CLOTHING STORES,Standard Industrial Classification Codes,Retail Trade,Apparel & Accessories
+5661,5661 - RETAIL-SHOE STORES,,RETAIL-SHOE STORES,Standard Industrial Classification Codes,Retail Trade,Apparel & Accessories
+5700,"5700 - RETAIL-HOME FURNITURE, FURNISHINGS & EQUIPMENT STORES",,"RETAIL-HOME FURNITURE, FURNISHINGS & EQUIPMENT STORES",Standard Industrial Classification Codes,Retail Trade,Home Furnishings
+5712,5712 - RETAIL-FURNITURE STORES,,RETAIL-FURNITURE STORES,Standard Industrial Classification Codes,Retail Trade,Home Furnishings
+5731,"5731 - RETAIL-RADIO, TV & CONSUMER ELECTRONICS STORES",,"RETAIL-RADIO, TV & CONSUMER ELECTRONICS STORES",Standard Industrial Classification Codes,Retail Trade,Home Furnishings
+5734,5734 - RETAIL-COMPUTER & COMPUTER SOFTWARE STORES,,RETAIL-COMPUTER & COMPUTER SOFTWARE STORES,Standard Industrial Classification Codes,Retail Trade,Home Furnishings
+5735,5735 - RETAIL-RECORD & PRERECORDED TAPE STORES,,RETAIL-RECORD & PRERECORDED TAPE STORES,Standard Industrial Classification Codes,Retail Trade,Home Furnishings
+5810,5810 - RETAIL-EATING & DRINKING PLACES,,RETAIL-EATING & DRINKING PLACES,Standard Industrial Classification Codes,Retail Trade,Eating & Drinking Places
+5812,5812 - RETAIL-EATING PLACES,,RETAIL-EATING PLACES,Standard Industrial Classification Codes,Retail Trade,Eating & Drinking Places
+5900,5900 - RETAIL-MISCELLANEOUS RETAIL,,RETAIL-MISCELLANEOUS RETAIL,Standard Industrial Classification Codes,Retail Trade,Miscellaneous Retail
+5912,5912 - RETAIL-DRUG STORES AND PROPRIETARY STORES,,RETAIL-DRUG STORES AND PROPRIETARY STORES,Standard Industrial Classification Codes,Retail Trade,Miscellaneous Retail
+5940,5940 - RETAIL-MISCELLANEOUS SHOPPING GOODS STORES,,RETAIL-MISCELLANEOUS SHOPPING GOODS STORES,Standard Industrial Classification Codes,Retail Trade,Miscellaneous Retail
+5944,5944 - RETAIL-JEWELRY STORES,,RETAIL-JEWELRY STORES,Standard Industrial Classification Codes,Retail Trade,Miscellaneous Retail
+5945,"5945 - RETAIL-HOBBY, TOY & GAME SHOPS",,"RETAIL-HOBBY, TOY & GAME SHOPS",Standard Industrial Classification Codes,Retail Trade,Miscellaneous Retail
+5960,5960 - RETAIL-NONSTORE RETAILERS,,RETAIL-NONSTORE RETAILERS,Standard Industrial Classification Codes,Retail Trade,Miscellaneous Retail
+5961,5961 - RETAIL-CATALOG & MAIL-ORDER HOUSES,,RETAIL-CATALOG & MAIL-ORDER HOUSES,Standard Industrial Classification Codes,Retail Trade,Miscellaneous Retail
+5990,"5990 - RETAIL-RETAIL STORES, NEC",,"RETAIL-RETAIL STORES, NEC",Standard Industrial Classification Codes,Retail Trade,Miscellaneous Retail
+6021,6021 - NATIONAL COMMERCIAL BANKS,,NATIONAL COMMERCIAL BANKS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6022,6022 - STATE COMMERCIAL BANKS,,STATE COMMERCIAL BANKS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6029,"6029 - COMMERCIAL BANKS, NEC",,"COMMERCIAL BANKS, NEC",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6035,"6035 - SAVINGS INSTITUTION, FEDERALLY CHARTERED",,"SAVINGS INSTITUTION, FEDERALLY CHARTERED",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6036,"6036 - SAVINGS INSTITUTIONS, NOT FEDERALLY CHARTERED",,"SAVINGS INSTITUTIONS, NOT FEDERALLY CHARTERED",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6099,"6099 - FUNCTIONS RELATED TO DEPOSITORY BANKING, NEC",,"FUNCTIONS RELATED TO DEPOSITORY BANKING, NEC",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6111,6111 - FEDERAL & FEDERALLY-SPONSORED CREDIT AGENCIES,,FEDERAL & FEDERALLY-SPONSORED CREDIT AGENCIES,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6141,6141 - PERSONAL CREDIT INSTITUTIONS,,PERSONAL CREDIT INSTITUTIONS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6153,6153 - SHORT-TERM BUSINESS CREDIT INSTITUTIONS,,SHORT-TERM BUSINESS CREDIT INSTITUTIONS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6159,6159 - MISCELLANEOUS BUSINESS CREDIT INSTITUTION,,MISCELLANEOUS BUSINESS CREDIT INSTITUTION,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6162,6162 - MORTGAGE BANKERS & LOAN CORRESPONDENTS,,MORTGAGE BANKERS & LOAN CORRESPONDENTS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6163,6163 - LOAN BROKERS,,LOAN BROKERS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6172,6172 - FINANCE LESSORS,,FINANCE LESSORS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6189,6189 - ASSET-BACKED SECURITIES,,ASSET-BACKED SECURITIES,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6199,6199 - FINANCE SERVICES,,FINANCE SERVICES,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Banking
+6200,"6200 - SECURITY & COMMODITY BROKERS, DEALERS, EXCHANGES & SERVICES",,"SECURITY & COMMODITY BROKERS, DEALERS, EXCHANGES & SERVICES",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Credit Agencies
+6211,"6211 - SECURITY BROKERS, DEALERS & FLOTATION COMPANIES",,"SECURITY BROKERS, DEALERS & FLOTATION COMPANIES",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Credit Agencies
+6221,6221 - COMMODITY CONTRACTS BROKERS & DEALERS,,COMMODITY CONTRACTS BROKERS & DEALERS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Credit Agencies
+6282,6282 - INVESTMENT ADVICE,,INVESTMENT ADVICE,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Credit Agencies
+6311,6311 - LIFE INSURANCE,,LIFE INSURANCE,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Securities & Commodities
+6321,6321 - ACCIDENT & HEALTH INSURANCE,,ACCIDENT & HEALTH INSURANCE,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Securities & Commodities
+6324,6324 - HOSPITAL & MEDICAL SERVICE PLANS,,HOSPITAL & MEDICAL SERVICE PLANS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Securities & Commodities
+6331,"6331 - FIRE, MARINE & CASUALTY INSURANCE",,"FIRE, MARINE & CASUALTY INSURANCE",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Securities & Commodities
+6351,6351 - SURETY INSURANCE,,SURETY INSURANCE,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Securities & Commodities
+6361,6361 - TITLE INSURANCE,,TITLE INSURANCE,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Securities & Commodities
+6399,"6399 - INSURANCE CARRIERS, NEC",,"INSURANCE CARRIERS, NEC",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Securities & Commodities
+6411,"6411 - INSURANCE AGENTS, BROKERS & SERVICE",,"INSURANCE AGENTS, BROKERS & SERVICE",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Insurance
+6500,6500 - REAL ESTATE,,REAL ESTATE,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6510,6510 - REAL ESTATE OPERATORS (NO DEVELOPERS) & LESSORS,,REAL ESTATE OPERATORS (NO DEVELOPERS) & LESSORS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6512,6512 - OPERATORS OF NONRESIDENTIAL BUILDINGS,,OPERATORS OF NONRESIDENTIAL BUILDINGS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6513,6513 - OPERATORS OF APARTMENT BUILDINGS,,OPERATORS OF APARTMENT BUILDINGS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6519,"6519 - LESSORS OF REAL PROPERTY, NEC",,"LESSORS OF REAL PROPERTY, NEC",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6531,6531 - REAL ESTATE AGENTS & MANAGERS (FOR OTHERS),,REAL ESTATE AGENTS & MANAGERS (FOR OTHERS),Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6532,6532 - REAL ESTATE DEALERS (FOR THEIR OWN ACCOUNT),,REAL ESTATE DEALERS (FOR THEIR OWN ACCOUNT),Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6552,6552 - LAND SUBDIVIDERS & DEVELOPERS (NO CEMETERIES),,LAND SUBDIVIDERS & DEVELOPERS (NO CEMETERIES),Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6770,6770 - BLANK CHECKS,,BLANK CHECKS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6792,6792 - OIL ROYALTY TRADERS,,OIL ROYALTY TRADERS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6794,6794 - PATENT OWNERS & LESSORS,,PATENT OWNERS & LESSORS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6795,6795 - MINERAL ROYALTY TRADERS,,MINERAL ROYALTY TRADERS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6798,6798 - REAL ESTATE INVESTMENT TRUSTS,,REAL ESTATE INVESTMENT TRUSTS,Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+6799,"6799 - INVESTORS, NEC",,"INVESTORS, NEC",Standard Industrial Classification Codes,"Finance, Insurance & Real Estate",Real Estate
+7000,"7000 - HOTELS, ROOMING HOUSES, CAMPS & OTHER LODGING PLACES",,"HOTELS, ROOMING HOUSES, CAMPS & OTHER LODGING PLACES",Standard Industrial Classification Codes,Services,Hotels & Lodging
+7011,7011 - HOTELS & MOTELS,,HOTELS & MOTELS,Standard Industrial Classification Codes,Services,Hotels & Lodging
+7200,7200 - SERVICES-PERSONAL SERVICES,,SERVICES-PERSONAL SERVICES,Standard Industrial Classification Codes,Services,Personal Services
+7310,7310 - SERVICES-ADVERTISING,,SERVICES-ADVERTISING,Standard Industrial Classification Codes,Services,Business Services
+7311,7311 - SERVICES-ADVERTISING AGENCIES,,SERVICES-ADVERTISING AGENCIES,Standard Industrial Classification Codes,Services,Business Services
+7320,"7320 - SERVICES-CONSUMER CREDIT REPORTING, COLLECTION AGENCIES",,"SERVICES-CONSUMER CREDIT REPORTING, COLLECTION AGENCIES",Standard Industrial Classification Codes,Services,Business Services
+7330,"7330 - SERVICES-MAILING, REPRODUCTION, COMMERCIAL ART & PHOTOGRAPHY",,"SERVICES-MAILING, REPRODUCTION, COMMERCIAL ART & PHOTOGRAPHY",Standard Industrial Classification Codes,Services,Business Services
+7331,7331 - SERVICES-DIRECT MAIL ADVERTISING SERVICES,,SERVICES-DIRECT MAIL ADVERTISING SERVICES,Standard Industrial Classification Codes,Services,Business Services
+7340,7340 - SERVICES-TO DWELLINGS & OTHER BUILDINGS,,SERVICES-TO DWELLINGS & OTHER BUILDINGS,Standard Industrial Classification Codes,Services,Business Services
+7350,7350 - SERVICES-MISCELLANEOUS EQUIPMENT RENTAL & LEASING,,SERVICES-MISCELLANEOUS EQUIPMENT RENTAL & LEASING,Standard Industrial Classification Codes,Services,Business Services
+7359,"7359 - SERVICES-EQUIPMENT RENTAL & LEASING, NEC",,"SERVICES-EQUIPMENT RENTAL & LEASING, NEC",Standard Industrial Classification Codes,Services,Business Services
+7361,7361 - SERVICES-EMPLOYMENT AGENCIES,,SERVICES-EMPLOYMENT AGENCIES,Standard Industrial Classification Codes,Services,Business Services
+7363,7363 - SERVICES-HELP SUPPLY SERVICES,,SERVICES-HELP SUPPLY SERVICES,Standard Industrial Classification Codes,Services,Business Services
+7370,"7370 - SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",,"SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",Standard Industrial Classification Codes,Services,Business Services
+7371,7371 - SERVICES-COMPUTER PROGRAMMING SERVICES,,SERVICES-COMPUTER PROGRAMMING SERVICES,Standard Industrial Classification Codes,Services,Business Services
+7372,7372 - SERVICES-PREPACKAGED SOFTWARE,,SERVICES-PREPACKAGED SOFTWARE,Standard Industrial Classification Codes,Services,Business Services
+7373,7373 - SERVICES-COMPUTER INTEGRATED SYSTEMS DESIGN,,SERVICES-COMPUTER INTEGRATED SYSTEMS DESIGN,Standard Industrial Classification Codes,Services,Business Services
+7374,7374 - SERVICES-COMPUTER PROCESSING & DATA PREPARATION,,SERVICES-COMPUTER PROCESSING & DATA PREPARATION,Standard Industrial Classification Codes,Services,Business Services
+7377,7377 - SERVICES-COMPUTER RENTAL & LEASING,,SERVICES-COMPUTER RENTAL & LEASING,Standard Industrial Classification Codes,Services,Business Services
+7380,7380 - SERVICES-MISCELLANEOUS BUSINESS SERVICES,,SERVICES-MISCELLANEOUS BUSINESS SERVICES,Standard Industrial Classification Codes,Services,Business Services
+7381,"7381 - SERVICES-DETECTIVE, GUARD & ARMORED CAR SERVICES",,"SERVICES-DETECTIVE, GUARD & ARMORED CAR SERVICES",Standard Industrial Classification Codes,Services,Business Services
+7384,7384 - SERVICES-PHOTOFINISHING LABORATORIES,,SERVICES-PHOTOFINISHING LABORATORIES,Standard Industrial Classification Codes,Services,Business Services
+7385,7385 - SERVICES-TELEPHONE INTERCONNECT SYSTEMS,,SERVICES-TELEPHONE INTERCONNECT SYSTEMS,Standard Industrial Classification Codes,Services,Business Services
+7389,"7389 - SERVICES-BUSINESS SERVICES, NEC",,"SERVICES-BUSINESS SERVICES, NEC",Standard Industrial Classification Codes,Services,Business Services
+7500,"7500 - SERVICES-AUTOMOTIVE REPAIR, SERVICES & PARKING",,"SERVICES-AUTOMOTIVE REPAIR, SERVICES & PARKING",Standard Industrial Classification Codes,Services,Auto Services
+7510,7510 - SERVICES-AUTO RENTAL & LEASING (NO DRIVERS),,SERVICES-AUTO RENTAL & LEASING (NO DRIVERS),Standard Industrial Classification Codes,Services,Auto Services
+7600,7600 - SERVICES-MISCELLANEOUS REPAIR SERVICES,,SERVICES-MISCELLANEOUS REPAIR SERVICES,Standard Industrial Classification Codes,Services,Miscellaneous Repair Services
+7812,7812 - SERVICES-MOTION PICTURE & VIDEO TAPE PRODUCTION,,SERVICES-MOTION PICTURE & VIDEO TAPE PRODUCTION,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7819,7819 - SERVICES-ALLIED TO MOTION PICTURE PRODUCTION,,SERVICES-ALLIED TO MOTION PICTURE PRODUCTION,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7822,7822 - SERVICES-MOTION PICTURE & VIDEO TAPE DISTRIBUTION,,SERVICES-MOTION PICTURE & VIDEO TAPE DISTRIBUTION,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7829,7829 - SERVICES-ALLIED TO MOTION PICTURE DISTRIBUTION,,SERVICES-ALLIED TO MOTION PICTURE DISTRIBUTION,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7830,7830 - SERVICES-MOTION PICTURE THEATERS,,SERVICES-MOTION PICTURE THEATERS,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7841,7841 - SERVICES-VIDEO TAPE RENTAL,,SERVICES-VIDEO TAPE RENTAL,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7900,7900 - SERVICES-AMUSEMENT & RECREATION SERVICES,,SERVICES-AMUSEMENT & RECREATION SERVICES,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7948,"7948 - SERVICES-RACING, INCLUDING TRACK OPERATION",,"SERVICES-RACING, INCLUDING TRACK OPERATION",Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7990,7990 - SERVICES-MISCELLANEOUS AMUSEMENT & RECREATION,,SERVICES-MISCELLANEOUS AMUSEMENT & RECREATION,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+7997,7997 - SERVICES-MEMBERSHIP SPORTS & RECREATION CLUBS,,SERVICES-MEMBERSHIP SPORTS & RECREATION CLUBS,Standard Industrial Classification Codes,Services,Motion Pictures & Entertainment
+8000,8000 - SERVICES-HEALTH SERVICES,,SERVICES-HEALTH SERVICES,Standard Industrial Classification Codes,Services,Health Services
+8011,8011 - SERVICES-OFFICES & CLINICS OF DOCTORS OF MEDICINE,,SERVICES-OFFICES & CLINICS OF DOCTORS OF MEDICINE,Standard Industrial Classification Codes,Services,Health Services
+8050,8050 - SERVICES-NURSING & PERSONAL CARE FACILITIES,,SERVICES-NURSING & PERSONAL CARE FACILITIES,Standard Industrial Classification Codes,Services,Health Services
+8051,8051 - SERVICES-SKILLED NURSING CARE FACILITIES,,SERVICES-SKILLED NURSING CARE FACILITIES,Standard Industrial Classification Codes,Services,Health Services
+8060,8060 - SERVICES-HOSPITALS,,SERVICES-HOSPITALS,Standard Industrial Classification Codes,Services,Health Services
+8062,"8062 - SERVICES-GENERAL MEDICAL & SURGICAL HOSPITALS, NEC",,"SERVICES-GENERAL MEDICAL & SURGICAL HOSPITALS, NEC",Standard Industrial Classification Codes,Services,Health Services
+8071,8071 - SERVICES-MEDICAL LABORATORIES,,SERVICES-MEDICAL LABORATORIES,Standard Industrial Classification Codes,Services,Health Services
+8082,8082 - SERVICES-HOME HEALTH CARE SERVICES,,SERVICES-HOME HEALTH CARE SERVICES,Standard Industrial Classification Codes,Services,Health Services
+8090,"8090 - SERVICES-MISC HEALTH & ALLIED SERVICES, NEC",,"SERVICES-MISC HEALTH & ALLIED SERVICES, NEC",Standard Industrial Classification Codes,Services,Health Services
+8093,"8093 - SERVICES-SPECIALTY OUTPATIENT FACILITIES, NEC",,"SERVICES-SPECIALTY OUTPATIENT FACILITIES, NEC",Standard Industrial Classification Codes,Services,Health Services
+8111,8111 - SERVICES-LEGAL SERVICES,,SERVICES-LEGAL SERVICES,Standard Industrial Classification Codes,Services,Legal Services
+8200,8200 - SERVICES-EDUCATIONAL SERVICES,,SERVICES-EDUCATIONAL SERVICES,Standard Industrial Classification Codes,Services,Educational Services
+8300,8300 - SERVICES-SOCIAL SERVICES,,SERVICES-SOCIAL SERVICES,Standard Industrial Classification Codes,Services,Social Services
+8351,8351 - SERVICES-CHILD DAY CARE SERVICES,,SERVICES-CHILD DAY CARE SERVICES,Standard Industrial Classification Codes,Services,Social Services
+8600,8600 - SERVICES-MEMBERSHIP ORGANIZATIONS,,SERVICES-MEMBERSHIP ORGANIZATIONS,Standard Industrial Classification Codes,Services,Museums & Organizations
+8700,"8700 - SERVICES-ENGINEERING, ACCOUNTING, RESEARCH, MANAGEMENT",,"SERVICES-ENGINEERING, ACCOUNTING, RESEARCH, MANAGEMENT",Standard Industrial Classification Codes,Services,Engineering & Management
+8711,8711 - SERVICES-ENGINEERING SERVICES,,SERVICES-ENGINEERING SERVICES,Standard Industrial Classification Codes,Services,Engineering & Management
+8731,8731 - SERVICES-COMMERCIAL PHYSICAL & BIOLOGICAL RESEARCH,,SERVICES-COMMERCIAL PHYSICAL & BIOLOGICAL RESEARCH,Standard Industrial Classification Codes,Services,Engineering & Management
+8734,8734 - SERVICES-TESTING LABORATORIES,,SERVICES-TESTING LABORATORIES,Standard Industrial Classification Codes,Services,Engineering & Management
+8741,8741 - SERVICES-MANAGEMENT SERVICES,,SERVICES-MANAGEMENT SERVICES,Standard Industrial Classification Codes,Services,Engineering & Management
+8742,8742 - SERVICES-MANAGEMENT CONSULTING SERVICES,,SERVICES-MANAGEMENT CONSULTING SERVICES,Standard Industrial Classification Codes,Services,Engineering & Management
+8744,8744 - SERVICES-FACILITIES SUPPORT MANAGEMENT SERVICES,,SERVICES-FACILITIES SUPPORT MANAGEMENT SERVICES,Standard Industrial Classification Codes,Services,Engineering & Management
+8880,8880 - AMERICAN DEPOSITARY RECEIPTS,,AMERICAN DEPOSITARY RECEIPTS,Standard Industrial Classification Codes,Services,Engineering & Management
+8888,8888 - FOREIGN GOVERNMENTS,,FOREIGN GOVERNMENTS,Standard Industrial Classification Codes,Services,Engineering & Management
+8900,"8900 - SERVICES-SERVICES, NEC",,"SERVICES-SERVICES, NEC",Standard Industrial Classification Codes,Services,Engineering & Management
+9721,9721 - INTERNATIONAL AFFAIRS,,INTERNATIONAL AFFAIRS,Standard Industrial Classification Codes,Public Administration,National Security
+9995,9995 - NON-OPERATING ESTABLISHMENTS,,NON-OPERATING ESTABLISHMENTS,Standard Industrial Classification Codes,Public Administration,National Security

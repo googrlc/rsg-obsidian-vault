@@ -1,0 +1,6 @@
+.obsidian/workspace.json
+.obsidian/plugins/obsidian-git/data.json
+*.DS_Store
+
+# Secrets
+RSG/Workflows/OpenClaw Build/Slack/Slack Setup.md

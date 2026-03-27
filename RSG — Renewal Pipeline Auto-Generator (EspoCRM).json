@@ -1,0 +1,381 @@
+{
+  "name": "RSG — Renewal Pipeline Auto-Generator (EspoCRM)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 7 * * *"
+            }
+          ]
+        }
+      },
+      "id": "rg-01",
+      "name": "Daily 7am ET",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1808,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Policy?where[0][type]=in&where[0][attribute]=status&where[0][value][]=Active&where[0][value][]=Renewing&where[1][type]=lessThanOrEquals&where[1][attribute]=expirationDate&where[1][value]={{ $now.plus(90, 'days').toFormat('yyyy-MM-dd') }}&where[2][type]=greaterThanOrEquals&where[2][attribute]=expirationDate&where[2][value]={{ $now.toFormat('yyyy-MM-dd') }}&maxSize=200&select=id,name,status,expirationDate,lineOfBusiness,carrier,premiumAmount,premiumAtRisk,commissionRate,contactId,contactName,accountId,accountName,businessType",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "e5df7c321b47427d24046bab814dbb58"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "rg-02",
+      "name": "Query Expiring Policies",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1568,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nconst policies = response.list || [];\nif (policies.length === 0) return [];\n\n// LOB → segment mapping\nconst commercialLOBs = [\n  'commercial auto', 'general liability', 'workers comp', 'commercial property',\n  'bop', 'professional liability', 'umbrella', 'builders risk', 'inland marine',\n  'commercial package', 'garagekeepers'\n];\nconst personalLOBs = [\n  'personal auto', 'homeowners', 'renters', 'condo', 'dwelling fire',\n  'motorcycle', 'boat', 'rv', 'life', 'health', 'medicare', 'group benefits'\n];\n\nreturn policies.map(p => {\n  const lob = (p.lineOfBusiness || '').toLowerCase();\n  const isCommercial = commercialLOBs.some(l => lob.includes(l));\n  const segment = isCommercial ? 'Commercial Lines' : 'Personal Lines';\n  const leadTimeDays = isCommercial ? 90 : 30;\n\n  const expirationDate = p.expirationDate || null;\n  const daysToExp = expirationDate\n    ? Math.ceil((new Date(expirationDate) - new Date()) / (1000*60*60*24))\n    : null;\n\n  // Skip if outside this segment's lead time\n  if (daysToExp !== null && daysToExp > leadTimeDays) return null;\n\n  let urgency = 'Future (60+ days)';\n  if (daysToExp <= 7)        urgency = 'Critical (0-7 days)';\n  else if (daysToExp <= 14)  urgency = 'Urgent (8-14 days)';\n  else if (daysToExp <= 30)  urgency = 'Attention (15-30 days)';\n  else if (daysToExp <= 60)  urgency = 'On Track (31-60 days)';\n\n  // Assigned user: Personal → Gretchen, Commercial → Lamar\n  const assignedUserId = isCommercial ? '69bdad92458da2204' : '69bdf81552aaa';\n\n  const clientName = p.contactName || p.accountName || 'Unknown Client';\n  const renewalName = clientName + ' — ' + (p.lineOfBusiness || 'Policy') + ' Renewal';\n\n  return {\n    json: {\n      policyId: p.id,\n      policyNumber: p.name,\n      clientName,\n      renewalName,\n      expirationDate,\n      daysToExp,\n      segment,\n      lineOfBusiness: p.lineOfBusiness || 'Other',\n      carrier: p.carrier || '',\n      currentPremium: p.premiumAtRisk || p.premiumAmount || 0,\n      commissionRate: p.commissionRate || 0,\n      urgency,\n      contactId: p.contactId || null,\n      accountId: p.accountId || null,\n      assignedUserId\n    }\n  };\n}).filter(Boolean);"
+      },
+      "id": "rg-03",
+      "name": "Filter & Map Policies",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1328,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "rg-04",
+      "name": "Loop Policies",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1088,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Renewal?where[0][type]=equals&where[0][attribute]=policyId&where[0][value]={{ $json.policyId }}&where[1][type]=equals&where[1][attribute]=outcome&where[1][value]=Pending&maxSize=1&select=id",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "e5df7c321b47427d24046bab814dbb58"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "rg-05",
+      "name": "Check Existing Renewal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -848,
+        0
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const checkResult = $input.first().json;\nconst policyData = $('Loop Policies').first().json;\n\n// If a pending Renewal already exists, skip\nconst existingCount = checkResult.total || 0;\nif (existingCount > 0) {\n  return [{ json: { ...policyData, action: 'skip', existingRenewalId: checkResult.list[0].id } }];\n}\n\nreturn [{ json: { ...policyData, action: 'create' } }];"
+      },
+      "id": "rg-06",
+      "name": "Dedup Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -608,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "cond-create",
+              "leftValue": "={{ $json.action }}",
+              "rightValue": "create",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "rg-07",
+      "name": "Needs Creation?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -368,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Renewal",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "e5df7c321b47427d24046bab814dbb58"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ name: $json.renewalName, stage: 'Not Started', outcome: 'Pending', policyId: $json.policyId, accountId: $json.accountId, contactId: $json.contactId, assignedUserId: $json.assignedUserId, expirationDate: $json.expirationDate, currentPremium: $json.currentPremium, currentPremiumCurrency: 'USD', commissionRate: $json.commissionRate, lineOfBusiness: $json.lineOfBusiness, businessSegment: $json.segment, carrier: $json.carrier, urgency: $json.urgency, retentionRisk: 'Low', premiumChangeCategory: 'TBD' }) }}",
+        "options": {}
+      },
+      "id": "rg-08",
+      "name": "Create Renewal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -128,
+        -192
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Collect stats from all created renewals for the Slack digest\nconst allItems = $('Create Renewal').all();\nconst created = allItems.filter(i => i.json.id); // successfully created\n\nlet totalPremium = 0;\nlet commercialCount = 0;\nlet personalCount = 0;\nlet commercialPremium = 0;\nlet personalPremium = 0;\n\nfor (const item of created) {\n  const premium = item.json.currentPremium || 0;\n  totalPremium += premium;\n  if (item.json.businessSegment === 'Commercial Lines') {\n    commercialCount++;\n    commercialPremium += premium;\n  } else {\n    personalCount++;\n    personalPremium += premium;\n  }\n}\n\n// Also count total active renewals\nconst allPolicies = $('Filter & Map Policies').all();\nconst skipped = allPolicies.length - created.length;\n\nif (created.length === 0) {\n  return [{ json: { sendSlack: false, message: 'No new renewals to create today.' } }];\n}\n\nconst fmt = (n) => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 0 });\n\nconst slackText = `:arrows_counterclockwise: *RSG Renewal Pipeline — Daily Auto-Generator*\\n\\n` +\n  `*New Renewals Created:* ${created.length}\\n` +\n  `*Already Tracked:* ${skipped}\\n\\n` +\n  `*By Segment:*\\n` +\n  `  Commercial Lines: ${commercialCount} renewals (${fmt(commercialPremium)} premium at risk)\\n` +\n  `  Personal Lines: ${personalCount} renewals (${fmt(personalPremium)} premium at risk)\\n\\n` +\n  `*Total Premium at Risk:* ${fmt(totalPremium)}\\n\\n` +\n  created.map(r => `  • ${r.json.name} — ${r.json.carrier || 'TBD'} — ${r.json.expirationDate} — ${fmt(r.json.currentPremium || 0)}`).join('\\n') +\n  `\\n\\n<https://rrespocrm-rsg-u69864.vm.elestio.app/#Renewal|View Renewal Pipeline>`;\n\nreturn [{ json: { sendSlack: true, slackText } }];"
+      },
+      "id": "rg-09",
+      "name": "Build Slack Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        128,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "cond-send",
+              "leftValue": "={{ $json.sendSlack }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equal"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "rg-10",
+      "name": "Has New Renewals?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        368,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SLACK_WEBHOOK_URL }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: $json.slackText }) }}",
+        "options": {}
+      },
+      "id": "rg-11",
+      "name": "Post to Slack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        656,
+        -96
+      ],
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Daily 7am ET": {
+      "main": [
+        [
+          {
+            "node": "Query Expiring Policies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Query Expiring Policies": {
+      "main": [
+        [
+          {
+            "node": "Filter & Map Policies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter & Map Policies": {
+      "main": [
+        [
+          {
+            "node": "Loop Policies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Policies": {
+      "main": [
+        [
+          {
+            "node": "Build Slack Digest",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Existing Renewal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Existing Renewal": {
+      "main": [
+        [
+          {
+            "node": "Dedup Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dedup Check": {
+      "main": [
+        [
+          {
+            "node": "Needs Creation?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Creation?": {
+      "main": [
+        [
+          {
+            "node": "Create Renewal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Policies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Renewal": {
+      "main": [
+        [
+          {
+            "node": "Loop Policies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Slack Digest": {
+      "main": [
+        [
+          {
+            "node": "Has New Renewals?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has New Renewals?": {
+      "main": [
+        [
+          {
+            "node": "Post to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timezone": "America/New_York",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "4370dc8e-a767-4de6-9f47-a3540e999498",
+  "meta": {
+    "instanceId": "8b4865d89519f80e62a972d77ec19a756eaca46b4513bc0393b966132f46632e"
+  },
+  "id": "dxBJRLICLnUwUusu",
+  "tags": []
+}

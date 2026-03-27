@@ -1,0 +1,12 @@
+# Legal Services
+
+Auto Multiplier: 0.9
+Base Premium Factor: 3500
+Commission Rate: 0.2
+Cyber Multiplier: 1.7
+GL Multiplier: 1
+Professional Multiplier: 2.5
+Property Multiplier: 1
+Risk Adjustment: 0.8
+Umbrella Multiplier: 1.2
+WC Multiplier: 0.7
