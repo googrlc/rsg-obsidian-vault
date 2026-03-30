@@ -162,7 +162,8 @@ Triage into Act / Schedule / Park / Release.
 
 ## TRIGGER: "@Personal Assistant prep me for [company]"
 **Output channel:** #client-service (C0AP4MHCLLS)
-Pull EspoCRM account + linked opportunities + notes. Post pre-call intel.
+**Note:** If full intel has NOT been run yet → run prospect-intelligence-pack.md v2.0 first, post to #sales-brief, then post condensed pre-call summary to #client-service.
+If intel already run (check `intelRun` = true on Account) → pull existing EspoCRM Account intel fields and post pre-call summary directly.
 
 ---
 
@@ -663,29 +664,32 @@ the latest options before {expiry date}. Good time to connect?"
 
 ---
 
-## TRIGGER: "@Personal Assistant assess: [company name]" OR "@Personal Assistant assess: [company] | [description] | [address]"
+## TRIGGER: "@Personal Assistant assess: [company name]" OR "assess: [company]" OR "intel: [company]" OR "run intel on [company]" OR "prep me for [company]" OR "quick intel: [company]"
 **Output channel:** #sales-brief (C0AP1BCEURK)
+**Skill:** prospect-intelligence-pack.md v2.0
 
-Full commercial risk assessment. Combines prospect intel + underwriting analysis + EspoCRM lead creation.
+Full commercial risk assessment. Combines 11-source prospect intelligence + underwriting analysis + EspoCRM Account + Lead creation with all intel fields populated.
 
 ### What Lamar provides:
 ```
 assess: Dream Chaser Trucking
 assess: Atlanta Concrete LLC | poured concrete contractor, 8 employees, Atlanta GA
 assess: Southeast Transport | DOT# 3421567 | long haul trucking, 12 power units
+intel: Trees of Georgia LLC
+run intel on Self Storage of Atlanta
+quick intel: ABC Plumbing (runs Website + SOS + LinkedIn only — <2 min)
 assess: (document attached — ACORD app or dec page)
 ```
 
-### Step 1 — Run Prospect Intelligence Pack
-Execute all steps from prospect-intelligence-pack.md skill.
-Collect: company profile, existing RSG relationship, FMCSA data, risk signals.
+### Step 1 — Run Prospect Intelligence Pack v2.0
+Execute ALL phases from prospect-intelligence-pack.md.
+Sources: Website, SOS, SIC/NAICS, LinkedIn, Google Business, BBB, FMCSA (if fleet), OSHA, Google News, Social Media, NowCerts.
+Write ALL intel fields to EspoCRM Account. Create Lead linked to Account.
+Collect: company profile, existing RSG relationship, FMCSA data, risk signals, SIC/NAICS codes, social profiles.
 
-### Step 2 — Identify Operation + Industry Codes (Live Lookup)
-**NAICS:** Search https://www.naics.com/search/?q={business_description_keywords}
-Extract 6-digit NAICS code + title. Confirm it matches what the business actually does.
-
-**SIC:** Cross-reference at https://siccode.com or https://www.census.gov/naics/
-Extract 4-digit SIC code.
+### Step 2 — SIC/NAICS + Underwriting Analysis
+**Already completed in Step 1 (prospect-intelligence-pack.md v2.0 Phase 2, Source 3).**
+Fields written: `intelNaics`, `intelSic`, `sicCode`, `industry` (exact enum).
 
 **RSG Operations match:** Query Supabase for GL/WC code suggestions:
 ```
