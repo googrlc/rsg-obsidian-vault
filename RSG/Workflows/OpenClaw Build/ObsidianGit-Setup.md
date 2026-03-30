@@ -10,7 +10,7 @@
 2. Name: rsg-obsidian-vault
 3. Set to PRIVATE — vault contains credentials and client data
 4. Do NOT initialize with README (vault already has files)
-5. Copy the repo URL: https://github.com/YOUR_USERNAME/rsg-obsidian-vault.git
+5. Copy the repo URL: https://github.com/googrlc/rsg-obsidian-vault.git
 
 ---
 
@@ -54,7 +54,7 @@ SSH into openclaw-larau-u69864.vm.elestio.app
 
 Add to /opt/app/.env:
 GITHUB_VAULT_TOKEN=your_token_here
-GITHUB_VAULT_REPO=YOUR_USERNAME/rsg-obsidian-vault
+GITHUB_VAULT_REPO=googrlc/rsg-obsidian-vault
 GITHUB_VAULT_BRANCH=main
 
 Restart gateway after.
@@ -65,7 +65,7 @@ Restart gateway after.
 
 In n8n → Settings → Variables:
 GITHUB_VAULT_TOKEN = same token
-GITHUB_VAULT_REPO = YOUR_USERNAME/rsg-obsidian-vault
+GITHUB_VAULT_REPO = googrlc/rsg-obsidian-vault
 
 ---
 

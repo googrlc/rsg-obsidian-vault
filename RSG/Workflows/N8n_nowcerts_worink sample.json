@@ -1,0 +1,472 @@
+{
+  "name": "WF1 - NowCerts → Notion Policy Sync v4 copy",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 6,14 * * *"
+            }
+          ]
+        }
+      },
+      "id": "65785fb9-abc2-4dbd-9f05-26a078010a94",
+      "name": "⏰ Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1680,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.nowcerts.com/api/token",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "password"
+            },
+            {
+              "name": "username",
+              "value": "lamar@risk-solutionsgroup.com"
+            },
+            {
+              "name": "password",
+              "value": "dcp1vwv*RCF9fpz*dfh"
+            },
+            {
+              "name": "client_id",
+              "value": "ngAuthApp"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1440,
+        112
+      ],
+      "id": "1fd45ca0-ca9b-4edc-b347-77e7bc6f5dac",
+      "name": "🔑 Get NowCerts Token"
+    },
+    {
+      "parameters": {
+        "url": "https://api.nowcerts.com/api/PolicyDetailList",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "$filter",
+              "value": "=isQuote eq false"
+            },
+            {
+              "name": "$select",
+              "value": "databaseId,insuredDatabaseId,insuredFirstName,insuredLastName,insuredCommercialName,number,lineOfBusinesses,carrierName,effectiveDate,expirationDate,totalPremium,status,businessType"
+            },
+            {
+              "name": "$orderby",
+              "value": "expirationDate asc"
+            },
+            {
+              "name": "$top",
+              "value": "500"
+            },
+            {
+              "name": "$skip",
+              "value": "0"
+            },
+            {
+              "name": "$count",
+              "value": "true"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.access_token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "795b4033-3a94-490d-8e4b-4fefcc9f079d",
+      "name": "📋 Pull Policies",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1200,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "/* NORMALIZE POLICIES — data transform only, no API calls */\n\nconst rawInput = $input.all();\nconst policies = rawInput[0]?.json?.value || rawInput.map(i => i.json);\n\nlet total = 0;\nconst normalized = [];\n\nfor (const p of policies) {\n  const policyNumber = p.number || '';\n  if (!policyNumber) continue;\n\n  const insuredName = p.insuredCommercialName\n    || ((p.insuredFirstName || '') + ' ' + (p.insuredLastName || '')).trim()\n    || 'Unknown';\n\n  const lobArray = Array.isArray(p.lineOfBusinesses)\n    ? p.lineOfBusinesses.map(l => (typeof l === 'string' ? l : (l.lineOfBusinessName || '')))\n    : [];\n  const lobString = lobArray.join(', ');\n\n  const cleanDate = (d) => d ? d.split('T')[0] : null;\n\n  total++;\n  normalized.push({\n    json: {\n      nowcertsId:     p.databaseId           || '',\n      insuredId:      p.insuredDatabaseId     || '',\n      insuredName,\n      policyNumber,\n      lineOfBusiness: lobString,\n      carrier:        p.carrierName           || '',\n      effectiveDate:  cleanDate(p.effectiveDate),\n      expirationDate: cleanDate(p.expirationDate),\n      premium:        parseFloat(p.totalPremium) || 0,\n      status:         p.status                || '',\n      businessType:   p.businessType          || ''\n    }\n  });\n}\n\nconsole.log('Policies normalized:', total);\nreturn normalized;"
+      },
+      "id": "e5fd5e71-7b99-49e4-8d9b-4577342201c4",
+      "name": "🔧 Normalize Policies",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -960,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "027b95dc-e609-436b-b67a-9a01f27a46e4",
+      "name": "🔄 Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -720,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.notion.com/v1/databases/{{ $env.NOTION_POLICIES_DB_ID }}/query",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.NOTION_TOKEN }}"
+            },
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"filter\": {\n    \"property\": \"Policy Number\",\n    \"title\": { \"equals\": \"{{ $json.policyNumber }}\" }\n  }\n}",
+        "options": {}
+      },
+      "id": "854c2e8b-6ae3-4e74-92bf-a2885942e880",
+      "name": "🔍 Search Notion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -480,
+        112
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "condition-exists",
+              "leftValue": "={{ $json.results.length }}",
+              "rightValue": "0",
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "744d3743-a325-4b49-9d8a-4dd1fcf6184b",
+      "name": "❓ Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $json.results[0].id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.NOTION_TOKEN }}"
+            },
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Policy Number\": { \"title\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.policyNumber }}\" } }] },\n    \"Named Insured\": { \"rich_text\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.insuredName }}\" } }] },\n    \"Carrier\": { \"rich_text\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.carrier }}\" } }] },\n    \"Lines Of Business\": { \"rich_text\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.lineOfBusiness }}\" } }] },\n    \"Effective Date\": { \"date\": {{ $('🔄 Split In Batches').item.json.effectiveDate ? '{ \"start\": \"' + $('🔄 Split In Batches').item.json.effectiveDate + '\" }' : 'null' }} },\n    \"Expiration Date\": { \"date\": {{ $('🔄 Split In Batches').item.json.expirationDate ? '{ \"start\": \"' + $('🔄 Split In Batches').item.json.expirationDate + '\" }' : 'null' }} },\n    \"Premium Amount\": { \"number\": {{ $('🔄 Split In Batches').item.json.premium || 0 }} },\n    \"Policy Status\": { \"select\": { \"name\": \"Active\" } },\n    \"NowCerts Last Synced\": { \"date\": { \"start\": \"{{ new Date().toISOString() }}\" } },\n    \"Sync Status\": { \"select\": { \"name\": \"Synced\" } },\n    \"Sync Source\": { \"select\": { \"name\": \"NowCerts\" } },\n    \"Id\": { \"rich_text\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.nowcertsId }}\" } }] }\n  }\n}",
+        "options": {}
+      },
+      "id": "602dc251-f80b-4cf0-8480-86ba8e668b63",
+      "name": "✏️ Update Policy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        0,
+        0
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.NOTION_TOKEN }}"
+            },
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": { \"database_id\": \"{{ $env.NOTION_POLICIES_DB_ID }}\" },\n  \"properties\": {\n    \"Policy Number\": { \"title\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.policyNumber }}\" } }] },\n    \"Named Insured\": { \"rich_text\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.insuredName }}\" } }] },\n    \"Carrier\": { \"rich_text\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.carrier }}\" } }] },\n    \"Lines Of Business\": { \"rich_text\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.lineOfBusiness }}\" } }] },\n    \"Effective Date\": { \"date\": {{ $('🔄 Split In Batches').item.json.effectiveDate ? '{ \"start\": \"' + $('🔄 Split In Batches').item.json.effectiveDate + '\" }' : 'null' }} },\n    \"Expiration Date\": { \"date\": {{ $('🔄 Split In Batches').item.json.expirationDate ? '{ \"start\": \"' + $('🔄 Split In Batches').item.json.expirationDate + '\" }' : 'null' }} },\n    \"Premium Amount\": { \"number\": {{ $('🔄 Split In Batches').item.json.premium || 0 }} },\n    \"Policy Status\": { \"select\": { \"name\": \"Active\" } },\n    \"NowCerts Last Synced\": { \"date\": { \"start\": \"{{ new Date().toISOString() }}\" } },\n    \"Sync Status\": { \"select\": { \"name\": \"Synced\" } },\n    \"Sync Source\": { \"select\": { \"name\": \"NowCerts\" } },\n    \"Policy Origin\": { \"select\": { \"name\": \"Data Import\" } },\n    \"Id\": { \"rich_text\": [{ \"text\": { \"content\": \"{{ $('🔄 Split In Batches').item.json.nowcertsId }}\" } }] }\n  }\n}",
+        "options": {}
+      },
+      "id": "5a1816da-4449-42a7-baf5-4633743a7377",
+      "name": "➕ Create Policy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        0,
+        208
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "/* BUILD SLACK SUMMARY */\n\nconst items = $('🔧 Normalize Policies').all();\nconst total = items.length;\n\nconst timeStr = new Date().toLocaleString('en-US', {\n  timeZone: 'America/New_York',\n  month: 'short',\n  day: 'numeric',\n  hour: 'numeric',\n  minute: '2-digit',\n  hour12: true\n});\n\nconst message = [\n  '*NowCerts → Notion Policy Sync Complete* — ' + timeStr,\n  '',\n  '*Policies synced:* *' + total + '*',\n  '',\n  '_Next sync: ' + (new Date().getHours() < 14 ? '2:00 PM' : '6:00 AM tomorrow') + '_'\n].join('\\n');\n\nreturn [{ json: { message } }];"
+      },
+      "id": "defa845f-c742-4f3b-80c0-749ded46a4dd",
+      "name": "📊 Build Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0AFHN83ZE3",
+          "mode": "id"
+        },
+        "text": "={{ $json.message }}",
+        "otherOptions": {
+          "mrkdwn": true
+        }
+      },
+      "id": "22b65276-6a03-4bce-b8b7-1f4a4b45284f",
+      "name": "💬 Slack Summary",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        112
+      ],
+      "webhookId": "b777ea1a-9dfe-4336-b842-551cc805dd4b",
+      "alwaysOutputData": true,
+      "credentials": {
+        "slackApi": {
+          "id": "rTNF4McInN9GXdlG",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "⏰ Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "🔑 Get NowCerts Token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔑 Get NowCerts Token": {
+      "main": [
+        [
+          {
+            "node": "📋 Pull Policies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📋 Pull Policies": {
+      "main": [
+        [
+          {
+            "node": "🔧 Normalize Policies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔧 Normalize Policies": {
+      "main": [
+        [
+          {
+            "node": "🔄 Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔄 Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "📊 Build Summary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🔍 Search Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔍 Search Notion": {
+      "main": [
+        [
+          {
+            "node": "❓ Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "❓ Exists?": {
+      "main": [
+        [
+          {
+            "node": "✏️ Update Policy",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "➕ Create Policy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "✏️ Update Policy": {
+      "main": [
+        [
+          {
+            "node": "🔄 Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "➕ Create Policy": {
+      "main": [
+        [
+          {
+            "node": "🔄 Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Build Summary": {
+      "main": [
+        [
+          {
+            "node": "💬 Slack Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "847fd170-f99f-4d9a-9d3a-579e83af4393",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8b4865d89519f80e62a972d77ec19a756eaca46b4513bc0393b966132f46632e"
+  },
+  "id": "yDGjk1DbpTIVs5qd",
+  "tags": [
+    {
+      "updatedAt": "2026-03-16T23:21:16.831Z",
+      "createdAt": "2026-03-16T23:21:16.831Z",
+      "id": "GKEoQoT29iRQaAZ2",
+      "name": "sample"
+    }
+  ]
+}

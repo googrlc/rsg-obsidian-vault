@@ -1,0 +1,299 @@
+{
+  "name": "🌅 RSG Morning Briefing v3",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "45 11 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "trigger-morning",
+      "name": "⏰ 6:45 AM ET Weekdays",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-2000, 0],
+      "notes": "6:45 AM ET = 11:45 UTC. Adjust if server timezone differs."
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// ── RSG Morning Briefing Config — NO AI CREDITS ──\nconst now = new Date();\nconst today = now.toISOString().split('T')[0];\n\nconst addDays = (d, n) => {\n  const dt = new Date(d);\n  dt.setDate(dt.getDate() + n);\n  return dt.toISOString().split('T')[0];\n};\n\nconst dayName  = now.toLocaleDateString('en-US', { weekday: 'long' });\nconst dateLabel = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });\n\nreturn [{\n  json: {\n    // ── Slack Channel IDs ──\n    CH_SERVICE:  'C09MA3A7V1B',\n    CH_RENEWALS: 'C09R2CG2KS6',\n    CH_DEALS:    'C0AFYMES6DU',\n    CH_NEWBIZ:   'C0AKFU21ZB9',\n    LAMAR_DM:    'U09MM0MGGMP',\n\n    // ── Notion DB IDs ──\n    TASKS_DB:    '8a0a8dc4-184f-4afd-8e74-346a4c39c634',\n    RENEWALS_DB: 'b8503872-a86e-4269-94ef-73f96a373497',\n    NEWBIZ_DB:   '64e5dc39-8883-4f05-973a-3d5f87959b8e',\n\n    // ── Date helpers ──\n    today,\n    dayName,\n    dateLabel,\n    in7days:  addDays(today, 7),\n    in14days: addDays(today, 14),\n    in30days: addDays(today, 30),\n    in60days: addDays(today, 60)\n  }\n}];"
+      },
+      "id": "config",
+      "name": "⚙️ Config",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-1760, 0]
+    },
+
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $vars.NOWCERTS_URL + '/policies/renewals' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $vars.NOWCERTS_API_KEY }}" }
+          ]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "start_date", "value": "={{ $('⚙️ Config').first().json.today }}" },
+            { "name": "end_date",   "value": "={{ $('⚙️ Config').first().json.in30days }}" },
+            { "name": "status",     "value": "active" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fetch-nc-renewals",
+      "name": "🔄 Fetch NowCerts Renewals",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-1500, -320],
+      "onError": "continueRegularOutput"
+    },
+
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $vars.NOWCERTS_URL + '/claims' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $vars.NOWCERTS_API_KEY }}" }
+          ]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "status", "value": "open" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fetch-nc-claims",
+      "name": "⚠️ Fetch NowCerts Claims",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-1500, -80],
+      "onError": "continueRegularOutput"
+    },
+
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://api.notion.com/v1/databases/' + $('⚙️ Config').first().json.TASKS_DB + '/query' }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Notion-Version", "value": "2022-06-28" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"filter\": {\n    \"or\": [\n      { \"property\": \"Status\", \"status\": { \"does_not_equal\": \"Done\" } },\n      { \"property\": \"Status\", \"select\": { \"does_not_equal\": \"✅ Done\" } }\n    ]\n  },\n  \"sorts\": [{ \"property\": \"Due Date\", \"direction\": \"ascending\" }],\n  \"page_size\": 30\n}",
+        "options": {}
+      },
+      "id": "fetch-notion-tasks",
+      "name": "📋 Fetch Notion Tasks",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-1500, 160],
+      "onError": "continueRegularOutput"
+    },
+
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://api.notion.com/v1/databases/' + $('⚙️ Config').first().json.NEWBIZ_DB + '/query' }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Notion-Version", "value": "2022-06-28" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"filter\": {\n    \"and\": [\n      { \"property\": \"Stage\", \"select\": { \"does_not_equal\": \"✅ Won - Bound\" } },\n      { \"property\": \"Stage\", \"select\": { \"does_not_equal\": \"❌ Lost\" } },\n      { \"property\": \"Stage\", \"select\": { \"does_not_equal\": \"❌ Closed - Lost\" } }\n    ]\n  },\n  \"sorts\": [{ \"property\": \"Last Edited Time\", \"direction\": \"descending\" }],\n  \"page_size\": 30\n}",
+        "options": {}
+      },
+      "id": "fetch-notion-deals",
+      "name": "💼 Fetch Notion Deals",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-1500, 400],
+      "onError": "continueRegularOutput"
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// ── #service-channel: Tasks + Claims ──\nconst cfg   = $('⚙️ Config').first().json;\nconst today = cfg.today;\n\nlet tasks  = [];\nlet claims = [];\ntry { tasks  = $('📋 Fetch Notion Tasks').first().json.results || []; } catch(e) {}\ntry {\n  const raw = $('⚠️ Fetch NowCerts Claims').first().json;\n  claims = Array.isArray(raw) ? raw : (raw.claims || raw.data || []);\n} catch(e) {}\n\n// Service keyword filter\nconst SVC = ['renewal','claim','endorsement','certificate','audit','policy','coverage','carrier','underwriting','service','client request','coi','inspection'];\nconst isSvc = n => SVC.some(k => (n||'').toLowerCase().includes(k));\n\nconst now = new Date(today);\nconst week = new Date(today); week.setDate(week.getDate() + 5);\n\nconst overdue = [], dueToday = [], dueWeek = [], later = [];\n\ntasks.forEach(r => {\n  const p = r.properties || {};\n  const name = p['Task Name']?.title?.[0]?.plain_text || p['Name']?.title?.[0]?.plain_text || 'Unnamed';\n  const due  = p['Due Date']?.date?.start || null;\n  const who  = p['Assigned To']?.select?.name || p['Assignee']?.people?.[0]?.name || null;\n  const url  = r.url || null;\n  const item = { name, due, who, url };\n  if (!due) { later.push(item); return; }\n  const d = new Date(due);\n  if (d < now)       overdue.push(item);\n  else if (due === today) dueToday.push(item);\n  else if (d <= week) dueWeek.push(item);\n  else               later.push(item);\n});\n\nconst fmtT = (t, showDate=true) => {\n  let l = `• *${t.name}*`;\n  if (t.who)            l += ` | 👤 ${t.who}`;\n  if (showDate && t.due) l += ` | 📅 ${t.due}`;\n  if (t.url)            l += `\\n  🔗 <${t.url}|View>`;\n  return l;\n};\n\nconst fmtClaims = () => {\n  if (!claims.length) return '_No open claims_';\n  const lines = claims.slice(0,10).map(c => {\n    const opened = c.date_of_loss || c.dateOfLoss || c.opened_date || null;\n    let days = null;\n    if (opened) days = Math.floor((now - new Date(opened)) / 86400000);\n    const flag = days && days > 30 ? '🚩' : '•';\n    return `${flag} *${c.insured_name||c.insuredName||'Unknown'}* — ${c.line_of_business||c.lob||'—'} — ${c.claim_number||c.claimNumber||'—'}${days!==null?' — '+days+'d open':''} — ${c.status||'—'}`;\n  });\n  const flagged = claims.filter(c => {\n    const o = c.date_of_loss || c.dateOfLoss || c.opened_date;\n    return o && Math.floor((now - new Date(o)) / 86400000) > 30;\n  }).length;\n  return lines.join('\\n') + (flagged ? `\\n🚨 ${flagged} claim${flagged>1?'s':''} open 30+ days — needs follow-up` : '');\n};\n\nlet msg = `🛠️ *Service Tasks & Claims — ${cfg.dayName}, ${cfg.dateLabel}*\\n`;\nmsg += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n';\n\nif (overdue.length) {\n  msg += `🔥 *SERVICE PRIORITY*\\n  ${overdue[0].name}${overdue[0].due?' (due '+overdue[0].due+')':''} — overdue, handle first\\n\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n`;\n}\n\nmsg += `⚠️ *OPEN CLAIMS (${claims.length})*\\n${fmtClaims()}\\n\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n`;\nmsg += `📋 *SERVICE TASKS*\\n`;\nif (overdue.length)   { msg += `🔴 Overdue (${overdue.length}):\\n`;  overdue.forEach(t  => { msg += `  ${fmtT(t)}\\n`; }); }\nif (dueToday.length)  { msg += `🟡 Due Today (${dueToday.length}):\\n`; dueToday.forEach(t => { msg += `  ${fmtT(t,false)}\\n`; }); }\nif (dueWeek.length)   { msg += `🟢 This Week (${dueWeek.length}):\\n`; dueWeek.forEach(t  => { msg += `  ${fmtT(t)}\\n`; }); }\nif (!overdue.length && !dueToday.length && !dueWeek.length) msg += '_Clear — no service tasks due this week_ ✅\\n';\n\nmsg += `\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n`;\nmsg += `📊 *SNAPSHOT:* ${claims.length} open claims | ${overdue.length+dueToday.length+dueWeek.length} tasks (${overdue.length} overdue)`;\n\nreturn [{ json: { channel: cfg.CH_SERVICE, message: msg } }];"
+      },
+      "id": "fmt-service",
+      "name": "📝 Format → #service-channel",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-1080, -320]
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// ── #renewals: NowCerts renewals ──\nconst cfg   = $('⚙️ Config').first().json;\nconst today = cfg.today;\n\nlet renewals = [];\ntry {\n  const raw = $('🔄 Fetch NowCerts Renewals').first().json;\n  renewals = Array.isArray(raw) ? raw : (raw.renewals || raw.data || []);\n} catch(e) {}\n\nconst thisWeek=[], nextWeek=[], later=[];\nlet totalPrem = 0;\n\nrewals = renewals; // alias\n\nrewals.forEach = undefined; // scope safety\nconst list = renewals;\n\nlist.forEach(r => {\n  const d = r.renewal_date || r.renewalDate || r.expiration_date || null;\n  if (!d) return;\n  const days = Math.ceil((new Date(d) - new Date(today)) / 86400000);\n  const prem = r.expiring_premium || r.expiringPremium || r.premium || 0;\n  totalPrem += prem;\n  const item = {\n    insured: r.insured_name || r.insuredName || 'Unknown',\n    lob:     r.line_of_business || r.lineOfBusiness || r.lob || '—',\n    carrier: r.carrier || '—',\n    date: d, days, prem\n  };\n  if (days <= 5)       thisWeek.push(item);\n  else if (days <= 10) nextWeek.push(item);\n  else                 later.push(item);\n});\n\nconst fmtR = r => {\n  let l = `• *${r.insured}* — ${r.lob} — renews ${r.date}`;\n  if (r.prem)        l += ` — $${r.prem.toLocaleString()}`;\n  if (r.carrier!=='—') l += ` — ${r.carrier}`;\n  if (r.days <= 3)   l += ` ⚡ *${r.days}d*`;\n  return l;\n};\n\nlet msg = `🔄 *Renewals — ${cfg.dayName}, ${cfg.dateLabel}*\\n`;\nmsg += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n';\n\nif (!list.length) {\n  msg += '_No renewals due in the next 30 days. Clear!_ ✅\\n';\n} else {\n  if (thisWeek.length) { msg += `🔴 *This Week (${thisWeek.length}):*\\n`; thisWeek.forEach(r => { msg += `  ${fmtR(r)}\\n`; }); msg += '\\n'; }\n  if (nextWeek.length) { msg += `🟠 *Next Week (${nextWeek.length}):*\\n`; nextWeek.forEach(r => { msg += `  ${fmtR(r)}\\n`; }); msg += '\\n'; }\n  if (later.length)    { msg += `🟡 *Later This Month (${later.length}):*\\n`; later.forEach(r => { msg += `  ${fmtR(r)}\\n`; }); msg += '\\n'; }\n}\n\nmsg += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n';\nmsg += `💵 *Total Expiring Premium (30d):* $${totalPrem.toLocaleString()}`;\nif (thisWeek.length) msg += `\\n🚨 *${thisWeek.length} renewal${thisWeek.length>1?'s':''} due this week — prioritize outreach*`;\n\nreturn [{ json: { channel: cfg.CH_RENEWALS, message: msg } }];"
+      },
+      "id": "fmt-renewals",
+      "name": "📝 Format → #renewals",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-1080, -80]
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// ── #deals: Active pipeline deals ──\nconst cfg = $('⚙️ Config').first().json;\nlet results = [];\ntry { results = $('💼 Fetch Notion Deals').first().json.results || []; } catch(e) {}\n\nif (!results.length) {\n  return [{ json: { channel: cfg.CH_DEALS, message: `💼 *Active Pipeline — ${cfg.dayName}, ${cfg.dateLabel}*\\n\\n📭 Pipeline is empty. Time to fill it up! 🎯` } }];\n}\n\nlet totalVal = 0;\nconst lines = results.map(r => {\n  const p = r.properties || {};\n  const client = p['Client / Entity Name']?.title?.[0]?.plain_text || p['Client Name']?.title?.[0]?.plain_text || p['Name']?.title?.[0]?.plain_text || 'Unknown';\n  const stage   = p['Stage']?.select?.name || '—';\n  const lob     = p['LOB']?.select?.name || p['Line of Business']?.select?.name || '—';\n  const premium = p['Est. Annual Premium']?.number || p['Written Premium']?.number || p['Annual Premium']?.number || 0;\n  const carrier = p['Carrier']?.select?.name || null;\n  const who     = p['Assigned To']?.select?.name || p['Owner']?.people?.[0]?.name || null;\n  totalVal += premium;\n  let l = `• *${client}*`;\n  if (lob !== '—') l += ` (${lob})`;\n  l += ` | ${stage}`;\n  if (carrier) l += ` | ${carrier}`;\n  if (premium) l += ` | 💰 $${premium.toLocaleString()}`;\n  if (who)     l += ` | 👤 ${who}`;\n  if (r.url)   l += `\\n  🔗 <${r.url}|View>`;\n  return l;\n});\n\nlet msg = `💼 *Active Pipeline — ${cfg.dayName}, ${cfg.dateLabel}*\\n`;\nmsg += `_(${results.length} deal${results.length!==1?'s':''})`;\nif (totalVal) msg += ` | Est. $${totalVal.toLocaleString()} annual premium`;\nmsg += '_\\n';\nmsg += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n';\nmsg += lines.join('\\n\\n');\n\nreturn [{ json: { channel: cfg.CH_DEALS, message: msg } }];"
+      },
+      "id": "fmt-deals",
+      "name": "📝 Format → #deals",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-1080, 160]
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// ── #new-business: Pipeline summary ──\nconst cfg = $('⚙️ Config').first().json;\nlet results = [];\ntry { results = $('💼 Fetch Notion Deals').first().json.results || []; } catch(e) {}\n\nif (!results.length) {\n  return [{ json: { channel: cfg.CH_NEWBIZ, message: `📊 *New Business Summary — ${cfg.dayName}, ${cfg.dateLabel}*\\n\\nPipeline is empty. Time to prospect! 🎯` } }];\n}\n\nconst stageCounts = {}, lobCounts = {};\nlet totalPrem = 0, hotCount = 0;\n\nresults.forEach(r => {\n  const p     = r.properties || {};\n  const stage = p['Stage']?.select?.name || 'Unknown';\n  const lob   = p['LOB']?.select?.name || p['Line of Business']?.select?.name || 'Unknown';\n  const prem  = p['Est. Annual Premium']?.number || p['Written Premium']?.number || p['Annual Premium']?.number || 0;\n  stageCounts[stage] = (stageCounts[stage]||0) + 1;\n  lobCounts[lob]     = (lobCounts[lob]||0) + 1;\n  totalPrem += prem;\n  if (/quot|negot|bound/i.test(stage)) hotCount++;\n});\n\nconst stageLines = Object.entries(stageCounts).sort((a,b)=>b[1]-a[1]).map(([s,c])=>`  • ${s}: ${c}`);\nconst lobLines   = Object.entries(lobCounts).sort((a,b)=>b[1]-a[1]).map(([l,c])=>`  • ${l}: ${c}`);\n\nlet msg = `📊 *New Business Pipeline Summary — ${cfg.dayName}, ${cfg.dateLabel}*\\n`;\nmsg += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n';\nmsg += `*Total Active Deals:* ${results.length}\\n`;\nif (totalPrem) msg += `*Pipeline Value:* $${totalPrem.toLocaleString()} est. annual premium\\n`;\nif (hotCount)  msg += `*Quote Stage or Later:* ${hotCount}\\n`;\nmsg += `\\n*By Stage:*\\n${stageLines.join('\\n')}\\n\\n`;\nmsg += `*By LOB:*\\n${lobLines.join('\\n')}`;\n\nreturn [{ json: { channel: cfg.CH_NEWBIZ, message: msg } }];"
+      },
+      "id": "fmt-newbiz",
+      "name": "📝 Format → #new-business",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-1080, 400]
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// ── Lamar DM: Full snapshot ──\nconst cfg   = $('⚙️ Config').first().json;\nconst today = cfg.today;\nconst now   = new Date(today);\n\n// Collect all data\nlet tasks    = []; try { tasks    = $('📋 Fetch Notion Tasks').first().json.results || []; } catch(e) {}\nlet renewals = []; try { const r = $('🔄 Fetch NowCerts Renewals').first().json; renewals = Array.isArray(r)?r:(r.renewals||r.data||[]); } catch(e) {}\nlet claims   = []; try { const c = $('⚠️ Fetch NowCerts Claims').first().json;    claims   = Array.isArray(c)?c:(c.claims||c.data||[]);   } catch(e) {}\nlet deals    = []; try { deals    = $('💼 Fetch Notion Deals').first().json.results || [];  } catch(e) {}\n\n// Task stats\nlet overdueCount=0, dueTodayCount=0, dueWeekCount=0;\nconst week = new Date(today); week.setDate(week.getDate()+5);\nconst overdueTasks = [];\n\ntasks.forEach(r => {\n  const due  = r.properties?.['Due Date']?.date?.start;\n  const name = r.properties?.['Task Name']?.title?.[0]?.plain_text || r.properties?.['Name']?.title?.[0]?.plain_text || 'Task';\n  if (!due) return;\n  const d = new Date(due);\n  if (d < now)        { overdueCount++;   overdueTasks.push({ name, due, daysLate: Math.ceil((now-d)/86400000) }); }\n  else if (due===today) dueTodayCount++;\n  else if (d <= week)   dueWeekCount++;\n});\n\n// Renewal urgency (≤7 days)\nconst urgentRen = renewals.filter(r => {\n  const d = r.renewal_date||r.renewalDate||r.expiration_date;\n  return d && Math.ceil((new Date(d)-now)/86400000) <= 7;\n});\n\n// Pipeline value\nlet pipeVal = 0;\ndeals.forEach(r => { pipeVal += r.properties?.['Est. Annual Premium']?.number||r.properties?.['Written Premium']?.number||0; });\n\n// Flagged claims\nconst flagged = claims.filter(c => {\n  const o = c.date_of_loss||c.dateOfLoss||c.opened_date;\n  return o && Math.floor((now-new Date(o))/86400000) > 30;\n});\n\n// Compose\nlet msg = `☀️ *Good morning, Lamar! RSG Snapshot — ${cfg.dayName}, ${cfg.dateLabel}*\\n`;\nmsg += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n';\n\nmsg += `📊 *AT A GLANCE*\\n`;\nmsg += `  💼 Active Deals: *${deals.length}*${pipeVal ? ' | Est. *$'+pipeVal.toLocaleString()+'*' : ''}\\n`;\nmsg += `  🔄 Renewals (30d): *${renewals.length}* | Urgent (≤7d): *${urgentRen.length}*\\n`;\nmsg += `  📋 Open Tasks: *${tasks.length}* | Overdue: *${overdueCount}* | Due today: *${dueTodayCount}*\\n`;\nmsg += `  ⚠️ Open Claims: *${claims.length}*${flagged.length ? ' | 🚩 *'+flagged.length+' flagged 30d+*' : ''}\\n\\n`;\n\n// Urgent callouts\nconst alerts = [];\nif (overdueCount)      alerts.push(`🔴 ${overdueCount} overdue task${overdueCount>1?'s':''}`);\nif (urgentRen.length)  alerts.push(`🚨 ${urgentRen.length} renewal${urgentRen.length>1?'s':''} due within 7 days`);\nif (flagged.length)    alerts.push(`🚩 ${flagged.length} claim${flagged.length>1?'s':''} open 30+ days`);\n\nif (alerts.length) {\n  msg += `⚡ *NEEDS YOUR ATTENTION*\\n`;\n  alerts.forEach(a => { msg += `  ${a}\\n`; });\n  msg += '\\n';\n}\n\n// Overdue preview\nif (overdueTasks.length) {\n  msg += `🔴 *TOP OVERDUE TASKS*\\n`;\n  overdueTasks.slice(0,3).forEach(t => { msg += `  • ${t.name} _(${t.daysLate}d late)_\\n`; });\n  if (overdueTasks.length > 3) msg += `  _...and ${overdueTasks.length-3} more_\\n`;\n  msg += '\\n';\n}\n\n// Urgent renewal preview\nif (urgentRen.length) {\n  msg += `🚨 *URGENT RENEWALS (≤7 days)*\\n`;\n  urgentRen.slice(0,3).forEach(r => {\n    const d = r.renewal_date||r.renewalDate||r.expiration_date;\n    const days = d ? Math.ceil((new Date(d)-now)/86400000) : null;\n    msg += `  • ${r.insured_name||r.insuredName||'Client'}${days!==null?' _('+ days+'d)_':''}\\n`;\n  });\n  msg += '\\n';\n}\n\nmsg += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n';\nmsg += `_Full details → #service-channel | #renewals | #deals | #new-business_`;\n\nreturn [{ json: { channel: cfg.LAMAR_DM, message: msg } }];"
+      },
+      "id": "fmt-lamar",
+      "name": "📝 Format → Lamar DM",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-1080, 640]
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// Merge all 5 in order: channels first, Lamar DM last\nconst svc   = $('📝 Format → #service-channel').first().json;\nconst ren   = $('📝 Format → #renewals').first().json;\nconst deals = $('📝 Format → #deals').first().json;\nconst nb    = $('📝 Format → #new-business').first().json;\nconst lamar = $('📝 Format → Lamar DM').first().json;\nreturn [svc, ren, deals, nb, lamar].map(m => ({ json: m }));"
+      },
+      "id": "merge",
+      "name": "🔀 Merge Messages",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-780, 160]
+    },
+
+    {
+      "parameters": { "options": {} },
+      "id": "loop",
+      "name": "🔄 Loop Each Message",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [-540, 160]
+    },
+
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://slack.com/api/chat.postMessage",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "slackApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ channel: $json.channel, text: $json.message, mrkdwn: true }) }}",
+        "options": {}
+      },
+      "id": "post-slack",
+      "name": "📤 Post to Slack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-300, 160]
+    },
+
+    {
+      "parameters": { "amount": 1000 },
+      "id": "wait",
+      "name": "⏳ Wait 1s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [-60, 160],
+      "webhookId": "rsg-briefing-v3-wait"
+    }
+  ],
+
+  "connections": {
+    "⏰ 6:45 AM ET Weekdays": {
+      "main": [[{ "node": "⚙️ Config", "type": "main", "index": 0 }]]
+    },
+    "⚙️ Config": {
+      "main": [[
+        { "node": "🔄 Fetch NowCerts Renewals", "type": "main", "index": 0 },
+        { "node": "⚠️ Fetch NowCerts Claims",   "type": "main", "index": 0 },
+        { "node": "📋 Fetch Notion Tasks",       "type": "main", "index": 0 },
+        { "node": "💼 Fetch Notion Deals",       "type": "main", "index": 0 }
+      ]]
+    },
+    "🔄 Fetch NowCerts Renewals": {
+      "main": [[
+        { "node": "📝 Format → #renewals",  "type": "main", "index": 0 },
+        { "node": "📝 Format → Lamar DM",   "type": "main", "index": 0 }
+      ]]
+    },
+    "⚠️ Fetch NowCerts Claims": {
+      "main": [[
+        { "node": "📝 Format → #service-channel", "type": "main", "index": 0 },
+        { "node": "📝 Format → Lamar DM",          "type": "main", "index": 0 }
+      ]]
+    },
+    "📋 Fetch Notion Tasks": {
+      "main": [[
+        { "node": "📝 Format → #service-channel", "type": "main", "index": 0 },
+        { "node": "📝 Format → Lamar DM",          "type": "main", "index": 0 }
+      ]]
+    },
+    "💼 Fetch Notion Deals": {
+      "main": [[
+        { "node": "📝 Format → #deals",        "type": "main", "index": 0 },
+        { "node": "📝 Format → #new-business", "type": "main", "index": 0 },
+        { "node": "📝 Format → Lamar DM",      "type": "main", "index": 0 }
+      ]]
+    },
+    "📝 Format → #service-channel": { "main": [[{ "node": "🔀 Merge Messages", "type": "main", "index": 0 }]] },
+    "📝 Format → #renewals":        { "main": [[{ "node": "🔀 Merge Messages", "type": "main", "index": 0 }]] },
+    "📝 Format → #deals":           { "main": [[{ "node": "🔀 Merge Messages", "type": "main", "index": 0 }]] },
+    "📝 Format → #new-business":    { "main": [[{ "node": "🔀 Merge Messages", "type": "main", "index": 0 }]] },
+    "📝 Format → Lamar DM":         { "main": [[{ "node": "🔀 Merge Messages", "type": "main", "index": 0 }]] },
+    "🔀 Merge Messages":   { "main": [[{ "node": "🔄 Loop Each Message", "type": "main", "index": 0 }]] },
+    "🔄 Loop Each Message": { "main": [[], [{ "node": "📤 Post to Slack", "type": "main", "index": 0 }]] },
+    "📤 Post to Slack":    { "main": [[{ "node": "⏳ Wait 1s", "type": "main", "index": 0 }]] },
+    "⏳ Wait 1s":          { "main": [[{ "node": "🔄 Loop Each Message", "type": "main", "index": 0 }]] }
+  },
+
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": true,
+    "saveManualExecutions": true
+  },
+
+  "meta": {
+    "notes": "RSG Morning Briefing v3 | NO Manus, NO AI credits | Data sources: Notion (Tasks DB, Aggregate NB Pipeline) + NowCerts (renewals + claims) | Schedule: 6:45 AM ET = 11:45 UTC | Cron: 45 11 * * 1-5 | n8n vars required: NOWCERTS_API_KEY, NOWCERTS_URL | Notion cred: notionApi | Slack cred: slackApi | OpenClaw integration: add as additional data source node when ready"
+  }
+}

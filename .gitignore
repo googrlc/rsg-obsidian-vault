@@ -1,6 +1,25 @@
-.obsidian/workspace.json
-.obsidian/plugins/obsidian-git/data.json
-*.DS_Store
+# macOS
+.DS_Store
+**/.DS_Store
 
-# Secrets
-RSG/Workflows/OpenClaw Build/Slack/Slack Setup.md
+# Obsidian workspace (device-specific)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+
+# Sensitive credentials — never commit
+_System/Credentials/
+*.pdf
+
+# Obsidian plugin data (may contain API keys/tokens)
+.obsidian/plugins/*/data.json
+
+# Large data reference (too many files, use CSV summaries instead)
+RSG Commercial Data model/GL Class Codes/
+RSG Commercial Data model/SIC Codes/
+RSG Commercial Data model/WC Class Codes/
+
+# Logs and temp
+*.log
+.env
+.env.*
