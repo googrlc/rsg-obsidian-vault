@@ -20,6 +20,13 @@ Personal/
   Journal/
   Goals/
 
+rsg-infrastructure/ — System changelogs, audit logs, infra docs
+  RSG_EspoCRM_Account-List-View-Changelog.md — Custom 4-tab Account list view deployment (2026-03-30)
+  RSG_EspoCRM_Fields_Report.md
+  RSG_N8N_Fixes_Changelog.md
+  RSG_Notion_Migration_Report.md
+  RSG_System_Audit.md
+
 AI_Knowledge/      — Insurance knowledge base (existing)
   Skills/
   Carriers/
