@@ -243,3 +243,20 @@ These run when Lamar or Gretchen messages the agent in Slack:
 | "log commission [deal]" | rsg-cfo | Manual commission entry to EspoCRM |
 | "what's Gretchen working on" | operations-foreman | Pull Gretchen's open EspoCRM tasks |
 | "brain dump: [text]" | brain-dump-butler | Triage to Act/Schedule/Park/Release |
+
+---
+
+## TRIGGER: "book health" / "book check" / "how's the book" / "agency scorecard" / "weekly scorecard"
+**Skill:** book-health-monitor.md
+**Output channel:** #the-boss (C0ANQUENX4P)
+**Schedule:** Monday 10:00 AM ET (auto) + on-demand
+
+Pull active_premium, policy_count, client_count, retention_rate from NowCerts.
+Pull open pipeline value + deal count from EspoCRM.
+Pull prior snapshot from Supabase agency_snapshots for week-over-week delta.
+Save new snapshot row with source='book-health-monitor'.
+Compute Gate 1 progress ($425K / 60% retention).
+Build renewal radar: bucket policies into ≤14 days (🔴), 15–30 days (🟡), 31–60 days (📋), 61–90 days (📋).
+Post full scorecard to #the-boss. If any policy ≤14 days: lead with CRITICAL RENEWALS block.
+Confirm start: "📋 Book Health Monitor running → scorecard incoming"
+Uses Anthropic.

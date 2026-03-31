@@ -65,7 +65,7 @@
 
 ---
 
-## OpenClaw Agents (14 deployed)
+## OpenClaw Agents (15 deployed)
 
 **Instance:** `openclaw-larau-u69864.vm.elestio.app`
 **Default Model:** claude-3-5-sonnet-latest (all except Shepherding Assistant)
@@ -86,6 +86,7 @@
 | 12 | rsg-cfo | RSG CFO | #growth-finance | Commission tracking, cash flow analysis, revenue reporting | Replaces Renewal Retention Report (WF9) |
 | 13 | data-entry-assistant | Data Entry Assistant | #client-service | NowCerts and EspoCRM field-by-field entry guidance for Gretchen | Complements NowCerts Client Lookup (WF11) |
 | 14 | shepherding-assistant | Shepherding Assistant | #the-study | Scriptural research — runs on local DeepSeek-R1 model via Ollama on Mac Mini | Standalone |
+| 15 | book-health-monitor | Book Health Monitor | #the-boss | Weekly book health scorecard — premium, retention, pipeline, renewal radar, Gate 1 progress. Monday 10am ET auto-schedule + on-demand. Uses Anthropic. | Complements Agency Snapshot |
 
 ---
 
