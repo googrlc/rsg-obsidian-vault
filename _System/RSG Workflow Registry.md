@@ -99,6 +99,7 @@
 | 3 | Wire Automation Triage Nurse to read #systems-check errors | OpenClaw agent config | 20 min | 🔴 Not started |
 | 4 | Deactivate redundant workflows | WF14 (Escalation Watchdog), WF16 (Afternoon Pulse), WF17 (Personal OS) | 5 min | 🔴 Not started |
 | 5 | Activate Account Rollup workflow after EspoCRM fields confirmed | WF12 (new) | 10 min | 🟡 Building |
+| 6 | Deploy RSG Morning Board n8n workflow | WF-new (Morning Board) | 30 min | 🟡 Building — Claude Code active |
 
 ---
 
