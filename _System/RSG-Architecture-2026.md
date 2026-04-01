@@ -3,7 +3,7 @@
 **Risk Solutions Group** — 2-person insurance agency (Atlanta, GA)
 Lamar Coates (Owner/Producer) + Gretchen (CSR/Personal Lines)
 ~$385K active premium | 104 policies | 13 LOBs | GA, AL, FL, SC, TN
-Last updated: 2026-03-29
+Last updated: 2026-04-01
 
 ---
 
@@ -219,7 +219,7 @@ SUPABASE_SERVICE_ROLE_KEY
 
 | Agent | Role | Channel |
 |---|---|---|
-| Personal Assistant | Task management (EspoCRM + Supabase) | #the-boss |
+| Personal Assistant | Command center — task routing, morning brief, revenue commands, proactive alerts. System Prompt v2.0 deployed 2026-04-01. | #the-boss |
 | Focus Guard | ADHD drift detection, redirect to revenue | #agency-ops |
 | Task Finisher | Kills paralysis — single next action | — |
 | Brain Dump Butler | Rapid capture → Act/Schedule/Park/Release | — |
