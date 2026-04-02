@@ -1,223 +1,194 @@
 ---
 name: call-intake-parser
 description: >
-  Parses commercial client intake call transcripts into structured JSON,
-  writes the result to EspoCRM (Account + Opportunity + Tasks), and generates
-  a PDF intake report. Trigger ANY TIME Lamar says "parse this intake call",
-  "parse this transcript", "write this to CRM", "intake report for [client]",
-  or uploads a transcript file after a client call. Also triggers when Gretchen
-  submits a completed intake form. Output: structured JSON, EspoCRM records
-  created/updated, follow-up tasks for missing fields, PDF report, Slack alert
-  to #lamar-alerts. Uses Anthropic (revenue-critical). Depends on: EspoCRM API,
-  n8n webhook, Commercial-Client-Intake-Schema.md.
+  RSG's commercial client intake parser. Triggers when Lamar or Gretchen says
+  anything like: "parse this intake call", "run intake for [client]", "process
+  this transcript", "intake [client name]", "I just got off a call with [client]",
+  "log this call for [client]", "run the intake parser", "parse this call for me",
+  or pastes a block of call notes/transcript text.
+
+  On trigger: extracts all commercial intake fields from the transcript, writes
+  a lean Account + Opportunity stub to EspoCRM, generates a PDF + Excel intake
+  report saved to ~/Documents/rsg-intake-parser/output/, and fires a Slack
+  summary to #lamar-alerts.
+
+  Gretchen trigger phrases: "I finished a call with [client]", "here are my
+  notes from [client]", "can you log this call", "intake notes for [client]".
+
+  ALWAYS ask for client name and call date if not provided. NEVER skip the
+  transcript — paste it in or provide a file path.
+
+  Dependencies: Python service at ~/Documents/rsg-intake-parser/, EspoCRM API,
+  Anthropic API, Slack. Uses Anthropic (revenue-critical).
 ---
 
-# Call Intake Parser
+# Call Intake Parser — OpenClaw Skill
 
-## Purpose
-Parse a raw call transcript or intake notes into all fields from the
-Commercial Client Intake Schema, write to EspoCRM, flag missing required
-fields, identify cross-sell opportunities, and generate a PDF intake report.
+## What This Does
+Takes a raw call transcript or intake notes → parses into structured data →
+writes lean CRM stub → generates PDF + Excel intake report → Slack alert.
 
----
-
-## Inputs
-
-| Input | Required | Description |
-|---|---|---|
-| `transcript` | Yes | Raw text of the call transcript or intake notes |
-| `client_name` | Yes | Business name — used for CRM lookup/create |
-| `call_date` | Yes | Date of call (YYYY-MM-DD) |
-| `call_type` | Yes | `new_prospect` / `existing_client` / `renewal_review` |
-| `called_by` | No | `lamar` or `gretchen` — defaults to `lamar` |
+Detail lives in the reports. CRM gets name, stage, opportunity, one task.
 
 ---
 
-## Step 1 — Parse Transcript via Claude API
+## Trigger Detection
 
-Send the transcript to Claude API with the system prompt below.
-Model: `claude-sonnet-4-20250514`
-Max tokens: 4000
-Response format: JSON only — no preamble, no markdown fences.
+Fire this skill when the user says ANY of:
+- "parse this intake call / transcript / notes"
+- "run intake for [name]"  
+- "I just got off a call with [name]"
+- "log this call / these notes"
+- "intake [client name]"
+- "process this call"
+- Pastes a block of text that looks like call notes or a transcript
 
-### System Prompt
+---
+
+## Step 1 — Collect Required Info
+
+Before running, confirm you have:
+
+| Field | How to get it |
+|---|---|
+| `client_name` | Ask if not in message |
+| `call_date` | Ask if not in message — default today |
+| `call_type` | Infer or ask: `new_prospect` / `existing_client` / `renewal_review` |
+| `transcript` | Must be pasted in chat OR a file path provided |
+
+If transcript is missing, say:
+> "Paste your call notes or transcript here and I'll run the intake."
+
+If client name is missing, say:
+> "What's the client's business name?"
+
+---
+
+## Step 2 — Run the Parser
+
+Once you have all inputs, run the command below.
+
+### If transcript is pasted in chat:
+Save it to a temp file first, then run:
+
+```bash
+# Save transcript to temp file
+TRANSCRIPT_FILE="/tmp/intake_$(date +%Y%m%d_%H%M%S).txt"
+cat > "$TRANSCRIPT_FILE" << 'TRANSCRIPT_EOF'
+[PASTE TRANSCRIPT HERE]
+TRANSCRIPT_EOF
+
+# Run intake parser
+cd ~/Documents/rsg-intake-parser && \
+python3 main.py \
+  --transcript "$TRANSCRIPT_FILE" \
+  --client "[CLIENT_NAME]" \
+  --date "[YYYY-MM-DD]" \
+  --type [new_prospect|existing_client|renewal_review]
 ```
-You are an expert commercial insurance intake analyst for Risk Solutions Group (RSG),
-an independent agency in Atlanta, GA specializing in commercial P&C.
 
-Your job is to extract structured client information from a call transcript or intake notes.
-Extract ONLY what is explicitly stated or clearly implied. Do NOT invent or assume values.
-If a field is not mentioned, set it to null.
+### If transcript is a file path:
+```bash
+cd ~/Documents/rsg-intake-parser && \
+python3 main.py \
+  --transcript "[FILE_PATH]" \
+  --client "[CLIENT_NAME]" \
+  --date "[YYYY-MM-DD]" \
+  --type [new_prospect|existing_client|renewal_review]
+```
 
-Return a single JSON object with this exact structure. No preamble. No markdown. JSON only.
-
-{
-  "business_identity": {
-    "legal_name": null,
-    "dba": null,
-    "entity_type": null,
-    "fein": null,
-    "date_established": null,
-    "state_of_formation": null,
-    "naics_code": null,
-    "sic_code": null,
-    "prior_non_renewal": null,
-    "sos_status": null
-  },
-  "location": {
-    "mailing_address": null,
-    "operating_locations": [],
-    "owned_or_leased": null,
-    "sq_footage": null,
-    "year_built": null,
-    "construction_type": null,
-    "flood_zone": null,
-    "building_value": null,
-    "bpp_value": null,
-    "sprinkler": null,
-    "security_system": null
-  },
-  "key_people": {
-    "owners": [],
-    "primary_contact_name": null,
-    "primary_contact_email": null,
-    "primary_contact_phone": null,
-    "licenses": []
-  },
-  "financials": {
-    "annual_revenue_current": null,
-    "annual_revenue_prior_1": null,
-    "annual_revenue_prior_2": null,
-    "annual_payroll_current": null,
-    "employees_ft": null,
-    "employees_pt": null,
-    "employees_seasonal": null,
-    "subcontractor_spend": null,
-    "subs_insured": null
-  },
-  "operations": {
-    "description": null,
-    "multi_state": null,
-    "alcohol_pct": null,
-    "vehicles_in_ops": null,
-    "sells_products": null,
-    "professional_advice": null,
-    "stores_pii": null,
-    "government_contracts": null
-  },
-  "recent_updates": {
-    "ownership_change": null,
-    "new_locations": null,
-    "new_vehicles": null,
-    "pending_claims": null,
-    "carrier_notices": null,
-    "operations_change": null
-  },
-  "existing_coverage": {
-    "carriers": [],
-    "policy_numbers": [],
-    "expiration_dates": [],
-    "current_premiums": [],
-    "loss_runs_received": null,
-    "umbrella_in_place": null,
-    "umbrella_limit": null,
-    "prior_non_renewal_reason": null
-  },
-  "auto": {
-    "vehicles": [],
-    "drivers": [],
-    "radius": null,
-    "dot_number": null,
-    "hnoa_exposure": null
-  },
-  "cross_sell_flags": [],
-  "missing_required_fields": [],
-  "submission_ready": false,
-  "ai_confidence": 0,
-  "call_summary": null,
-  "next_actions": []
-}
-
-For cross_sell_flags, include any of these that apply based on the transcript:
-"umbrella_needed", "cyber_exposure", "epli_exposure", "products_liability",
-"eo_professional", "liquor_liability", "hnoa_exposure", "surety_bonding",
-"commercial_auto_gap", "aflac_cross_sell"
-
-For missing_required_fields, list every [R] field from the intake schema not found in the transcript.
-
-For ai_confidence, return 0-100 based on how complete and clear the transcript is.
-
-For next_actions, return 3-5 specific follow-up items as strings.
+### Dry-run (parse + PDF only, skip CRM + Slack):
+```bash
+cd ~/Documents/rsg-intake-parser && \
+python3 main.py \
+  --transcript "[FILE_PATH]" \
+  --client "[CLIENT_NAME]" \
+  --date "[YYYY-MM-DD]" \
+  --type new_prospect \
+  --dry-run
 ```
 
 ---
 
-## Step 2 — Write to EspoCRM
+## Step 3 — Confirm Output to User
 
-After parsing, POST to the n8n webhook:
-`POST https://n8n-zpvua-u69864.vm.elestio.app/webhook/commercial-intake`
+After the command runs successfully, report back:
 
-Payload:
-```json
-{
-  "parsed_data": { ...Claude JSON output... },
-  "client_name": "...",
-  "call_date": "YYYY-MM-DD",
-  "call_type": "new_prospect|existing_client|renewal_review",
-  "called_by": "lamar|gretchen",
-  "transcript_snippet": "first 500 chars of transcript for reference"
-}
 ```
+✅ Intake complete for [CLIENT NAME]
 
-The n8n workflow handles:
-1. Account lookup or create in EspoCRM
-2. Opportunity create/update with LOB and stage
-3. Task creation for each missing required field
-4. Cross-sell opportunity tasks to #lamar-alerts
-
----
-
-## Step 3 — Generate PDF Report
-
-After CRM write succeeds, trigger PDF generation.
-The PDF is built from the parsed JSON and saved as:
-`[ClientName]-Intake-[YYYY-MM-DD].pdf`
-
-PDF sections:
-1. Client summary card (name, address, contact, entity type)
-2. Confirmed fields by section (green checkmarks)
-3. Missing required fields (red flags)
-4. Cross-sell opportunities
-5. Submission readiness score
-6. Next action items
-7. Call summary paragraph
-
----
-
-## Step 4 — Slack Alert
-
-Post to `#lamar-alerts`:
-```
-🗂 NEW INTAKE: [Client Name]
-📅 [Call Date] | [Call Type]
-✅ Confidence: [X]%
-⚠️ Missing required fields: [N]
-💰 Cross-sell flags: [list]
+📊 AI Confidence: [X]%
+⚠️  Missing fields: [N] — listed in task + reports
+💰 Cross-sell flags: [list or "none"]
 📋 Submission ready: YES / NO
-View in CRM: [link]
+
+📄 PDF: ~/Documents/rsg-intake-parser/output/[filename].pdf
+📊 Excel: ~/Documents/rsg-intake-parser/output/[filename].xlsx
+🔗 CRM: https://rrespocrm-rsg-u69864.vm.elestio.app/#Account/view/[account_id]
+
+Slack alert sent to #lamar-alerts.
+```
+
+If confidence < 50%, add:
+> "⚠️ Low confidence — review the intake sheet before submitting to carriers."
+
+If pending_claims is flagged, add:
+> "🚨 Pending claims detected — disclose to all carriers before submission."
+
+---
+
+## Step 4 — Open Reports (optional)
+
+If Lamar asks to open or review the reports:
+```bash
+open ~/Documents/rsg-intake-parser/output/[CLIENT]-Intake-[DATE].pdf
+open ~/Documents/rsg-intake-parser/output/[CLIENT]-Intake-[DATE].xlsx
 ```
 
 ---
 
 ## Error Handling
 
-- If Claude API returns error → log to `#systems-check`, do not write to CRM
-- If EspoCRM write fails → log error, alert `#lamar-alerts`, save JSON to vault
-- If confidence < 50 → flag for Lamar review, do not auto-create opportunity
-- If `pending_claims: true` → add warning banner to PDF and Slack message
+| Error | Response |
+|---|---|
+| Missing client name | Ask for it before running |
+| Missing transcript | Ask user to paste or provide file path |
+| API key error | Check .env — may need key refresh from 1Password |
+| CRM write fails | Reports still generate — note CRM as manual follow-up |
+| Low confidence (<50%) | Run but flag loudly — do not auto-submit |
 
 ---
 
-## LLM Routing
-- Parser: **Anthropic** (revenue-critical — this drives CRM data quality)
-- PDF generation: Gemini Flash (not revenue-critical)
+## Gretchen Usage (Plain English)
+
+Gretchen doesn't need to know the command. She says:
+> "I finished a call with ABC Landscaping. Here are my notes: [paste notes]"
+
+OpenClaw responds:
+> "Got it — running intake for ABC Landscaping. What's today's date and is this a new prospect or existing client?"
+
+Then runs automatically once confirmed.
+
+---
+
+## Quick Reference — Call Types
+
+| Situation | `--type` value |
+|---|---|
+| New prospect, first call | `new_prospect` |
+| Existing client, renewal or service call | `existing_client` |
+| Renewal review specifically | `renewal_review` |
+
+---
+
+## Output Files
+
+All outputs saved to: `~/Documents/rsg-intake-parser/output/`
+
+Naming: `[Client-Name]-Intake-[YYYY-MM-DD].pdf` and `.xlsx`
+
+---
+
+## LLM: Anthropic (revenue-critical)
+## Slack: #lamar-alerts
+## CRM: EspoCRM Account + Opportunity + 1 Task
