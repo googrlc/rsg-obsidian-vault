@@ -3,7 +3,7 @@
 **Risk Solutions Group** — 2-person insurance agency (Atlanta, GA)
 Lamar Coates (Owner/Producer) + Gretchen (CSR/Personal Lines)
 ~$385K active premium | 104 policies | 13 LOBs | GA, AL, FL, SC, TN
-Last updated: 2026-04-01
+Last updated: 2026-04-02
 
 ---
 
@@ -75,6 +75,53 @@ Last updated: 2026-04-01
 - Auth: X-Api-Key header
 - Modules: Account, Contact, Lead, Opportunity, Policy, Renewal, Commission, Task, Call, Meeting
 - Redesign spec: v1.7, 20 sections, 80 acceptance criteria
+
+#### Layout — Account Detail (2026-04-02)
+7-tab structure replacing broken legacy layout:
+
+| Tab | Label | Key Panels |
+|-----|-------|-----------|
+| 0 | Overview | Account Info, Key Metrics, Stream |
+| 1 | Contacts | Contacts |
+| 2 | Policies | Policies, Renewals |
+| 3 | Activity | Activity Logs, Emails, Meetings, Calls, Tasks |
+| 4 | Business Profile | Business Details, AI Assessment, Identity, BBB, Fleet, Risk, Gaps, Opportunities |
+| 5 | Group Benefits | Census, Medical, Ancillary, Disability, Notes |
+| 6 | Internal | AI Intel Pack, Internal IDs, Cases, Commissions |
+
+- CSS overflow containment added to `momentum.css` (all views: list, detail, kanban, modal)
+- `dynamicLogicVisible` conditionals preserved (Commercial vs Personal vs Group Benefits)
+
+#### Lead Pipeline — Pre-Qualification Kanban (2026-04-02)
+
+| Stage | Purpose |
+|-------|---------|
+| New / Uncontacted | Just entered |
+| Attempting Contact | Reached out, no response |
+| Connected | Conversation started |
+| Gathering Info | Collecting details + X-Date |
+| Qualified | Ready → triggers handoff to Opportunity |
+| Nurture | Not ready now, has X-Date |
+| DNC | Hidden from kanban |
+| Converted | Hidden from kanban |
+
+- `xDate` field added for nurture loop automation
+- New PHP filter classes: `Dnc.php`, `Nurture.php`; `Actual.php` updated to exclude DNC + Converted
+
+#### Opportunity Pipeline — Sales Cycle Kanban (2026-04-02)
+
+| Stage | Probability |
+|-------|------------|
+| Discovery | 10% |
+| Quoting | 30% |
+| Proposal Presented | 60% |
+| Negotiation | 80% |
+| Closed Won | 100% (hidden from kanban) |
+| Closed Lost | 0% (hidden from kanban) |
+
+- `WonBoundValidation` hook: requires Bind Date, Written Premium, Effective Date on "Closed Won"
+- Renewal stages preserved: Renewal Notice Sent → Bound/Renewed, Non-Renewal/Lost
+- All 5 Opportunity PHP filter classes updated (Open, Won, Lost, NewBusiness, Stalled)
 
 ### Supabase Tables — Commercial Insurance
 
@@ -322,12 +369,18 @@ SUPABASE_SERVICE_ROLE_KEY
 | 7 | Renewal Stage Auto-Update | wZZooWpIdBqoj5G4 | Stage string mismatch |
 | 8 | Renewal Commission Auto-Create | zlzLty9lJmtrPWuI | Stage string mismatch |
 
-### Untested (2)
+### Untested (4)
 
-| # | Name | ID |
-|---|---|---|
-| 9 | Renewal Retention & Commission Report | NQCSJ2YzT3CK5Mjb |
-| 13 | Task Complete Thank You | bsm2iy6m1Tjx2MJz |
+| # | Name | ID | Trigger |
+|---|---|---|---|
+| 9 | Renewal Retention & Commission Report | NQCSJ2YzT3CK5Mjb | — |
+| 13 | Task Complete Thank You | bsm2iy6m1Tjx2MJz | — |
+| 19 | Lead Qualification Handoff | — | Lead status → "Qualified" |
+| 20 | X-Date Nurture Loop | — | Daily 7:00 AM ET |
+
+**WF19 — Lead Qualification Handoff:** When Lead status changes to "Qualified" → creates Opportunity in "Discovery" stage + sets Lead to "Converted".
+
+**WF20 — X-Date Nurture Loop:** Daily at 7:00 AM ET → scans Nurture leads + Closed Lost opps for approaching X-Dates (Personal Lines: 30-day window; Commercial: 60-day window) → creates urgent EspoCRM Tasks assigned to account owner.
 
 ### Deleted (3)
 - WF14: Escalation Watchdog → replaced by Renewal Watchdog agent
@@ -472,6 +525,6 @@ Client inquiry
 | Registered skills | 13 |
 | Slack channels | 11 |
 | Supabase tables | 18 |
-| n8n workflows | 18 (8 working, 5 broken, 2 untested) |
+| n8n workflows | 20 (8 working, 5 broken, 4 untested) |
 | Obsidian vault files | 2,109+ |
 | States active | GA, AL, FL, SC, TN |
