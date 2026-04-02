@@ -382,15 +382,24 @@ SUPABASE_SERVICE_ROLE_KEY
 | 15 | Gmail RSG-Task to EspoCRM | 23kKCvM0tddkVMGk | Gmail label |
 | 18 | Global Error Workflow | lWeQqSjVGaDEqTsS | Any error |
 
-### Broken (5)
+### Broken (1)
 
 | # | Name | ID | Root Cause |
 |---|---|---|---|
-| 1 | NB-WF1 Deal Won Intake | UFwZUwlHi1ERwSXP | Stage string mismatch: "Won-Bound" vs "✅ Won - Bound" |
-| 4 | NB Commission Auto-Create | waqicelWdspuaCdf | Same stage mismatch |
 | 6 | Renewal Outreach | ptlLTDUBj0XhTRTH | Unfilled MANUS_AI_PERSONALIZATION placeholder |
-| 7 | Renewal Stage Auto-Update | wZZooWpIdBqoj5G4 | Stage string mismatch |
-| 8 | Renewal Commission Auto-Create | zlzLty9lJmtrPWuI | Stage string mismatch |
+
+### Fixed (2026-04-02)
+
+| # | Name | Fix Applied |
+|---|---|---|
+| 1 | NB-WF1 Deal Won Intake | Stage filter corrected: `Won - Bound` → `Closed Won` |
+| 2 | NB Commission Auto-Create | EspoCRM webhook created (`Opportunity.update` → n8n) + stage guard (`Closed Won`) added to Extract Fields node |
+| 7 | Renewal Stage Auto-Update | EspoCRM stages confirmed correct (`Identified`, `Outreach Sent`) — no fix needed |
+| 8 | Renewal Commission Auto-Create | EspoCRM webhook created (`Renewal.update` → n8n) + stage guard (`Renewed - Won`) added to Extract Fields node |
+
+**EspoCRM Webhooks (created 2026-04-02):**
+- `Opportunity.update` → `https://n8n-zpvua-u69864.vm.elestio.app/webhook/wf2-opportunity-won` (webhook ID: 69cec087572729879)
+- `Renewal.update` → `https://n8n-zpvua-u69864.vm.elestio.app/webhook/wf3-renewal-won` (webhook ID: 69cec0876d2737c84)
 
 ### Untested (4)
 
