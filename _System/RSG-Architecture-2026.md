@@ -123,6 +123,29 @@ Last updated: 2026-04-02
 - Renewal stages preserved: Renewal Notice Sent → Bound/Renewed, Non-Renewal/Lost
 - All 5 Opportunity PHP filter classes updated (Open, Won, Lost, NewBusiness, Stalled)
 
+#### EspoCRM Kanban Customizations (2026-04-02)
+Pushed to `main` on `rsg-infrastructure` repo.
+
+**Kanban Layout Format Fix**
+- All 7 kanban layouts corrected from `{"rows": [...]}` (broken) to flat array format `[{...}, ...]`
+- Affected: Lead, Opportunity (New Business), Opportunity (Renewal), and all related list/detail kanban views
+
+**Stage Bar (stage-bar.js)**
+- Now uses correct live stage names: `Won - Bound`, `Lost`, etc.
+- Auto-detects New Business vs Renewal pipeline from opportunity field values
+- Templates: `detail.tpl` + `list.tpl` added for stage bar rendering
+
+**Opportunity Entity Config**
+- `entityDefs`: correct `kanbanOrder` and `kanbanStatusIgnoreList` applied
+- `scopes`: `kanbanStatusIgnoreList` corrected to match live stage names
+
+**CSS (momentum.css)**
+- Kanban table resets appended — prevents column overflow and layout breakage in kanban view
+
+**Export Script (export-espocrm.sh)**
+- Now also syncs `client/custom/` directory from Docker container to repo
+- Ensures custom JS, templates, and CSS are captured in version control
+
 ### Supabase Tables — Commercial Insurance
 
 | Table | Rows | Purpose |
