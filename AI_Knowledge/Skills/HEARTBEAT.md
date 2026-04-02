@@ -242,7 +242,7 @@ These run when Lamar or Gretchen messages the agent in Slack:
 | "prep me for [company]" | deal-coach | Pre-call intel from EspoCRM + web |
 | "log commission [deal]" | rsg-cfo | Manual commission entry to EspoCRM |
 | "what's Gretchen working on" | operations-foreman | Pull Gretchen's open EspoCRM tasks |
-| "brain dump: [text]" | brain-dump-butler | Triage to Act/Schedule/Park/Release |
+| "brain dump: [text]" | brain-dump-butler | Triage to Act/Schedule/Park/Release — **ONLY fires when message starts with "brain dump:" prefix. NEVER fires on call notes, intake data, client names, policy numbers, FEIN, carrier names, loss history, or any structured prospect/client data. Those ALWAYS route to call-intake-parser.** |
 
 ---
 
