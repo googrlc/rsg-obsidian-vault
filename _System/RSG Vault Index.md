@@ -7,6 +7,7 @@ Full architecture: [[_System/RSG-Architecture-2026]] — systems, agents, workfl
 | Path | Description | Updated |
 |---|---|---|
 | [[_System/RSG-Dify-Agent-Registry]] | Canonical Dify app IDs, intake workflow deep dive, audit items, portal + deployment runbook | 2026-04-12 |
+| [[_System/RSG-n8n-Workflow-Inventory]] | Canonical n8n workflow IDs, health stats, credentials, Gemini/Espo rules, open issues | 2026-04-12 |
 
 ## Vault Structure
 
