@@ -1,8 +1,12 @@
 # RSG Obsidian Vault — Index
-Last Updated: 2026-03-29
+Last Updated: 2026-04-12
 
 ## Source of Truth
 Full architecture: [[_System/RSG-Architecture-2026]] — systems, agents, workflows, credentials
+
+| Path | Description | Updated |
+|---|---|---|
+| [[_System/RSG-Dify-Agent-Registry]] | Canonical Dify app IDs, intake workflow deep dive, audit items, portal + deployment runbook | 2026-04-12 |
 
 ## Vault Structure
 
