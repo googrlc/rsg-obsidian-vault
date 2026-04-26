@@ -11,9 +11,9 @@ Last updated: 2026-04-02
 
 | System | URL / ID |
 |---|---|
-| OpenClaw | openclaw-larau-u69864.vm.elestio.app |
-| n8n | n8n-zpvua-u69864.vm.elestio.app |
-| EspoCRM | rrespocrm-rsg-u69864.vm.elestio.app |
+| OpenClaw | {{OPENCLAW_HOST}} |
+| n8n | {{N8N_HOST}} |
+| EspoCRM | {{ESPOCRM_HOST}} |
 | Supabase | wibscqhkvpijzqbhjphg (us-east-1) |
 | NowCerts API | https://api.nowcerts.com/api |
 | NowCerts Agency ID | 09d93486-1536-48d7-9096-59f1f62b6f51 |
@@ -24,13 +24,13 @@ Last updated: 2026-04-02
 
 ## Layer 1: Infrastructure
 
-### Elestio Cloud (3 VMs)
+### hosting platform Cloud (3 VMs)
 
 | Server | Host | Purpose |
 |---|---|---|
-| OpenClaw | openclaw-larau-u69864.vm.elestio.app | AI agent orchestrator — 15 agents, 13 skills, Slack hub |
-| n8n | n8n-zpvua-u69864.vm.elestio.app | Workflow automation — NowCerts/EspoCRM sync, email, error handling |
-| EspoCRM | rrespocrm-rsg-u69864.vm.elestio.app | CRM — accounts, contacts, leads, opportunities, policies, renewals |
+| OpenClaw | {{OPENCLAW_HOST}} | AI agent orchestrator — 15 agents, 13 skills, Slack hub |
+| n8n | {{N8N_HOST}} | Workflow automation — NowCerts/EspoCRM sync, email, error handling |
+| EspoCRM | {{ESPOCRM_HOST}} | CRM — accounts, contacts, leads, opportunities, policies, renewals |
 
 ### Supabase
 
@@ -71,7 +71,7 @@ Last updated: 2026-04-02
 - Key data: policies, premiums, expiration dates, carriers, insureds
 
 ### EspoCRM (CRM)
-- API: https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1
+- API: https://{{ESPOCRM_HOST}}/api/v1
 - Auth: X-Api-Key header
 - Modules: Account, Contact, Lead, Opportunity, Policy, Renewal, Commission, Task, Call, Meeting
 - Redesign spec: v1.7, 20 sections, 80 acceptance criteria
@@ -226,7 +226,7 @@ Obsidian Vault/
 
 ## Layer 4: OpenClaw — "The Walled Garden"
 
-Docker container on Elestio. Slack Socket Mode. 15 agents, 13 skills.
+Docker container on hosting platform. Slack Socket Mode. 15 agents, 13 skills.
 
 ### Container Layout
 ```
@@ -398,8 +398,8 @@ SUPABASE_SERVICE_ROLE_KEY
 | 8 | Renewal Commission Auto-Create | EspoCRM webhook created (`Renewal.update` → n8n) + stage guard (`Renewed - Won`) added to Extract Fields node |
 
 **EspoCRM Webhooks (created 2026-04-02):**
-- `Opportunity.update` → `https://n8n-zpvua-u69864.vm.elestio.app/webhook/wf2-opportunity-won` (webhook ID: 69cec087572729879)
-- `Renewal.update` → `https://n8n-zpvua-u69864.vm.elestio.app/webhook/wf3-renewal-won` (webhook ID: 69cec0876d2737c84)
+- `Opportunity.update` → `https://{{N8N_HOST}}/webhook/wf2-opportunity-won` (webhook ID: 69cec087572729879)
+- `Renewal.update` → `https://{{N8N_HOST}}/webhook/wf3-renewal-won` (webhook ID: 69cec0876d2737c84)
 
 ### Untested (4)
 
@@ -531,7 +531,7 @@ Client inquiry
 | Slack bot/app tokens | OpenClaw .env, openclaw.json | Manual |
 | GitHub vault token | OpenClaw .env | On expiry |
 | Anthropic API key | OpenClaw .env, n8n .env | Manual |
-| SSH keys (Elestio) | 1Password (ed25519) | Manual |
+| SSH keys (hosting platform) | 1Password (ed25519) | Manual |
 
 - OpenClaw: GATEWAY_TOKEN auth
 - EspoCRM: API key (no user RBAC yet)

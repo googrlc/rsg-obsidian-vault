@@ -76,7 +76,7 @@ For each insured, capture:
 
 ## Step 3 — Pull Renewal Pipeline from EspoCRM
 
-GET https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Opportunity
+GET https://{{ESPOCRM_HOST}}/api/v1/Opportunity
   ?where[0][type]=in&where[0][attribute]=stage&where[0][value][]=Identified
   &where[0][value][]=Outreach Sent&where[0][value][]=Quote Requested
   &where[0][value][]=Proposal Sent&where[0][value][]=Negotiating
@@ -90,13 +90,13 @@ Build a set of accountIds that already have active renewal opportunities.
 
 ## Step 4 — Pull Last Activity Dates from EspoCRM
 
-GET https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Account
+GET https://{{ESPOCRM_HOST}}/api/v1/Account
   ?select=id,name,lastActivityDate,emailAddress,assignedUserName
   &maxSize=200
 X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
 
 Also pull recent lost renewals (last 12 months):
-GET https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Opportunity
+GET https://{{ESPOCRM_HOST}}/api/v1/Opportunity
   ?where[0][type]=in&where[0][attribute]=stage&where[0][value][]=Lost
   &where[1][type]=after&where[1][attribute]=closeDate&where[1][value]=12_months_ago
   &select=accountId,name,closeDate
@@ -165,7 +165,7 @@ For each CRITICAL and HIGH client, generate a specific action:
 
 For each CRITICAL client with no renewal opportunity:
 
-POST https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Task
+POST https://{{ESPOCRM_HOST}}/api/v1/Task
 X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
 Content-Type: application/json
 

@@ -33,7 +33,7 @@ No jargon. No EspoCRM navigation instructions. Just: here's what to do today.
 
 ## Step 1 — Pull Gretchen's Open Tasks from EspoCRM
 
-GET https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Task
+GET https://{{ESPOCRM_HOST}}/api/v1/Task
   ?where[0][type]=notEquals&where[0][attribute]=status&where[0][value]=Completed
   &where[1][type]=notEquals&where[1][attribute]=status&where[1][value]=Cancelled
   &select=name,status,priority,dateDue,description,parentName,parentType,createdAt

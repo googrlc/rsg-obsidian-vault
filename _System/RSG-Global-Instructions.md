@@ -40,9 +40,9 @@ Every deliverable that involves Gretchen must be:
 ## CORE TOOLS & SYSTEMS
 
 - AMS: NowCerts/Momentum (system of record)
-- CRM: EspoCRM (rrespocrm-rsg-u69864.vm.elestio.app)
-- Automations: n8n (Elestio-hosted)
-- AI Agents: OpenClaw (Elestio-hosted)
+- CRM: EspoCRM ({{ESPOCRM_HOST}})
+- Automations: n8n (hosting platform-hosted)
+- AI Agents: OpenClaw (hosting platform-hosted)
 - Database: Supabase (project: rsg-infrastructure)
 - Docs: Obsidian vault → GitHub (rsg-obsidian-vault)
 - Comm: Slack (#the-boss, #systems-check, #lamar-alerts, #gretchen-tasks)

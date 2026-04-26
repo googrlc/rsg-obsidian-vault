@@ -1,8 +1,8 @@
 # OpenClaw Google Calendar Integration
 **Claude Code Instructions**
 **Date:** March 2026
-**Server:** openclaw-larau-u69864.vm.elestio.app
-**n8n:** n8n-zpvua-u69864.vm.elestio.app
+**Server:** {{OPENCLAW_HOST}}
+**n8n:** {{N8N_HOST}}
 
 ---
 
@@ -69,7 +69,7 @@ Pull n8n API key from 1Password, then create the workflow:
 ```bash
 N8N_KEY=$(op read 'op://RSG/n8n API Key/credential')
 
-curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows" \
+curl -s -X POST "https://{{N8N_HOST}}/api/v1/workflows" \
   -H "X-N8N-API-KEY: $N8N_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -179,7 +179,7 @@ curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows" \
 ```bash
 N8N_KEY=$(op read 'op://RSG/n8n API Key/credential')
 
-curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows" \
+curl -s -X POST "https://{{N8N_HOST}}/api/v1/workflows" \
   -H "X-N8N-API-KEY: $N8N_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -270,7 +270,7 @@ Report both workflow IDs back before continuing.
 ```bash
 N8N_KEY=$(op read 'op://RSG/n8n API Key/credential')
 
-curl -s "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/credentials" \
+curl -s "https://{{N8N_HOST}}/api/v1/credentials" \
   -H "X-N8N-API-KEY: $N8N_KEY" \
   | python3 -c "
 import json, sys
@@ -288,7 +288,7 @@ N8N_KEY=$(op read 'op://RSG/n8n API Key/credential')
 GCAL_CRED_ID="PASTE_ID_HERE"
 
 # Update sync workflow (replace WF_SYNC_ID with ID from Step 2)
-curl -s "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_SYNC_ID" \
+curl -s "https://{{N8N_HOST}}/api/v1/workflows/WF_SYNC_ID" \
   -H "X-N8N-API-KEY: $N8N_KEY" | python3 -c "
 import json, sys
 wf = json.load(sys.stdin)
@@ -299,14 +299,14 @@ for node in wf['nodes']:
 with open('/tmp/wf_sync_cred.json', 'w') as f: json.dump(wf, f)
 "
 
-curl -s -X PUT "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_SYNC_ID" \
+curl -s -X PUT "https://{{N8N_HOST}}/api/v1/workflows/WF_SYNC_ID" \
   -H "X-N8N-API-KEY: $N8N_KEY" \
   -H "Content-Type: application/json" \
   -d @/tmp/wf_sync_cred.json \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('Sync WF updated:', r.get('id'))"
 
 # Repeat for on-demand workflow (replace WF_ONDEMAND_ID)
-curl -s "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_ONDEMAND_ID" \
+curl -s "https://{{N8N_HOST}}/api/v1/workflows/WF_ONDEMAND_ID" \
   -H "X-N8N-API-KEY: $N8N_KEY" | python3 -c "
 import json, sys
 wf = json.load(sys.stdin)
@@ -317,7 +317,7 @@ for node in wf['nodes']:
 with open('/tmp/wf_ondemand_cred.json', 'w') as f: json.dump(wf, f)
 "
 
-curl -s -X PUT "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_ONDEMAND_ID" \
+curl -s -X PUT "https://{{N8N_HOST}}/api/v1/workflows/WF_ONDEMAND_ID" \
   -H "X-N8N-API-KEY: $N8N_KEY" \
   -H "Content-Type: application/json" \
   -d @/tmp/wf_ondemand_cred.json \
@@ -331,7 +331,7 @@ curl -s -X PUT "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_ONDE
 ### Step 5 — Create calendar skill file on OpenClaw server
 
 ```bash
-ssh root@openclaw-larau-u69864.vm.elestio.app << 'EOF'
+ssh root@{{OPENCLAW_HOST}} << 'EOF'
 cat > /opt/app/config/skills/google-calendar.md << 'SKILL'
 # Skill: Google Calendar
 
@@ -341,7 +341,7 @@ This skill gives you access to Lamar's Google Calendar via two n8n endpoints.
 ## Endpoints
 
 ### On-Demand Query (real-time)
-POST https://n8n-zpvua-u69864.vm.elestio.app/webhook/rsg-calendar-query
+POST https://{{N8N_HOST}}/webhook/rsg-calendar-query
 Body: { "query": "today" | "tomorrow" | "week" | "YYYY-MM-DD" }
 Returns: { success, label, count, events[], summary }
 
@@ -379,7 +379,7 @@ EOF
 ### Step 6 — Update HEARTBEAT.md to register the skill
 
 ```bash
-ssh root@openclaw-larau-u69864.vm.elestio.app << 'EOF'
+ssh root@{{OPENCLAW_HOST}} << 'EOF'
 # Check current HEARTBEAT.md
 cat /opt/app/workspace/HEARTBEAT.md | head -50
 EOF
@@ -390,7 +390,7 @@ Then add `google-calendar` to the skills registry section in HEARTBEAT.md.
 ### Step 7 — Update Morning Commander to use calendar
 
 ```bash
-ssh root@openclaw-larau-u69864.vm.elestio.app << 'EOF'
+ssh root@{{OPENCLAW_HOST}} << 'EOF'
 python3 << 'PYEOF'
 import json
 
@@ -434,12 +434,12 @@ EOF
 N8N_KEY=$(op read 'op://RSG/n8n API Key/credential')
 
 # Activate sync workflow
-curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_SYNC_ID/activate" \
+curl -s -X POST "https://{{N8N_HOST}}/api/v1/workflows/WF_SYNC_ID/activate" \
   -H "X-N8N-API-KEY: $N8N_KEY" \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('Sync active:', r.get('active'))"
 
 # Activate on-demand webhook
-curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_ONDEMAND_ID/activate" \
+curl -s -X POST "https://{{N8N_HOST}}/api/v1/workflows/WF_ONDEMAND_ID/activate" \
   -H "X-N8N-API-KEY: $N8N_KEY" \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('On-demand active:', r.get('active'))"
 ```
@@ -448,7 +448,7 @@ curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_OND
 
 ```bash
 curl -s -X POST \
-  "https://n8n-zpvua-u69864.vm.elestio.app/webhook/rsg-calendar-query" \
+  "https://{{N8N_HOST}}/webhook/rsg-calendar-query" \
   -H "Content-Type: application/json" \
   -d '{"query": "today"}' \
   | python3 -m json.tool
@@ -462,7 +462,7 @@ Expected: JSON with today's events list.
 N8N_KEY=$(op read 'op://RSG/n8n API Key/credential')
 
 curl -s -X POST \
-  "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/WF_SYNC_ID/run" \
+  "https://{{N8N_HOST}}/api/v1/workflows/WF_SYNC_ID/run" \
   -H "X-N8N-API-KEY: $N8N_KEY" \
   -H "Content-Type: application/json" \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('Execution ID:', r.get('executionId'))"
@@ -479,7 +479,7 @@ curl -s "https://wibscqhkvpijzqbhjphg.supabase.co/rest/v1/calendar_events?select
 ### Step 11 — Restart OpenClaw and test from Slack
 
 ```bash
-ssh root@openclaw-larau-u69864.vm.elestio.app \
+ssh root@{{OPENCLAW_HOST}} \
   "cd /opt/app && docker compose restart openclaw-gateway && sleep 8 && docker ps | grep openclaw"
 ```
 

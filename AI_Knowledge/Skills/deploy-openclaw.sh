@@ -3,7 +3,7 @@
 # Run this from your local machine
 # Usage: bash deploy-openclaw.sh
 
-SERVER="root@openclaw-larau-u69864.vm.elestio.app"
+SERVER="root@{{OPENCLAW_HOST}}"
 
 echo "🚀 Deploying RSG OpenClaw updates..."
 

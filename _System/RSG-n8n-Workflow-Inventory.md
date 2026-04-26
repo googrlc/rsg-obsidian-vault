@@ -11,7 +11,7 @@ type: inventory
 
 > [!danger] Current Health: 85% Failure Rate
 > 4,625 prod executions | 3,930 failed | Avg run time: 5.31s
-> Instance: `https://n8n-zpvua-u69864.vm.elestio.app` | Tailscale: `100.73.8.33`
+> Instance: `https://{{N8N_HOST}}` | Tailscale: `100.73.8.33`
 > Backup repo: `googrlc/rsg-n8n` (auto-export every Sunday 2am ET)
 
 ---
@@ -73,7 +73,7 @@ type: inventory
 
 > [!warning] Meeting Approval Callback - Pending Config
 > Slack app interactivity URL must be set to:
-> `https://n8n-zpvua-u69864.vm.elestio.app/webhook/meeting-approval`
+> `https://{{N8N_HOST}}/webhook/meeting-approval`
 > Without this, the "Add to Calendar" button in Slack meeting alerts will not work.
 
 ---

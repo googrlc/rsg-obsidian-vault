@@ -23,7 +23,7 @@
     },
     {
       "parameters": {
-        "url": "=https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Policy?where[0][type]=in&where[0][attribute]=status&where[0][value][]=Active&where[0][value][]=Renewing&where[1][type]=lessThanOrEquals&where[1][attribute]=expirationDate&where[1][value]={{ $now.plus(90, 'days').toFormat('yyyy-MM-dd') }}&where[2][type]=greaterThanOrEquals&where[2][attribute]=expirationDate&where[2][value]={{ $now.toFormat('yyyy-MM-dd') }}&maxSize=200&select=id,name,status,expirationDate,lineOfBusiness,carrier,premiumAmount,premiumAtRisk,commissionRate,contactId,contactName,accountId,accountName,businessType",
+        "url": "=https://{{ESPOCRM_HOST}}/api/v1/Policy?where[0][type]=in&where[0][attribute]=status&where[0][value][]=Active&where[0][value][]=Renewing&where[1][type]=lessThanOrEquals&where[1][attribute]=expirationDate&where[1][value]={{ $now.plus(90, 'days').toFormat('yyyy-MM-dd') }}&where[2][type]=greaterThanOrEquals&where[2][attribute]=expirationDate&where[2][value]={{ $now.toFormat('yyyy-MM-dd') }}&maxSize=200&select=id,name,status,expirationDate,lineOfBusiness,carrier,premiumAmount,premiumAtRisk,commissionRate,contactId,contactName,accountId,accountName,businessType",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -72,7 +72,7 @@
     },
     {
       "parameters": {
-        "url": "=https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Renewal?where[0][type]=equals&where[0][attribute]=policyId&where[0][value]={{ $json.policyId }}&where[1][type]=equals&where[1][attribute]=outcome&where[1][value]=Pending&maxSize=1&select=id",
+        "url": "=https://{{ESPOCRM_HOST}}/api/v1/Renewal?where[0][type]=equals&where[0][attribute]=policyId&where[0][value]={{ $json.policyId }}&where[1][type]=equals&where[1][attribute]=outcome&where[1][value]=Pending&maxSize=1&select=id",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -142,7 +142,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Renewal",
+        "url": "https://{{ESPOCRM_HOST}}/api/v1/Renewal",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -173,7 +173,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Collect stats from all created renewals for the Slack digest\nconst allItems = $('Create Renewal').all();\nconst created = allItems.filter(i => i.json.id); // successfully created\n\nlet totalPremium = 0;\nlet commercialCount = 0;\nlet personalCount = 0;\nlet commercialPremium = 0;\nlet personalPremium = 0;\n\nfor (const item of created) {\n  const premium = item.json.currentPremium || 0;\n  totalPremium += premium;\n  if (item.json.businessSegment === 'Commercial Lines') {\n    commercialCount++;\n    commercialPremium += premium;\n  } else {\n    personalCount++;\n    personalPremium += premium;\n  }\n}\n\n// Also count total active renewals\nconst allPolicies = $('Filter & Map Policies').all();\nconst skipped = allPolicies.length - created.length;\n\nif (created.length === 0) {\n  return [{ json: { sendSlack: false, message: 'No new renewals to create today.' } }];\n}\n\nconst fmt = (n) => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 0 });\n\nconst slackText = `:arrows_counterclockwise: *RSG Renewal Pipeline — Daily Auto-Generator*\\n\\n` +\n  `*New Renewals Created:* ${created.length}\\n` +\n  `*Already Tracked:* ${skipped}\\n\\n` +\n  `*By Segment:*\\n` +\n  `  Commercial Lines: ${commercialCount} renewals (${fmt(commercialPremium)} premium at risk)\\n` +\n  `  Personal Lines: ${personalCount} renewals (${fmt(personalPremium)} premium at risk)\\n\\n` +\n  `*Total Premium at Risk:* ${fmt(totalPremium)}\\n\\n` +\n  created.map(r => `  • ${r.json.name} — ${r.json.carrier || 'TBD'} — ${r.json.expirationDate} — ${fmt(r.json.currentPremium || 0)}`).join('\\n') +\n  `\\n\\n<https://rrespocrm-rsg-u69864.vm.elestio.app/#Renewal|View Renewal Pipeline>`;\n\nreturn [{ json: { sendSlack: true, slackText } }];"
+        "jsCode": "// Collect stats from all created renewals for the Slack digest\nconst allItems = $('Create Renewal').all();\nconst created = allItems.filter(i => i.json.id); // successfully created\n\nlet totalPremium = 0;\nlet commercialCount = 0;\nlet personalCount = 0;\nlet commercialPremium = 0;\nlet personalPremium = 0;\n\nfor (const item of created) {\n  const premium = item.json.currentPremium || 0;\n  totalPremium += premium;\n  if (item.json.businessSegment === 'Commercial Lines') {\n    commercialCount++;\n    commercialPremium += premium;\n  } else {\n    personalCount++;\n    personalPremium += premium;\n  }\n}\n\n// Also count total active renewals\nconst allPolicies = $('Filter & Map Policies').all();\nconst skipped = allPolicies.length - created.length;\n\nif (created.length === 0) {\n  return [{ json: { sendSlack: false, message: 'No new renewals to create today.' } }];\n}\n\nconst fmt = (n) => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 0 });\n\nconst slackText = `:arrows_counterclockwise: *RSG Renewal Pipeline — Daily Auto-Generator*\\n\\n` +\n  `*New Renewals Created:* ${created.length}\\n` +\n  `*Already Tracked:* ${skipped}\\n\\n` +\n  `*By Segment:*\\n` +\n  `  Commercial Lines: ${commercialCount} renewals (${fmt(commercialPremium)} premium at risk)\\n` +\n  `  Personal Lines: ${personalCount} renewals (${fmt(personalPremium)} premium at risk)\\n\\n` +\n  `*Total Premium at Risk:* ${fmt(totalPremium)}\\n\\n` +\n  created.map(r => `  • ${r.json.name} — ${r.json.carrier || 'TBD'} — ${r.json.expirationDate} — ${fmt(r.json.currentPremium || 0)}`).join('\\n') +\n  `\\n\\n<https://{{ESPOCRM_HOST}}/#Renewal|View Renewal Pipeline>`;\n\nreturn [{ json: { sendSlack: true, slackText } }];"
       },
       "id": "rg-09",
       "name": "Build Slack Digest",

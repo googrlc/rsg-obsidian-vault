@@ -11,7 +11,7 @@ type: registry
 
 > [!important] Source of Truth
 > This file tracks all Dify apps in `admin's Workspace` on the RSG Dify instance.
-> Instance: `https://dify-zglao-u69864.vm.elestio.app` | Tailscale: `100.122.238.64`
+> Instance: `https://{{DIFY_HOST}}` | Tailscale: `100.122.238.64`
 > Admin credentials stored in 1Password RSG vault.
 
 ---

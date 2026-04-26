@@ -124,7 +124,7 @@ After the command runs successfully, report back:
 
 📄 PDF: ~/Documents/rsg-intake-parser/output/[filename].pdf
 📊 Excel: ~/Documents/rsg-intake-parser/output/[filename].xlsx
-🔗 CRM: https://rrespocrm-rsg-u69864.vm.elestio.app/#Account/view/[account_id]
+🔗 CRM: https://{{ESPOCRM_HOST}}/#Account/view/[account_id]
 
 Slack alert sent to #lamar-alerts.
 ```

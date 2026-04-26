@@ -964,7 +964,7 @@ Corrections from audit — apply to all nodes:
 1. Auth: Use X-Api-Key header, NOT Basic Auth
    Header name: X-Api-Key
    Value: retrieve from 1Password (key name: EspoCRM API Key)
-2. EspoCRM URL: hardcode to https://rrespocrm-rsg-u69864.vm.elestio.app
+2. EspoCRM URL: hardcode to https://{{ESPOCRM_HOST}}
    Do NOT use $vars.ESPOCRM_URL — it does not exist in this instance
 3. Slack: use $env.SLACK_WEBHOOK_URL to #systems-check (matches existing pattern)
 4. Create as INACTIVE — manual test run first, activate after confirming success
@@ -1001,7 +1001,7 @@ Corrections from audit — apply to all nodes:
       "position": [420, 300],
       "parameters": {
         "method": "GET",
-        "url": "https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Account",
+        "url": "https://{{ESPOCRM_HOST}}/api/v1/Account",
         "sendQuery": true,
         "queryParameters": {
           "parameters": [
@@ -1035,7 +1035,7 @@ Corrections from audit — apply to all nodes:
       "position": [860, 300],
       "parameters": {
         "method": "GET",
-        "url": "https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Policy",
+        "url": "https://{{ESPOCRM_HOST}}/api/v1/Policy",
         "sendQuery": true,
         "queryParameters": {
           "parameters": [
@@ -1075,7 +1075,7 @@ Corrections from audit — apply to all nodes:
       "position": [1300, 300],
       "parameters": {
         "method": "PATCH",
-        "url": "=https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Account/{{ $json.accountId }}",
+        "url": "=https://{{ESPOCRM_HOST}}/api/v1/Account/{{ $json.accountId }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [

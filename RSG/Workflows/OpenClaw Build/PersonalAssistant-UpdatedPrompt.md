@@ -43,7 +43,7 @@ Fields: title, description, domain (ministry/assembly/personal/education),
         source (slack), slack_message_ts, slack_channel, notes
 
 FOR ESPOCRM WORK TASKS:
-POST to: https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Task
+POST to: https://{{ESPOCRM_HOST}}/api/v1/Task
 Auth: X-Api-Key: e5df7c321b47427d24046bab814dbb58
 Fields: name, status (Not Started), priority (High/Medium/Low),
         assignedUserId (Lamar=U09MM0MGGMP or Gretchen=U09MVBFV9C7),

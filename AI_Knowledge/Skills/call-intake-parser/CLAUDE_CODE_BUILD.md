@@ -40,7 +40,7 @@ rsg-intake-parser/
 
 ```
 ANTHROPIC_API_KEY=           # Claude API key
-ESPOCRM_BASE_URL=https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1
+ESPOCRM_BASE_URL=https://{{ESPOCRM_HOST}}/api/v1
 ESPOCRM_API_KEY=             # EspoCRM API key
 ESPOCRM_LAMAR_USER_ID=       # Lamar's EspoCRM user ID
 SLACK_BOT_TOKEN=             # Slack bot token

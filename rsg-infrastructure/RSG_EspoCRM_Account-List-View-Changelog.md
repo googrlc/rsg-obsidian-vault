@@ -7,7 +7,7 @@ tags: [rsg, espocrm, changelog, account, custom-view, deployment]
 # EspoCRM Custom Account List View — Deployment Changelog
 
 **Date:** 2026-03-30
-**Server:** `rrespocrm-rsg-u69864.vm.elestio.app`
+**Server:** `{{ESPOCRM_HOST}}`
 **EspoCRM Version:** 9.3.4
 **Container:** `app-espocrm-1` (Docker, `espocrm/espocrm:latest`)
 **Web Root:** `/var/www/html/` inside container
@@ -127,9 +127,9 @@ Tells EspoCRM to use `custom:views/account/list` instead of the default `views/l
 
 ```bash
 # 1. SCP files from Mac to server /tmp
-scp ~/Desktop/files/Account.json root@rrespocrm-rsg-u69864.vm.elestio.app:/tmp/
-scp ~/Desktop/files/list.js root@rrespocrm-rsg-u69864.vm.elestio.app:/tmp/
-scp ~/Desktop/files/list.tpl root@rrespocrm-rsg-u69864.vm.elestio.app:/tmp/
+scp ~/Desktop/files/Account.json root@{{ESPOCRM_HOST}}:/tmp/
+scp ~/Desktop/files/list.js root@{{ESPOCRM_HOST}}:/tmp/
+scp ~/Desktop/files/list.tpl root@{{ESPOCRM_HOST}}:/tmp/
 
 # 2. Create directories + copy into Docker container
 docker exec app-espocrm-1 mkdir -p /var/www/html/custom/Espo/Custom/Resources/metadata/clientDefs

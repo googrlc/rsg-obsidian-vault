@@ -77,7 +77,7 @@ return [{ json: data }];
 
 - **Type:** HTTP Request
 - **Method:** GET
-- **URL:** `https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Account`
+- **URL:** `https://{{ESPOCRM_HOST}}/api/v1/Account`
 - **Headers:** `X-Api-Key: {{$credentials.espocrm_api_key}}`
 - **Query params:**
   - `where[0][type]`: `contains`
@@ -101,7 +101,7 @@ return [{ json: data }];
 
 - **Type:** HTTP Request
 - **Method:** PATCH
-- **URL:** `https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Account/{{$json.list[0].id}}`
+- **URL:** `https://{{ESPOCRM_HOST}}/api/v1/Account/{{$json.list[0].id}}`
 - **Headers:** `X-Api-Key: {{$credentials.espocrm_api_key}}`
 - **Body (JSON):**
 ```json
@@ -121,7 +121,7 @@ return [{ json: data }];
 
 - **Type:** HTTP Request
 - **Method:** POST
-- **URL:** `https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Account`
+- **URL:** `https://{{ESPOCRM_HOST}}/api/v1/Account`
 - **Headers:** `X-Api-Key: {{$credentials.espocrm_api_key}}`
 - **Body (JSON):**
 ```json
@@ -143,7 +143,7 @@ return [{ json: data }];
 
 - **Type:** HTTP Request
 - **Method:** POST
-- **URL:** `https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Opportunity`
+- **URL:** `https://{{ESPOCRM_HOST}}/api/v1/Opportunity`
 - **Body (JSON):**
 ```json
 {
@@ -201,7 +201,7 @@ return [{ json: data }];
 
 - **Type:** HTTP Request
 - **Method:** POST
-- **URL:** `https://n8n-zpvua-u69864.vm.elestio.app/webhook/generate-intake-pdf`
+- **URL:** `https://{{N8N_HOST}}/webhook/generate-intake-pdf`
 - **Body:**
 ```json
 {
@@ -228,7 +228,7 @@ return [{ json: data }];
 💰 Cross-sell flags: {{$json.parsed_data.cross_sell_flags.join(', ') || 'none'}}
 📋 Submission ready: {{$json.parsed_data.submission_ready ? '✅ YES' : '❌ NO'}}
 📝 Summary: {{$json.parsed_data.call_summary}}
-🔗 CRM: https://rrespocrm-rsg-u69864.vm.elestio.app/#Account/view/{{$json.account_id}}
+🔗 CRM: https://{{ESPOCRM_HOST}}/#Account/view/{{$json.account_id}}
 ```
 
 ---
@@ -273,7 +273,7 @@ Add error handler branches at:
 
 ## Deployment Steps
 
-1. Import this workflow spec into n8n at `https://n8n-zpvua-u69864.vm.elestio.app`
+1. Import this workflow spec into n8n at `https://{{N8N_HOST}}`
 2. Add all credentials listed above
 3. Activate the webhook — note the production URL
 4. Update `call-intake-parser` SKILL.md with confirmed webhook URL

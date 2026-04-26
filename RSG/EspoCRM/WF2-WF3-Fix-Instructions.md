@@ -46,12 +46,12 @@ for u in r.get('members',[]):
 
 ```bash
 # Pull WF2
-curl -s "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/qbMMleTF4xQDJNGo" \
+curl -s "https://{{N8N_HOST}}/api/v1/workflows/qbMMleTF4xQDJNGo" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -m json.tool > /tmp/wf2_live.json
 
 # Pull WF3
-curl -s "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/J9lZZBwUA2888qkP" \
+curl -s "https://{{N8N_HOST}}/api/v1/workflows/J9lZZBwUA2888qkP" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -m json.tool > /tmp/wf3_live.json
 
@@ -307,36 +307,36 @@ No gmail nodes should remain. All send nodes should show httpRequest type.
 
 ```bash
 # Deactivate WF2
-curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/qbMMleTF4xQDJNGo/deactivate" \
+curl -s -X POST "https://{{N8N_HOST}}/api/v1/workflows/qbMMleTF4xQDJNGo/deactivate" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -c "import json,sys; print('Active:', json.load(sys.stdin).get('active'))"
 
 # Push WF2
-curl -s -X PUT "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/qbMMleTF4xQDJNGo" \
+curl -s -X PUT "https://{{N8N_HOST}}/api/v1/workflows/qbMMleTF4xQDJNGo" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   -H "Content-Type: application/json" \
   -d @/tmp/wf2_fixed.json \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('WF2 updated:', r.get('id'))"
 
 # Reactivate WF2
-curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/qbMMleTF4xQDJNGo/activate" \
+curl -s -X POST "https://{{N8N_HOST}}/api/v1/workflows/qbMMleTF4xQDJNGo/activate" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -c "import json,sys; print('WF2 active:', json.load(sys.stdin).get('active'))"
 
 # Deactivate WF3
-curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/J9lZZBwUA2888qkP/deactivate" \
+curl -s -X POST "https://{{N8N_HOST}}/api/v1/workflows/J9lZZBwUA2888qkP/deactivate" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -c "import json,sys; print('Active:', json.load(sys.stdin).get('active'))"
 
 # Push WF3
-curl -s -X PUT "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/J9lZZBwUA2888qkP" \
+curl -s -X PUT "https://{{N8N_HOST}}/api/v1/workflows/J9lZZBwUA2888qkP" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   -H "Content-Type: application/json" \
   -d @/tmp/wf3_fixed.json \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('WF3 updated:', r.get('id'))"
 
 # Reactivate WF3
-curl -s -X POST "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/J9lZZBwUA2888qkP/activate" \
+curl -s -X POST "https://{{N8N_HOST}}/api/v1/workflows/J9lZZBwUA2888qkP/activate" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -c "import json,sys; print('WF3 active:', json.load(sys.stdin).get('active'))"
 ```

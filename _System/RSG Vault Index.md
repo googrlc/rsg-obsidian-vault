@@ -1,5 +1,5 @@
 # RSG Obsidian Vault — Index
-Last Updated: 2026-04-16
+Last Updated: 2026-04-22
 
 ## Source of Truth
 Full architecture: [[_System/RSG-Architecture-2026]] — systems, agents, workflows, credentials
@@ -9,6 +9,7 @@ Full architecture: [[_System/RSG-Architecture-2026]] — systems, agents, workfl
 | [[_System/RSG-Dify-Agent-Registry]] | Canonical Dify app IDs, intake workflow deep dive, audit items, portal + deployment runbook | 2026-04-12 |
 | [[_System/RSG-n8n-Workflow-Inventory]] | Canonical n8n workflow IDs, health stats, credentials, Gemini/Espo rules, open issues | 2026-04-12 |
 | [[rsg-infrastructure/RSG_EspoCRM_Codebase_Audit_2026-04-16]] | Full EspoCRM codebase audit: 52 findings across 7 deep dives, prioritized P0-P3 execution plan | 2026-04-16 |
+| [[AI_Knowledge/Skills/OpenClaw-Build-Context]] | Canonical build memory for OpenClaw hosting platform deployment, Bedrock role setup, model choices, and active decisions | 2026-04-22 |
 
 ## Vault Structure
 

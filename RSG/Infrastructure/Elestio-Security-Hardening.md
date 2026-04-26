@@ -1,6 +1,6 @@
-# Elestio Security Hardening — RSG
+# hosting platform Security Hardening — RSG
 
-Applies to all 3 Elestio VMs: OpenClaw, n8n, EspoCRM
+Applies to all 3 hosting platform VMs: OpenClaw, n8n, EspoCRM
 
 ## Immediate Actions
 

@@ -1,7 +1,7 @@
 # RSG Walled Garden — v2 Build Log
 **Date:** March 26, 2026
 **Build Session:** Full deployment from scratch
-**OpenClaw Version:** 2026.3.25 (Elestio)
+**OpenClaw Version:** 2026.3.25 (hosting platform)
 **Status:** LIVE — Gateway healthy, Slack connected, 14 agents deployed
 
 ---
@@ -10,12 +10,12 @@
 
 | Component | Detail |
 |---|---|
-| **Host** | Elestio VPS — `openclaw-larau-u69864.vm.elestio.app` |
+| **Host** | hosting platform VPS — `{{OPENCLAW_HOST}}` |
 | **IP** | 152.53.212.76 (public), 100.109.241.110 (Tailscale) |
 | **OS** | Ubuntu 24.04 LTS |
 | **Gateway** | OpenClaw 2026.3.25, Docker, port 18789 |
-| **Web UI** | `https://openclaw-larau-u69864.vm.elestio.app/chat?session=main` |
-| **SSH** | `ssh root@openclaw-larau-u69864.vm.elestio.app` |
+| **Web UI** | `https://{{OPENCLAW_HOST}}/chat?session=main` |
+| **SSH** | `ssh root@{{OPENCLAW_HOST}}` |
 
 ---
 
@@ -188,7 +188,7 @@ All agent configs live in `/opt/app/config/agents/<agent-id>/agent.json`.
 
 | Issue | Root Cause | Fix |
 |---|---|---|
-| Elestio write rate alert (614 ops/s) | No Anthropic API key → retry loop every 30 min | Set `ANTHROPIC_API_KEY` in .env |
+| hosting platform write rate alert (614 ops/s) | No Anthropic API key → retry loop every 30 min | Set `ANTHROPIC_API_KEY` in .env |
 | Ollama unreachable from server | Build doc had IP `100.82.142.4` (typo) | Corrected to `100.82.142.43` |
 | Config validation error ("Unrecognized key: main") | `agents` block not valid in openclaw.json | Removed — agents configured via directory structure |
 | Version mismatch warning | `meta.lastTouchedVersion: 2026.3.26` > installed `2026.3.25` | Set to `2026.3.25` |
@@ -212,7 +212,7 @@ All agent configs live in `/opt/app/config/agents/<agent-id>/agent.json`.
 
 ```bash
 # SSH into the instance
-ssh root@openclaw-larau-u69864.vm.elestio.app
+ssh root@{{OPENCLAW_HOST}}
 
 # Check gateway health
 docker ps --format 'table {{.Names}}\t{{.Status}}' | grep openclaw

@@ -9,7 +9,7 @@ description: >
 
 # CRM Manager — EspoCRM REST API for RSG
 
-**Base URL:** `https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1`
+**Base URL:** `https://{{ESPOCRM_HOST}}/api/v1`
 **Auth:** Header `X-Api-Key: {espocrm.apiKey from agent.json}`
 **Content-Type:** `application/json` for POST/PUT/PATCH
 

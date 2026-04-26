@@ -42,7 +42,7 @@ Default = Full Pack unless Lamar says "quick."
 | NowCerts username | lamar@risk-solutionsgroup.com |
 | NowCerts password | {{NOWCERTS_PASSWORD}} |
 | NowCerts agency ID | 09d93486-1536-48d7-9096-59f1f62b6f51 |
-| EspoCRM base URL | https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1 |
+| EspoCRM base URL | https://{{ESPOCRM_HOST}}/api/v1 |
 | EspoCRM API key | 3d34836b07bb327db8d8fa6b63430c4e |
 | Supabase URL | https://wibscqhkvpijzqbhjphg.supabase.co |
 | Supabase key | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpYnNjcWhrdnBpanpxYmhqcGhnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDE0NTkyNiwiZXhwIjoyMDg5NzIxOTI2fQ.VnacqnPjUzxnqTh9Sxt0YXEc4CWjeLeTRYedsRM003I |
@@ -379,7 +379,7 @@ Enum: High / Medium / Low
 Navigate to EspoCRM Account. If none exists, create at `{base}/#Account/create` first.
 Use API for programmatic updates:
 ```
-PUT https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Account/{id}
+PUT https://{{ESPOCRM_HOST}}/api/v1/Account/{id}
 Header: X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
 ```
 
@@ -459,7 +459,7 @@ Write ALL of the following fields in a single PATCH/PUT call:
 
 If Lead doesn't exist, create it:
 ```
-POST https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Lead
+POST https://{{ESPOCRM_HOST}}/api/v1/Lead
 Header: X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
 ```
 

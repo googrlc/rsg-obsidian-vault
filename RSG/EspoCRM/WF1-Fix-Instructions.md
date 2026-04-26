@@ -17,7 +17,7 @@ Pull credentials from 1Password. Do not skip verification steps.
 Before changing anything, confirm what EspoCRM actually stores.
 
 ```bash
-curl -s "https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Opportunity?\
+curl -s "https://{{ESPOCRM_HOST}}/api/v1/Opportunity?\
 where[0][type]=isNotNull&where[0][attribute]=stage&\
 select=id,name,stage&maxSize=10" \
   -H "X-Api-Key: $(op read 'op://RSG/EspoCRM API Key/credential')" \
@@ -37,7 +37,7 @@ Look specifically for the Won stage — it may contain an emoji prefix.
 ## STEP 2 — PULL THE LIVE WORKFLOW JSON
 
 ```bash
-curl -s "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/UFwZUwlHi1ERwSXP" \
+curl -s "https://{{N8N_HOST}}/api/v1/workflows/UFwZUwlHi1ERwSXP" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -m json.tool > /tmp/wf1_live.json
 
@@ -131,13 +131,13 @@ Confirm output shows the corrected emoji string before continuing.
 ```bash
 # Deactivate first (safer to update inactive workflows)
 curl -s -X POST \
-  "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/UFwZUwlHi1ERwSXP/deactivate" \
+  "https://{{N8N_HOST}}/api/v1/workflows/UFwZUwlHi1ERwSXP/deactivate" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('Active:', r.get('active'))"
 
 # Push the fixed workflow
 curl -s -X PUT \
-  "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/UFwZUwlHi1ERwSXP" \
+  "https://{{N8N_HOST}}/api/v1/workflows/UFwZUwlHi1ERwSXP" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   -H "Content-Type: application/json" \
   -d @/tmp/wf1_fixed.json \
@@ -152,7 +152,7 @@ print('Updated OK' if r.get('id') else 'ERROR — check response')
 
 # Reactivate
 curl -s -X POST \
-  "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/UFwZUwlHi1ERwSXP/activate" \
+  "https://{{N8N_HOST}}/api/v1/workflows/UFwZUwlHi1ERwSXP/activate" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('Active:', r.get('active'))"
 ```
@@ -163,7 +163,7 @@ curl -s -X POST \
 
 ```bash
 # Pull the workflow back and confirm the stage value
-curl -s "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/UFwZUwlHi1ERwSXP" \
+curl -s "https://{{N8N_HOST}}/api/v1/workflows/UFwZUwlHi1ERwSXP" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   | python3 -c "
 import json, sys
@@ -184,7 +184,7 @@ If there are any Won deals in EspoCRM that have NOT been commission-logged yet:
 
 ```bash
 # Find unlogged Won deals
-curl -s "https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1/Opportunity?\
+curl -s "https://{{ESPOCRM_HOST}}/api/v1/Opportunity?\
 where[0][type]=equals&where[0][attribute]=stage&where[0][value]=✅ Won - Bound&\
 where[1][type]=equals&where[1][attribute]=cCommissionLogged&where[1][value]=false&\
 select=id,name,stage,cCommissionLogged&maxSize=5" \
@@ -202,7 +202,7 @@ for r in records:
 If unlogged Won deals exist, trigger a manual execution:
 ```bash
 curl -s -X POST \
-  "https://n8n-zpvua-u69864.vm.elestio.app/api/v1/workflows/UFwZUwlHi1ERwSXP/run" \
+  "https://{{N8N_HOST}}/api/v1/workflows/UFwZUwlHi1ERwSXP/run" \
   -H "X-N8N-API-KEY: $(op read 'op://RSG/n8n API Key/credential')" \
   -H "Content-Type: application/json" \
   | python3 -c "import json,sys; r=json.load(sys.stdin); print('Execution ID:', r.get('executionId'))"

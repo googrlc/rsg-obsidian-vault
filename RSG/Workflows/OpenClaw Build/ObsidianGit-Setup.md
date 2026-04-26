@@ -50,7 +50,7 @@ Pull GitHub token from 1Password."
 
 ## STEP 5 — Add Token to OpenClaw Environment
 
-SSH into openclaw-larau-u69864.vm.elestio.app
+SSH into {{OPENCLAW_HOST}}
 
 Add to /opt/app/.env:
 GITHUB_VAULT_TOKEN=your_token_here

@@ -67,7 +67,7 @@
 
 ## OpenClaw Agents (15 deployed)
 
-**Instance:** `openclaw-larau-u69864.vm.elestio.app`
+**Instance:** `{{OPENCLAW_HOST}}`
 **Default Model:** claude-3-5-sonnet-latest (all except Shepherding Assistant)
 
 | # | Agent ID | Name | Slack Channel | Use Case | Replaces / Complements |
@@ -107,10 +107,10 @@
 
 | Component | URL / Value |
 |---|---|
-| n8n Instance | `n8n-zpvua-u69864.vm.elestio.app` |
-| EspoCRM | `https://rrespocrm-rsg-u69864.vm.elestio.app` |
+| n8n Instance | `{{N8N_HOST}}` |
+| EspoCRM | `https://{{ESPOCRM_HOST}}` |
 | EspoCRM Auth | `X-Api-Key` header — key in 1Password |
-| OpenClaw Gateway | `openclaw-larau-u69864.vm.elestio.app` |
+| OpenClaw Gateway | `{{OPENCLAW_HOST}}` |
 | Slack Error Channel | #systems-check (`C0AFHN83ZE3`) |
 | NowCerts Auth | Fresh token per run (~60 min expiry) — credentials in 1Password |
 | n8n Slack Alerts | `$env.SLACK_WEBHOOK_URL` → #systems-check |

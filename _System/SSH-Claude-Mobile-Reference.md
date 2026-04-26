@@ -3,9 +3,9 @@
 
 ---
 
-## Quick Access — Elestio Servers
+## Quick Access — hosting platform Servers
 
-All RSG servers are Elestio-hosted. SSH format:
+All RSG servers are hosting platform-hosted. SSH format:
 
 ```
 ssh [user]@[hostname] -p [port]
@@ -13,11 +13,11 @@ ssh [user]@[hostname] -p [port]
 
 | Server | Hostname | Notes |
 |--------|----------|-------|
-| OpenClaw | `vm.elestio.app` (see Elestio dashboard) | Claude agents live here |
-| n8n | `vm.elestio.app` (see Elestio dashboard) | Automations |
-| EspoCRM | `rrespocrm-rsg-u69864.vm.elestio.app` | CRM |
+| OpenClaw | `vm.hosting platform.app` (see hosting platform dashboard) | Claude agents live here |
+| n8n | `vm.hosting platform.app` (see hosting platform dashboard) | Automations |
+| EspoCRM | `{{ESPOCRM_HOST}}` | CRM |
 
-> 📌 **Find exact SSH details:** Elestio Dashboard → Your Service → SSH/SFTP tab
+> 📌 **Find exact SSH details:** hosting platform Dashboard → Your Service → SSH/SFTP tab
 
 ---
 
@@ -93,7 +93,7 @@ tmux kill-session -t rsg
 
 **Termius** (recommended — iOS & Android)
 - Saves hosts, keys, and has a decent keyboard
-- Set up your Elestio hosts once, one tap to connect
+- Set up your hosting platform hosts once, one tap to connect
 - Enable "Keep Alive" to reduce drops
 
 **Blink Shell** (iOS power users)
@@ -106,7 +106,7 @@ tmux kill-session -t rsg
 
 | Problem | Fix |
 |---------|-----|
-| Connection refused | Check port number in Elestio dashboard |
+| Connection refused | Check port number in hosting platform dashboard |
 | Permission denied | SSH key not added to server — use password first, then `ssh-copy-id` |
 | Session dropped | Use tmux (see above) or switch to mosh |
 | `claude` not found | `which claude` — may need full path or `source ~/.bashrc` |

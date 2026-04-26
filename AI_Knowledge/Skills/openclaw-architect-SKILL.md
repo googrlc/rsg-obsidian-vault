@@ -27,11 +27,11 @@ If no to all three — flag it as a distraction.
 
 ## RSG OpenClaw Context
 
-**OpenClaw host:** Elestio instance
+**OpenClaw host:** hosting platform instance
 **Live workspace:** `/opt/app/workspace/` (HEARTBEAT.md, SOUL.md, AGENTS.md, IDENTITY.md, TOOLS.md, USER.md, MEMORY.md)
 **Live skills path:** `/opt/app/config/skills/` (flat .md files — OpenClaw reads from here)
 **Secondary skills path:** `/home/node/.openclaw/skills/[name]/SKILL.md` (backup/reference)
-**SSH:** `ssh root@openclaw-larau-u69864.vm.elestio.app` (ed25519 keys via 1Password SSH agent)
+**SSH:** `ssh root@{{OPENCLAW_HOST}}` (ed25519 keys via 1Password SSH agent)
 **Vault path:** `/Users/lamarcoates/Documents/GitHub/rsg-obsidian-vault`
 **GitHub repo:** `github.com/googrlc/rsg-obsidian-vault`
 **Skills in vault:** `AI_Knowledge/Skills/` (canonical documentation)
@@ -173,21 +173,21 @@ Uses [Gemini/Anthropic]. [Gretchen-facing: plain English only / Boss-level only]
 
 ```bash
 # Deploy skill file
-scp skill-name.md root@openclaw-larau-u69864.vm.elestio.app:/opt/app/config/skills/skill-name.md
+scp skill-name.md root@{{OPENCLAW_HOST}}:/opt/app/config/skills/skill-name.md
 
 # Backup to node skills dir
-ssh root@openclaw-larau-u69864.vm.elestio.app \
+ssh root@{{OPENCLAW_HOST}} \
   "mkdir -p /home/node/.openclaw/skills/skill-name && \
    cp /opt/app/config/skills/skill-name.md /home/node/.openclaw/skills/skill-name/SKILL.md"
 
 # Append HEARTBEAT block to live workspace
-ssh root@openclaw-larau-u69864.vm.elestio.app \
+ssh root@{{OPENCLAW_HOST}} \
   "cat >> /opt/app/workspace/HEARTBEAT.md << 'EOF'
 [HEARTBEAT block]
 EOF"
 
 # Verify
-ssh root@openclaw-larau-u69864.vm.elestio.app \
+ssh root@{{OPENCLAW_HOST}} \
   "ls /opt/app/config/skills/skill-name.md && grep -c 'trigger phrase' /opt/app/workspace/HEARTBEAT.md"
 ```
 
@@ -279,7 +279,7 @@ NowCerts token: POST https://api.nowcerts.com/api/token
   Agency ID: 09d93486-1536-48d7-9096-59f1f62b6f51
 
 EspoCRM: X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
-  Base: https://rrespocrm-rsg-u69864.vm.elestio.app/api/v1
+  Base: https://{{ESPOCRM_HOST}}/api/v1
 
 Supabase project: wibscqhkvpijzqbhjphg (us-east-1)
   Base: https://wibscqhkvpijzqbhjphg.supabase.co/rest/v1

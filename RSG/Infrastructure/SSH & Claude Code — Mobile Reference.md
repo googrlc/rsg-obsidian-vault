@@ -1,12 +1,12 @@
 ---
 title: SSH & Claude Code — Mobile Reference
 last_updated: 2026-04-04
-tags: [ssh, claude-code, elestio, mobile, reference]
+tags: [ssh, claude-code, hosting platform, mobile, reference]
 ---
 
 # SSH & Claude Code — Mobile Reference
 
-> Quick reference for SSHing into RSG's Elestio servers and running Claude Code from your phone. Built for Termius or any mobile SSH app.
+> Quick reference for SSHing into RSG's hosting platform servers and running Claude Code from your phone. Built for Termius or any mobile SSH app.
 
 ---
 
@@ -18,7 +18,7 @@ tags: [ssh, claude-code, elestio, mobile, reference]
 | n8n | Automations | Workflow engine |
 | EspoCRM | CRM | Avoid SSH unless troubleshooting |
 
-> **All servers are Elestio-hosted.** Get host IPs/ports from your Elestio dashboard → Services.
+> **All servers are hosting platform-hosted.** Get host IPs/ports from your hosting platform dashboard → Services.
 
 ---
 
@@ -28,8 +28,8 @@ tags: [ssh, claude-code, elestio, mobile, reference]
 
 **One-time setup per server:**
 1. Termius → **+** → New Host
-2. Fill in: Label, Hostname (IP from Elestio), Port (usually `22`)
-3. Username: `root` (Elestio default) or the user shown in your dashboard
+2. Fill in: Label, Hostname (IP from hosting platform), Port (usually `22`)
+3. Username: `root` (hosting platform default) or the user shown in your dashboard
 4. Auth: Password or SSH key (paste your private key under "Keys")
 5. Save → tap to connect
 
@@ -43,7 +43,7 @@ tags: [ssh, claude-code, elestio, mobile, reference]
 ## 🔌 Connecting to a Server
 
 ```bash
-ssh root@<YOUR-ELESTIO-IP> -p <PORT>
+ssh root@<YOUR-hosting platform-IP> -p <PORT>
 ```
 
 **OpenClaw example:**
@@ -51,7 +51,7 @@ ssh root@<YOUR-ELESTIO-IP> -p <PORT>
 ssh root@<openclaw-ip> -p 22
 ```
 
-> Find your exact IPs in **Elestio Dashboard → Your Services → [Service] → SSH Access tab**
+> Find your exact IPs in **hosting platform Dashboard → Your Services → [Service] → SSH Access tab**
 
 ---
 
@@ -165,5 +165,5 @@ cat /home/node/.openclaw/HEARTBEAT.md
 ## 🔗 Related Vault Pages
 
 - [[RSG-Architecture-2026]] — Full system architecture
-- [[Elestio-Security-Hardening]] — Security notes for Elestio servers
+- [[hosting platform-Security-Hardening]] — Security notes for hosting platform servers
 - [[Claude Code Prompt — RSG Infrastructure Setup]] — Initial setup reference
