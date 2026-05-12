@@ -68,7 +68,7 @@ This VPS also runs (non-exhaustive; treat as shared capacity and security bounda
 - Open WebUI  
 - Homepage (command center)
 
-For Tailscale-oriented notes elsewhere in the vault, see pointers from [[RSG/Workflows/OpenClaw Build/N8N-Tailscale]].
+Legacy Tailscale scratch note (links here for Hostinger ops): [[RSG/Workflows/OpenClaw Build/N8N-Tailscale]].
 
 ## Troubleshooting
 
