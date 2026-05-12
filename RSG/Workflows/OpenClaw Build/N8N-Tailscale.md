@@ -1,3 +1,7 @@
+**Canonical Hostinger production n8n ops** (SSH, Docker, Tailscale IP, logs, import CLI, troubleshooting): [[RSG/Systems/Hostinger-n8n-SSH-Docker-Ops]]
+
+---
+
 tailscale up
 
 To authenticate, visit:

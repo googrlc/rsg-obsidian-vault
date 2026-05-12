@@ -1,5 +1,5 @@
-# RSG Obsidian Vault - Index
-Last Updated: 2026-05-07
+# RSG Obsidian Vault — Index
+Last Updated: 2026-05-12
 
 ## Source of Truth
 Full architecture: [[_System/RSG-Architecture-2026]] - systems, agents, workflows, credentials
@@ -10,6 +10,8 @@ Full architecture: [[_System/RSG-Architecture-2026]] - systems, agents, workflow
 | [[_System/RSG-n8n-Workflow-Inventory]] | Canonical n8n workflow IDs, health stats, credentials, Gemini/Espo rules, open issues | 2026-04-12 |
 | [[03-Systems/CRM/RSG_EspoCRM_Codebase_Audit_2026-04-16]] | Full EspoCRM codebase audit: 52 findings across 7 deep dives, prioritized P0-P3 execution plan | 2026-04-16 |
 | [[04-Strategy/Growth/RSG-Growth-Strategy-Checklist]] | Growth strategy checklist: $1M North Star, 4-phase plan, revenue math, weekly rituals | 2026-05-07 |
+| [[AI_Knowledge/Skills/OpenClaw-Build-Context]] | Canonical build memory for OpenClaw hosting platform deployment, Bedrock role setup, model choices, and active decisions | 2026-04-22 |
+| [[RSG/Systems/Hostinger-n8n-SSH-Docker-Ops]] | Canonical Hostinger VPS ops: production n8n SSH (public + Tailscale), Docker container name, logs, workflow import CLI, 1Password key names, co-located services, troubleshooting | 2026-05-12 |
 
 ## Vault Structure (v2 - Numbered Hierarchy)
 
