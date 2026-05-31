@@ -25,7 +25,6 @@
 |---|---|---|---|
 | openclaw-larau-u69864 | 100.109.241.110 | Linux | OpenClaw Gateway |
 | lamars-mac-mini | 100.82.142.43 | macOS | Local AI (Ollama) |
-| n8n-zpvua-u69864 | 100.73.8.33 | Linux | n8n Automation |
 | rrespocrm-rsg-u69864 | 100.117.239.109 | Linux | EspoCRM |
 
 ---
