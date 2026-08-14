@@ -17,7 +17,9 @@ Infrastructure documentation, CRM architecture, integration specs, and technical
 5. **This vault** - Documentation and institutional knowledge
 
 ## Key Architecture Docs
-- RSG-Architecture-2026.md (master reference)
+- [[Architecture/Amy-Copilot-Chat-Architecture]] — locked 2026-08-14: Copilot Chat is Amy's sole interface
+- RSG-Architecture-2026.md (Hermes / Slack / n8n / Espo ops reference)
 - RSG Workflow Registry
 - EspoCRM Codebase Audit
 - Data Dictionary
+- [[rsg-infrastructure/Supabase-Recon-2026-08-14]] — live Supabase readiness for Amy

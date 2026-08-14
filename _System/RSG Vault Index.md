@@ -1,11 +1,16 @@
 # RSG Obsidian Vault — Index
-Last Updated: 2026-05-12
+Last Updated: 2026-08-14
 
 ## Source of Truth
-Full architecture: [[_System/RSG-Architecture-2026]] - systems, agents, workflows, credentials
+Full ops architecture: [[_System/RSG-Architecture-2026]] - systems, agents, workflows, credentials
+Amy user interface (locked 2026-08-14): [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]]
 
 | Path | Description | Updated |
 |---|---|---|
+| [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]] | Locked decision: Copilot Chat is Amy's sole interface; specialists are hidden sub-agents; Supabase is the intelligence layer | 2026-08-14 |
+| [[rsg-infrastructure/Supabase-Recon-2026-08-14]] | Live schema recon of rsg-infrastructure for Amy: 206 tables, pgvector ready, embeddings empty, agency-bill empty | 2026-08-14 |
+| [[rsg-infrastructure/Hermes-VPS-DigitalOcean]] | DigitalOcean hermes-vps (Penny/Mattermost): SSH aliases, Tailscale IP, isolation from hermes-gretch | 2026-08-11 |
+| [[rsg-infrastructure/SSH-Config]] | Unified SSH hosts including hermes-vps vs hermes-gretch | 2026-08-11 |
 | [[_System/RSG-Dify-Agent-Registry]] | Canonical Dify app IDs, intake workflow deep dive, audit items, portal + deployment runbook | 2026-04-12 |
 | [[_System/RSG-n8n-Workflow-Inventory]] | Canonical n8n workflow IDs, health stats, credentials, Gemini/Espo rules, open issues | 2026-04-12 |
 | [[03-Systems/CRM/RSG_EspoCRM_Codebase_Audit_2026-04-16]] | Full EspoCRM codebase audit: 52 findings across 7 deep dives, prioritized P0-P3 execution plan | 2026-04-16 |

@@ -3,7 +3,9 @@
 **Risk Solutions Group** — 2-person insurance agency (Atlanta, GA)
 Lamar Coates (Owner/Producer) + Gretchen (CSR/Personal Lines)
 ~$385K active premium | 104 policies | 13 LOBs | GA, AL, FL, SC, TN
-Last updated: 2026-04-02
+Last updated: 2026-08-14
+
+> **2026-08-14 — Amy front door locked.** Users talk to Amy only through Microsoft 365 Copilot Chat. Specialists are hidden sub-agents. Teams and SharePoint are not agent channels. This file remains the Hermes / Slack / n8n / Espo ops map. Canonical Amy doc: [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]]. Schema recon: [[rsg-infrastructure/Supabase-Recon-2026-08-14]].
 
 ---
 
