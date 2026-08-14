@@ -156,8 +156,10 @@ Amy handles morning desk, mid-day placement ("who writes GL for plumbing in Geor
 
 **Complete.** 4,436 embeddings, 8 RPCs, 2 Edge Functions, `ai_knowledge_items` live. Ready for Copilot Studio.
 
+**Next session:** [[03-Systems/Architecture/Supabase-Microsoft-Handoff-2026-08-14]] — build order, endpoints, Amy system prompt, first test prompt.
+
 → [[rsg-infrastructure/Supabase-Readiness-Final-2026-08-14]]  
-→ Cursor handoff: [agency-knowledge-build](https://github.com/googrlc/agency-knowledge-build)
+→ GitHub: [agency-knowledge-build/MICROSOFT-HANDOFF.md](https://github.com/googrlc/agency-knowledge-build/blob/main/MICROSOFT-HANDOFF.md)
 
 ## Related
 
