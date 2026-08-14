@@ -26,7 +26,9 @@ Everything else stays the same. Supabase is still the intelligence layer. Amy is
 
 SharePoint remains a **document store** (carrier appetite PDFs, policy examples, SOPs). It is not an agent channel. Copilot Chat can reference SharePoint through Copilot Studio knowledge sources.
 
-This front door does **not** replace Hermes, Slack, EspoCRM, or NowCerts. Those remain systems of record and ops channels. Copilot Chat is the sole interface for Amy and her specialists.
+This front door does **not** replace Hermes, Slack, **Zoho CRM**, or NowCerts. Those remain systems of record and ops channels. Copilot Chat is the sole interface for Amy and her specialists.
+
+**CRM of record is Zoho CRM** (MCP: `user-ZohoMCP`). EspoCRM is retired. Do not read or write Espo for live work.
 
 ## Access model
 
@@ -81,7 +83,7 @@ AMY (Orchestrator Agent)
 | Classification Agent | Sub-agent of Amy (not directly published) | Configured |
 | Agency Bill Agent | Sub-agent of Amy (not directly published) | Configured |
 | Commission Agent | Sub-agent of Amy (not directly published) | Configured |
-| CRM / Service | Handled by Amy directly | N/A |
+| CRM / Service | Handled by Amy directly via **Zoho CRM** (`user-ZohoMCP`) | N/A |
 | Medicare Agent | Sub-agent of Amy (not directly published) | Configured |
 
 **Users only see Amy in Copilot Chat.** Specialists are tools Amy calls. That is by design.
@@ -103,6 +105,12 @@ AMY (Orchestrator Agent)
 5. Tell the team: "Open Copilot Chat and talk to Amy."
 
 Copilot Chat can still suggest a specialist via in-conversation agent recommendations (Build 2025). Prefer Amy as the default so routing stays internal.
+
+## CRM of record
+
+**Zoho CRM is live.** MCP: `user-ZohoMCP`. Confirmed 2026-08-14 — 39 visible modules including standard Leads / Contacts / Accounts / Deals / Tasks / Cases plus RSG custom modules: `Policies`, `Renewals`, `Renewal_Events`, `AMS_Write_Queue`.
+
+Amy's CRM/service answers and task writes go through Zoho, not Espo. EspoCRM is retired.
 
 ## Daily function (target UX)
 
@@ -141,7 +149,8 @@ Amy handles morning desk, mid-day placement ("who writes GL for plumbing in Geor
 - Specialists are sub-agents, not separately published (Medicare exception as above).
 - Supabase is the intelligence layer. SharePoint/Nextcloud hold source documents only.
 - Do not deploy Teams or SharePoint as agent channels.
-- Hermes / Slack / EspoCRM / NowCerts remain systems of record; this does not replace them.
+- Hermes / Slack / **Zoho CRM** / NowCerts remain systems of record; this does not replace them.
+- **CRM of record is Zoho CRM.** EspoCRM is retired — historical vault docs that mention Espo are legacy, not live.
 
 ## Related
 

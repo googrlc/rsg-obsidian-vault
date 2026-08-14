@@ -17,6 +17,8 @@ Recon for the locked architecture: [[03-Systems/Architecture/Amy-Copilot-Chat-Ar
 
 The **schema is ready**. The **data is not**.
 
+CRM of record is **Zoho CRM** (confirmed live 2026-08-14 via `user-ZohoMCP`: Accounts, Contacts, Leads, Deals, Tasks, Cases, plus custom `Policies`, `Renewals`, `Renewal_Events`, `AMS_Write_Queue`). EspoCRM is retired. Supabase still holds analytics, class codes, appetite, commission, and agency-bill tables.
+
 - 206 public tables, ~38,684 rows
 - `vector` 0.8.0 installed; `vector(1536)` columns + HNSW indexes exist
 - **0 of 4,315 classification embeddings are filled.** Semantic search will fail until embeddings are generated.
@@ -31,7 +33,7 @@ The **schema is ready**. The **data is not**.
 | Carrier Appetite | `carrier_appetite`, `carrier_appetite_class_codes`, `appetite_docs`, `appetite_placement_outcomes`, `knowledge_chunks` | 74 / 9 / 2 / 0 / 34 | **Thin.** 74 active appetite rows (24 preferred, 26 standard, 8 non-standard, 16 unlabeled). No placement history. Chunks not embedded. |
 | Agency Bill | `agency_bill_invoices`, `agency_bill_receipts`, `agency_bill_remittances`, `agency_bill_exceptions` | 0 / 0 / 0 / 0 | **Blocked.** Schema matches the daily-function fields. No data. |
 | Commission | `commission_rules`, `commission_ledger`, `commission_transactions`, `commission_reconciliation`, `commission_escalations`, `commission_statements` | 216 / 123 / 208 / 0 / 0 / 2 | **Partial.** Rules + ledger exist. Reconciliation and escalations are empty. |
-| CRM / Service (Amy direct) | `agency_crm_tasks`, `agency_crm_cases`, `canonical_clients`, `canonical_policies` | 18 / 13 / 364 / 456 | **Usable.** 17 tasks `not_started`, 1 cancelled. Book mirror is populated. |
+| CRM / Service (Amy via Zoho) | Zoho: Accounts, Contacts, Deals, Tasks, Cases, Policies, Renewals. Supabase mirror: `agency_crm_tasks`, `canonical_clients`, `canonical_policies` | Zoho live / Supabase 18 / 364 / 456 | **Usable.** Live CRM is Zoho. Supabase book mirror is populated. |
 | Medicare | `medicare_master_plan_index`, `medicare_county_footprints`, `medicare_medical_rx_matrix`, `medicare_supplemental_benefits` | 128 / 357 / 95 / 94 | **Ready for lookup.** `medicare_plans` has 1 row — prefer the master index. |
 
 ## pgvector
@@ -89,4 +91,5 @@ ALTER TABLE public.nowcerts_picklist_options ENABLE ROW LEVEL SECURITY;
 
 - Copilot Studio agent configs (not in Supabase)
 - SharePoint document inventory
-- NowCerts / EspoCRM live reads (separate MCP)
+- NowCerts / Zoho CRM live reads (separate MCP: `nowcerts`, `user-ZohoMCP`)
+- EspoCRM is retired; do not recon it as a live system

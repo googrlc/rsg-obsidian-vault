@@ -5,7 +5,9 @@ Lamar Coates (Owner/Producer) + Gretchen (CSR/Personal Lines)
 ~$385K active premium | 104 policies | 13 LOBs | GA, AL, FL, SC, TN
 Last updated: 2026-08-14
 
-> **2026-08-14 — Amy front door locked.** Users talk to Amy only through Microsoft 365 Copilot Chat. Specialists are hidden sub-agents. Teams and SharePoint are not agent channels. This file remains the Hermes / Slack / n8n / Espo ops map. Canonical Amy doc: [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]]. Schema recon: [[rsg-infrastructure/Supabase-Recon-2026-08-14]].
+> **2026-08-14 — Amy front door locked.** Users talk to Amy only through Microsoft 365 Copilot Chat. Specialists are hidden sub-agents. Teams and SharePoint are not agent channels. Canonical Amy doc: [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]]. Schema recon: [[rsg-infrastructure/Supabase-Recon-2026-08-14]].
+>
+> **CRM of record is Zoho CRM.** EspoCRM is retired. Sections below that name EspoCRM are a historical ops map (April 2026), not live systems. Do not write to Espo.
 
 ---
 
