@@ -152,7 +152,15 @@ Amy handles morning desk, mid-day placement ("who writes GL for plumbing in Geor
 - Hermes / Slack / **Zoho CRM** / NowCerts remain systems of record; this does not replace them.
 - **CRM of record is Zoho CRM.** EspoCRM is retired — historical vault docs that mention Espo are legacy, not live.
 
+## Supabase status (2026-08-14)
+
+**Complete.** 4,436 embeddings, 8 RPCs, 2 Edge Functions, `ai_knowledge_items` live. Ready for Copilot Studio.
+
+→ [[rsg-infrastructure/Supabase-Readiness-Final-2026-08-14]]  
+→ Cursor handoff: `~/agency knowledge build/HANDOFF.md`
+
 ## Related
 
-- Live schema recon: [[rsg-infrastructure/Supabase-Recon-2026-08-14]]
+- **Final readiness (use this):** [[rsg-infrastructure/Supabase-Readiness-Final-2026-08-14]]
+- Pre-build recon: [[rsg-infrastructure/Supabase-Recon-2026-08-14]]
 - Platform ops architecture (Hermes, Slack, n8n): [[_System/RSG-Architecture-2026]]

@@ -2,9 +2,12 @@
 title: Supabase Recon — rsg-infrastructure (2026-08-14)
 updated: 2026-08-14
 tags: [rsg, supabase, recon, amy, pgvector]
+superseded_by: Supabase-Readiness-Final-2026-08-14
 ---
 
 # Supabase Recon — rsg-infrastructure
+
+> **Superseded for ops handoff.** Build completed same day. Use [[rsg-infrastructure/Supabase-Readiness-Final-2026-08-14]] for live endpoints, migration list, and Microsoft session checklist. This doc remains the pre-build baseline recon.
 
 **Date:** 2026-08-14
 **Project:** `rsg-infrastructure` (`wibscqhkvpijzqbhjphg`)
