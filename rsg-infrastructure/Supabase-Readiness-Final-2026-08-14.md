@@ -13,7 +13,7 @@ status: ready-for-microsoft-session
 
 Architecture lock: [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]]  
 Initial recon (pre-build): [[rsg-infrastructure/Supabase-Recon-2026-08-14]]  
-Cursor workspace handoff: `~/agency knowledge build/HANDOFF.md`
+Cursor workspace handoff: [agency-knowledge-build](https://github.com/googrlc/agency-knowledge-build) · `HANDOFF.md`
 
 ---
 
