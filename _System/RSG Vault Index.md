@@ -11,12 +11,8 @@ Amy user interface (locked 2026-08-14): [[03-Systems/Architecture/Amy-Copilot-Ch
 | [[rsg-infrastructure/Supabase-Recon-2026-08-14]] | Live schema recon of rsg-infrastructure for Amy: 206 tables, pgvector ready, embeddings empty, agency-bill empty | 2026-08-14 |
 | [[rsg-infrastructure/Hermes-VPS-DigitalOcean]] | DigitalOcean hermes-vps (Penny/Mattermost): SSH aliases, Tailscale IP, isolation from hermes-gretch | 2026-08-11 |
 | [[rsg-infrastructure/SSH-Config]] | Unified SSH hosts including hermes-vps vs hermes-gretch | 2026-08-11 |
-| [[_System/RSG-Dify-Agent-Registry]] | Canonical Dify app IDs, intake workflow deep dive, audit items, portal + deployment runbook | 2026-04-12 |
-| [[_System/RSG-n8n-Workflow-Inventory]] | Canonical n8n workflow IDs, health stats, credentials, Gemini/Espo rules, open issues | 2026-04-12 |
-| [[03-Systems/CRM/RSG_EspoCRM_Codebase_Audit_2026-04-16]] | Historical EspoCRM audit (Espo retired 2026; live CRM is Zoho) | 2026-04-16 |
 | [[04-Strategy/Growth/RSG-Growth-Strategy-Checklist]] | Growth strategy checklist: $1M North Star, 4-phase plan, revenue math, weekly rituals | 2026-05-07 |
-| [[AI_Knowledge/Skills/OpenClaw-Build-Context]] | Canonical build memory for OpenClaw hosting platform deployment, Bedrock role setup, model choices, and active decisions | 2026-04-22 |
-| [[RSG/Systems/Hostinger-n8n-SSH-Docker-Ops]] | Canonical Hostinger VPS ops: production n8n SSH (public + Tailscale), Docker container name, logs, workflow import CLI, 1Password key names, co-located services, troubleshooting | 2026-05-12 |
+| [[03-Systems/Agents/Persona-Design/01-revenue-sheriff]] | Agent persona prompts (15 personas, platform-agnostic) — run via Claude, Hermes, or Amy sub-agents | 2026-08-14 |
 
 ## Vault Structure (v2 - Numbered Hierarchy)
 
@@ -55,7 +51,6 @@ rsg-obsidian-vault/
 ```
 
 ## Migration Status
-See [[_System/Migration-Map]] for the full old-to-new folder mapping.
 New 00-05 folders initialized 2026-05-07. Migration in progress.
 
 ## Tool Access Map
@@ -66,8 +61,6 @@ New 00-05 folders initialized 2026-05-07. Migration in progress.
 | Claude (claude.ai) | Obsidian Local REST API MCP | YES | YES |
 | Claude Code | Direct filesystem | YES | YES |
 | CoWork | Obsidian Local REST API | YES | YES |
-| OpenClaw | GitHub API (git sync) | YES | NO |
-| n8n | GitHub API webhook | YES | NO |
 | Obsidian app | Direct filesystem | YES | YES |
 
 ## GitHub Sync
@@ -76,6 +69,6 @@ Previously: github.com/googrlc/rsg-obsidian-vault (redirects still work)
 
 ## Key Rules
 - Skills canonical source = AI_Knowledge/Skills/ (migrating to 03-Systems/Agents/Skills/)
-- OpenClaw reads skills FROM GitHub mirror - keep vault synced
+- Agents read skills FROM the GitHub mirror - keep vault synced
 - North Star: $1M annual premium (see 04-Strategy/Growth/)
 - Lamar's #1 job: revenue-generating activity

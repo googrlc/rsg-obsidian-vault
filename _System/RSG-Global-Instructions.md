@@ -2,7 +2,7 @@
 
 Last Updated: 2026-04-01
 
-> This is the operating context for all AI systems at RSG. Claude, OpenClaw agents, and any AI tool should load this before executing tasks.
+> This is the operating context for all AI systems at RSG. Claude, Hermes, and any AI tool should load this before executing tasks.
 
 ---
 
@@ -40,9 +40,8 @@ Every deliverable that involves Gretchen must be:
 ## CORE TOOLS & SYSTEMS
 
 - AMS: NowCerts/Momentum (system of record)
-- CRM: EspoCRM ({{ESPOCRM_HOST}})
-- Automations: n8n (hosting platform-hosted)
-- AI Agents: OpenClaw (hosting platform-hosted)
+- CRM: Zoho CRM
+- AI Agents: Claude (Claude Code + agents), Hermes
 - Database: Supabase (project: rsg-infrastructure)
 - Docs: Obsidian vault → GitHub (rsg-obsidian-vault)
 - Comm: Slack (#the-boss, #systems-check, #lamar-alerts, #gretchen-tasks)
@@ -67,7 +66,7 @@ Every deliverable that involves Gretchen must be:
 - Data/tracking → .xlsx
 - Architecture/internal docs → .md for Obsidian vault
 - Ask before deleting ANYTHING
-- Confirm before making changes to live systems (NowCerts, EspoCRM, n8n)
+- Confirm before making changes to live systems (NowCerts, Zoho CRM)
 
 ---
 

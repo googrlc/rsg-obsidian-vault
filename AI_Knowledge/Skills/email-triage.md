@@ -32,7 +32,7 @@ description: >
 - Carrier appetite or rate change announcements
 - Prospect replied to outreach
 - Renewal 15-60 days out
-- EspoCRM opportunity-related correspondence
+- Zoho CRM deal-related correspondence
 
 ### 🟢 Gretchen
 - Personal lines anything: home, auto, renters, umbrella
@@ -47,7 +47,7 @@ description: >
 - CE/training webinar invitations
 - Industry newsletters (IA Magazine, Insurance Journal, etc.)
 - Vendor sales pitches (not insurance prospects)
-- System notifications (NowCerts alerts, EspoCRM notifications)
+- System notifications (NowCerts alerts, Zoho CRM notifications)
 
 ### 🗑️ Archive
 - Pure spam / promotional
@@ -142,7 +142,7 @@ RSG/
 
 ### Step 1: Read Incoming Email
 Use Gmail MCP tools to fetch unread messages:
-- Check sender against EspoCRM contacts (via crm-manager skill)
+- Check sender against Zoho CRM contacts (via `user-ZohoMCP`)
 - Check subject line against routing rules
 - Check body content for keywords
 
@@ -152,7 +152,7 @@ Apply the appropriate Gmail label based on routing rules above.
 ### Step 3: Draft Response (if applicable)
 For 🔴 and 🟡 emails:
 - Draft a response using the appropriate template
-- Pull relevant data from EspoCRM (account, policies, opportunities)
+- Pull relevant data from Zoho CRM (account, policies, deals)
 - Save as Gmail draft — Lamar reviews and sends
 
 For 🟢 emails:
@@ -161,8 +161,8 @@ For 🟢 emails:
 
 ### Step 4: Log Activity
 For any client-related email:
-- Log a note or update in EspoCRM on the relevant Account/Contact
-- If it relates to an open Opportunity or Renewal, update the record
+- Log a note or update in Zoho CRM on the relevant Account/Contact
+- If it relates to an open Deal or Renewal, update the record
 
 ### Step 5: Archive
 For 🗑️ emails:
@@ -192,5 +192,5 @@ DRAFTS READY FOR REVIEW: {count}
 
 ## Error Handling
 - Gmail API failure → retry once, then alert #systems-check
-- Unknown sender (not in EspoCRM) → default to 🟡 Lamar Today, suggest creating a Lead
+- Unknown sender (not in Zoho CRM) → default to 🟡 Lamar Today, suggest creating a Lead
 - Ambiguous routing (could be Lamar or Gretchen) → default to 🟡 Lamar Today with note

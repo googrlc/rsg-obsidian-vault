@@ -14,9 +14,8 @@ tags: [ssh, claude-code, hosting platform, mobile, reference]
 
 | Server | What's on it | Notes |
 |---|---|---|
-| OpenClaw | AI agents, skills | Primary work server |
-| n8n | Automations | Workflow engine |
-| EspoCRM | CRM | Avoid SSH unless troubleshooting |
+| Elestio VPS | Nextcloud, LiteLLM | File hosting + LLM gateway |
+| DigitalOcean | Apps | Droplet |
 
 > **All servers are hosting platform-hosted.** Get host IPs/ports from your hosting platform dashboard → Services.
 
@@ -46,9 +45,9 @@ tags: [ssh, claude-code, hosting platform, mobile, reference]
 ssh root@<YOUR-hosting platform-IP> -p <PORT>
 ```
 
-**OpenClaw example:**
+**Example:**
 ```bash
-ssh root@<openclaw-ip> -p 22
+ssh root@<server-ip> -p 22
 ```
 
 > Find your exact IPs in **hosting platform Dashboard → Your Services → [Service] → SSH Access tab**
@@ -66,7 +65,7 @@ claude
 
 **Run Claude Code on a specific folder:**
 ```bash
-claude /home/node/.openclaw
+claude /path/to/project
 ```
 
 **Run a one-shot command (no interactive session):**
@@ -119,20 +118,14 @@ tmux kill-session -t work
 
 ---
 
-## 🧭 Key Paths on OpenClaw Server
+## 🧭 Useful Server Commands
 
 ```bash
-# OpenClaw skills
-/home/node/.openclaw/skills/
+# Docker containers
+docker ps
 
-# HEARTBEAT.md (agent registry)
-/home/node/.openclaw/HEARTBEAT.md
-
-# Check all skills installed
-ls /home/node/.openclaw/skills/
-
-# Read HEARTBEAT
-cat /home/node/.openclaw/HEARTBEAT.md
+# Tailscale status
+tailscale status
 ```
 
 ---
@@ -141,13 +134,11 @@ cat /home/node/.openclaw/HEARTBEAT.md
 
 | What | Command |
 |---|---|
-| SSH into OpenClaw | `ssh root@<openclaw-ip>` |
+| SSH into server | `ssh root@<server-ip>` |
 | Start tmux session | `tmux new -s work` |
 | Reattach tmux | `tmux attach -t work` |
 | Start Claude Code | `claude` |
 | One-shot Claude prompt | `claude -p "your prompt here"` |
-| List OpenClaw skills | `ls /home/node/.openclaw/skills/` |
-| Read HEARTBEAT | `cat /home/node/.openclaw/HEARTBEAT.md` |
 | Detach from tmux | `Ctrl+B, D` |
 | Exit SSH | `exit` |
 

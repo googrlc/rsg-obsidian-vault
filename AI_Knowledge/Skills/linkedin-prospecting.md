@@ -1,12 +1,12 @@
 ---
 name: linkedin-prospecting
 description: >
-  LinkedIn prospecting skill targeting contractors and fleet operators. 3-touch outreach sequence, daily activity targets (5-10 connects, 5 messages), and EspoCRM lead logging.
+  LinkedIn prospecting skill targeting contractors and fleet operators. 3-touch outreach sequence, daily activity targets (5-10 connects, 5 messages), and Zoho CRM lead logging.
 ---
 
 # LinkedIn Prospecting — Contractor & Fleet Targeting
 
-**Goal:** Generate warm leads from LinkedIn by connecting with contractors and fleet operators in RSG's target markets. Every connection gets logged to EspoCRM.
+**Goal:** Generate warm leads from LinkedIn by connecting with contractors and fleet operators in RSG's target markets. Every connection gets logged to Zoho CRM.
 
 ## Target Profiles
 
@@ -46,16 +46,16 @@ Use Template 8 (LinkedIn) from `AI_Knowledge/Skills/outreach-templates.md`:
 {FIRST_NAME}, I insure {INDUSTRY} companies across {STATE}. Saw {COMPANY} and thought we might be a good connection. Always happy to be a resource on the insurance side — no pitch, just here if you need a second opinion.
 ```
 
-**After sending:** Log to EspoCRM as Lead:
+**After sending:** Log to Zoho CRM as a Lead:
 ```
-POST /api/v1/Lead
+POST Zoho CRM API / Leads
 {
-  "firstName": "{FIRST}",
-  "lastName": "{LAST}",
-  "accountName": "{COMPANY}",
-  "status": "New",
-  "source": "LinkedIn",
-  "description": "LinkedIn connection request sent {DATE}. Industry: {INDUSTRY}. Title: {TITLE}."
+  "First_Name": "{FIRST}",
+  "Last_Name": "{LAST}",
+  "Company": "{COMPANY}",
+  "Lead_Status": "New",
+  "Lead_Source": "LinkedIn",
+  "Description": "LinkedIn connection request sent {DATE}. Industry: {INDUSTRY}. Title: {TITLE}."
 }
 ```
 
@@ -68,7 +68,7 @@ Quick question — are you up for renewal in the next few months? The market for
 Either way, I'm an open book if you ever need a second opinion on your insurance program.
 ```
 
-**After sending:** Update EspoCRM Lead status to `Assigned`.
+**After sending:** Update Zoho CRM Lead status to `Assigned`.
 
 ### Touch 3: Specific Value / Ask (Day 7-10)
 Personalize based on what you've learned:
@@ -83,7 +83,7 @@ Personalize based on what you've learned:
 Worth a 10-minute call this week?
 ```
 
-**After sending:** Update EspoCRM Lead status to `In Process`.
+**After sending:** Update Zoho CRM Lead status to `In Process`.
 
 ### If No Response After Touch 3
 - Wait 30 days
@@ -93,20 +93,20 @@ Worth a 10-minute call this week?
 
 ### If They Reply
 - Move Lead to `In Process` immediately
-- If they share renewal date → create EspoCRM Opportunity with close date
+- If they share renewal date → create Zoho CRM Deal with close date
 - If they want a quote → run prospect-researcher skill, then hand off to quoting workflow
 - Post to **#the-boss**: "🎯 LinkedIn lead engaged: {NAME} at {COMPANY} — {next step}"
 
-## EspoCRM Lead Logging
+## Zoho CRM Lead Logging
 
-Every LinkedIn prospect gets a Lead record. Read `AI_Knowledge/Skills/crm-manager.md` for API details.
+Every LinkedIn prospect gets a Lead record. Access Zoho CRM via MCP `user-ZohoMCP`.
 
 **Required fields:**
-- `firstName`, `lastName`
-- `accountName` (company)
-- `source`: always `"LinkedIn"`
-- `status`: track through `New` → `Assigned` → `In Process` → `Converted` (or `Dead`)
-- `description`: include LinkedIn profile URL, industry, touch history
+- `First_Name`, `Last_Name`
+- `Company`
+- `Lead_Source`: always `"LinkedIn"`
+- `Lead_Status`: track through `New` → `Assigned` → `In Process` → `Converted` (or `Dead`)
+- `Description`: include LinkedIn profile URL, industry, touch history
 
 **Convert to Opportunity when:**
 - Prospect confirms a renewal date
@@ -143,6 +143,6 @@ Suggest posts for Lamar to publish that attract contractor/fleet audiences:
 - "Why your sub's COI isn't protecting you"
 
 ## Error Handling
-- EspoCRM down → queue leads in a local note, bulk-create when back up
+- Zoho CRM down → queue leads in a local note, bulk-create when back up
 - Duplicate lead detected → update existing Lead with new touch info, don't create duplicate
 - LinkedIn rate limits → reduce daily activity, focus on quality over quantity

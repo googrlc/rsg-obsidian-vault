@@ -28,7 +28,7 @@
 |Agent|Purpose|Status|
 |---|---|---|
 |🔍 Prospect Intelligence|Pre-call research → Notion|✅ Built (Manus skill)|
-|💰 Commission Agent|Commission calc, split logic, dopamine hits|🟡 Partial (n8n broken)|
+|💰 Commission Agent|Commission calc, split logic, dopamine hits|🔴 Rebuild on Zoho CRM|
 |📋 Carrier Appetite Agent|Carrier fit + underwriting guidance|🔴 Not built|
 |📚 LOB Education Agent|Line of business Q&A for Gretchen + Lamar|🔴 Not built|
 |📣 Marketing Agent|Content, LinkedIn, email sequences|🔴 Not built|
@@ -60,14 +60,14 @@
 - [ ] Provision Supabase project (already identified as preferred vector DB)
 - [ ] Create `knowledge_chunks` table (content, embedding, source, domain, tags, created_at)
 - [ ] Create `documents` table (title, source_url, domain, doc_type, last_ingested)
-- [ ] Connect Google Workspace → ingestion pipeline (n8n webhook on file add)
-- [ ] Build chunker/embedder node in n8n (OpenAI embeddings → Supabase pgvector insert)
+- [ ] Connect Google Workspace → ingestion pipeline (webhook on file add)
+- [ ] Build chunker/embedder step (OpenAI embeddings → Supabase pgvector insert)
 - [ ] Build classifier node (tag by domain: agency | ministry | personal)
 - [ ] Build semantic search function in Supabase (`match_chunks` RPC)
 - [ ] Test retrieval: query "commercial auto appetite Progressive" → returns correct chunk
 - [ ] Seed initial corpus: carrier appetite PDFs, underwriting guides, LOB fact sheets
 
-**Dependencies:** Supabase project, OpenAI API key, Google Drive OAuth in n8n
+**Dependencies:** Supabase project, OpenAI API key, Google Drive OAuth
 
 **Obsidian Link:** `[[Knowledge Engine Architecture]]`
 
@@ -84,7 +84,7 @@
 #### 1A — Carrier Appetite Agent
 
 - [ ] Load carrier appetite data into Supabase (PDF ingestion via Phase 0 pipeline)
-- [ ] Build n8n workflow: Slack slash command `/carrier [account type]` → semantic search → format response
+- [ ] Build Slack slash command `/carrier [account type]` → semantic search → format response
 - [ ] Include: carrier name, appetite fit, key exclusions, underwriting notes
 - [ ] Route back to Slack thread (not DM) so Gretchen can see it too
 - [ ] Test: `/carrier non-owned auto Dallas TX 5 trucks` → returns Progressive, Canal, next-best alternatives
@@ -103,7 +103,7 @@
 - [ ] Add Slack notification when intel pack completes (ping Lamar in #sales)
 - [ ] Test end-to-end: new lead added → Intel Pack runs → Notion updated → Slack pinged
 
-**Dependencies:** Phase 0 complete, Slack app with slash commands, n8n Slack node
+**Dependencies:** Phase 0 complete, Slack app with slash commands
 
 **Obsidian Link:** `[[Sales Intelligence Flow]]`
 
@@ -120,7 +120,6 @@
 #### 2A — Fix Broken Commission Automation (URGENT — do this first)
 
 - [ ] Fix won-stage string mismatch: update all FUNCTIONS.md strings to emoji-prefixed values (e.g. `✅ Won - Bound`)
-- [ ] Fix 5 empty Set LOB nodes in n8n JSON
 - [ ] Fix 4 aggregate sync filter keys with erroneous `=` prefix
 - [ ] Add Life Insurance Pipeline to FUNCTIONS.md
 - [ ] Fix bidirectional sync bug (hardcode exact select strings to stop accumulating duplicate options)
@@ -128,7 +127,7 @@
 
 #### 2B — Commission Agent (Upgrade)
 
-- [ ] Move commission rules from n8n hardcode → Supabase `commission_rules` table
+- [ ] Move commission rules into Supabase `commission_rules` table
 - [ ] Build commission calculator function (premium × commission rate × split logic)
 - [ ] Build producer math: Lamar vs. referral split, override tiers
 - [ ] Add commission ledger view in Notion or Softr dashboard
@@ -136,7 +135,7 @@
 
 #### 2C — Financial Agent (Phase 2 MVP)
 
-- [ ] Build monthly revenue summary (Notion aggregate → n8n → Slack report every 1st of month)
+- [ ] Build monthly revenue summary (Notion aggregate → Slack report every 1st of month)
 - [ ] Track: new premium written, renewals retained, lost accounts, commission YTD
 - [ ] Add close ratio tracking (Leads entered vs. Won)
 - [ ] Build simple executive dashboard in Softr (premium, commission, close ratio, retention rate)
@@ -159,12 +158,12 @@
 
 - [ ] Slack command `/service [request type] [client name]` → creates Notion task
 - [ ] Voice Capture Inbox routing: voice notes → transcribed → classified → task created
-- [ ] Email intake (forwarded to n8n webhook → parsed → Notion task)
+- [ ] Email intake (forwarded to webhook → parsed → Notion task)
 - [ ] Confirm Voice Capture Inbox (Notion ID: `9efbc24bbff847699c30ad156bd7bcbc`) is live
 
 #### 3B — Service Request Agent
 
-- [ ] Build n8n classifier: identify request type (COI | endorsement | cancellation | billing | other)
+- [ ] Build classifier: identify request type (COI | endorsement | cancellation | billing | other)
 - [ ] Validate client against NowCerts via API (verify policy exists, status active)
 - [ ] Create structured Notion task with: client name, policy #, request type, priority, due date
 - [ ] Assign to Gretchen by default; escalate to Lamar if commercial or >$5K exposure
@@ -191,7 +190,7 @@
 
 #### 4A — Calendar Agent
 
-- [ ] Connect Google Calendar → n8n (OAuth2)
+- [ ] Connect Google Calendar (OAuth2)
 - [ ] Build `/next` command in Slack: returns next 3 appointments with context
 - [ ] Build morning briefing v2: 8am Slack message with today's appointments + top 3 priorities
 - [ ] For sales appointments: auto-trigger prospect intel check before the call
@@ -212,7 +211,7 @@
 - [ ] Link to calendar agent for upcoming assembly dates
 - [ ] Slack notification 24h before assembly responsibilities
 
-**Dependencies:** Google Calendar OAuth2 in n8n, Phase 0 for knowledge storage
+**Dependencies:** Google Calendar OAuth2, Phase 0 for knowledge storage
 
 **Obsidian Link:** `[[Personal OS Architecture]]`
 
@@ -271,11 +270,11 @@ MONTH 5+
 
 |Blocker|Affects|Resolution|
 |---|---|---|
-|Gmail OAuth2 credentials not set|Renewal email sequences|Add in n8n credentials|
-|Notion Header Auth credential ID missing|Multiple n8n workflows|Document and configure|
+|Gmail OAuth2 credentials not set|Renewal email sequences|Configure OAuth2|
+|Notion Header Auth credential ID missing|Multiple workflows|Document and configure|
 |Manus API env vars not set|Day 30 personalization|Add to Manus Secrets Vault|
-|8 broken n8n automations|Revenue Ops, Onboarding|Fix before building new|
-|Won-stage string mismatch|Commission automation|Fix FUNCTIONS.md + n8n JSON|
+|8 legacy automations retired|Revenue Ops, Onboarding|Rebuild on Zoho CRM before building new|
+|Won-stage string mismatch|Commission automation|Fix FUNCTIONS.md|
 |NowCerts token expiry (~60 min)|All NowCerts API calls|Fresh token mint per run (already documented)|
 
 ---
@@ -296,7 +295,6 @@ MONTH 5+
 - `[[RSG Supporting Architecture Diagrams]]`
 - `[[RSG New Business Pipeline SOP]]`
 - `[[FUNCTIONS.md — Commission & Onboarding Automation]]`
-- `[[n8n Workflow Registry]]`
 - `[[Knowledge Engine Architecture]]`
 - `[[Manus Skill Registry]]`
 

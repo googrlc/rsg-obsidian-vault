@@ -17,6 +17,6 @@ Carrier knowledge, appetite guides, commercial data models, class codes, and ris
 
 ## Data Flow
 Underwriting data feeds into:
-1. EspoCRM (client/policy records)
+1. Zoho CRM (client/policy records)
 2. Supabase `knowledge_chunks` (RAG retrieval)
-3. OpenClaw (field research and risk assessment)
+3. Claude agents (field research and risk assessment)

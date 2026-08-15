@@ -8,7 +8,7 @@ This is the landing zone for everything that comes in before it gets properly ca
 ## Rules
 - Process weekly: move items to their proper 01-05 folder
 - If something has been here > 7 days, it either gets filed or archived
-- Agents (Hermes, OpenClaw) can drop items here for human triage
+- Agents (Hermes, Claude) can drop items here for human triage
 
 ## What Goes Here
 - Quick capture notes

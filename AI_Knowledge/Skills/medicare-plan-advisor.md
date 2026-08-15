@@ -188,7 +188,7 @@ Aetna, UHC, Devoted Health, Humana, Anthem, HealthSpring, Clear Spring, Clover, 
 
 ## Integration with Other Skills
 - Use **medication-formulary.md** for detailed drug tier lookups before scoring
-- Log plan recommendation in EspoCRM via **crm-manager.md** as Opportunity (LOB: Medicare)
+- Log plan recommendation in Zoho CRM as a Deal (LOB: Medicare)
 - If client has chronic conditions → SSBCI data enriches the recommendation
 
 ## Error Handling

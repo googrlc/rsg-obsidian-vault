@@ -20,7 +20,7 @@ Recon for the locked architecture: [[03-Systems/Architecture/Amy-Copilot-Chat-Ar
 
 The **schema is ready**. The **data is not**.
 
-CRM of record is **Zoho CRM** (confirmed live 2026-08-14 via `user-ZohoMCP`: Accounts, Contacts, Leads, Deals, Tasks, Cases, plus custom `Policies`, `Renewals`, `Renewal_Events`, `AMS_Write_Queue`). EspoCRM is retired. Supabase still holds analytics, class codes, appetite, commission, and agency-bill tables.
+CRM of record is **Zoho CRM** (confirmed live 2026-08-14 via `user-ZohoMCP`: Accounts, Contacts, Leads, Deals, Tasks, Cases, plus custom `Policies`, `Renewals`, `Renewal_Events`, `AMS_Write_Queue`). Supabase still holds analytics, class codes, appetite, commission, and agency-bill tables.
 
 - 206 public tables, ~38,684 rows
 - `vector` 0.8.0 installed; `vector(1536)` columns + HNSW indexes exist
@@ -95,4 +95,3 @@ ALTER TABLE public.nowcerts_picklist_options ENABLE ROW LEVEL SECURITY;
 - Copilot Studio agent configs (not in Supabase)
 - SharePoint document inventory
 - NowCerts / Zoho CRM live reads (separate MCP: `nowcerts`, `user-ZohoMCP`)
-- EspoCRM is retired; do not recon it as a live system

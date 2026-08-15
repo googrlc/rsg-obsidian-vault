@@ -105,7 +105,7 @@ GET /rest/v1/carrier_appetite?lob=eq.{LOB}&active=is.true&states_approved=cs.{"{
 GET /rest/v1/commission_rules?carrier_name=eq.{CARRIER}&lob=eq.{LOB}&state=in.({STATE},ALL)&active=is.true&order=lookup_priority.asc&limit=1&select=nb_percent,renewal_percent,mga_name,revenue_split_percent
 ```
 
-### Step 5: Check EspoCRM for Existing Records
+### Step 5: Check Zoho CRM for Existing Records
 Read `crm-manager.md` — search Account and Contact by company name to avoid duplicate outreach.
 
 ## Output Format — 60-Second Prospect Brief
@@ -153,4 +153,4 @@ TALKING POINTS:
 - No GL codes found → broaden search to category, suggest manual NAICS lookup
 - No WC codes found → DO NOT GUESS. Follow the 3-attempt sequence above, then post gap to #systems-check
 - No carrier appetite data → note "appetite data not loaded for this LOB" and fall back to commission_rules carriers
-- EspoCRM down → skip CRM check, note in output
+- Zoho CRM down → skip CRM check, note in output

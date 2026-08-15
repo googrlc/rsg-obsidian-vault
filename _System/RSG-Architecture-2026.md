@@ -7,7 +7,7 @@ Last updated: 2026-08-14
 
 > **2026-08-14 — Amy front door locked.** Users talk to Amy only through Microsoft 365 Copilot Chat. Specialists are hidden sub-agents. Teams and SharePoint are not agent channels. Canonical Amy doc: [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]]. Schema recon: [[rsg-infrastructure/Supabase-Recon-2026-08-14]].
 >
-> **CRM of record is Zoho CRM.** EspoCRM is retired. Sections below that name EspoCRM are a historical ops map (April 2026), not live systems. Do not write to Espo.
+> **CRM of record is Zoho CRM.** All pipeline, task, and renewal work runs through Zoho CRM (MCP: `user-ZohoMCP`).
 
 ---
 
@@ -15,9 +15,7 @@ Last updated: 2026-08-14
 
 | System | URL / ID |
 |---|---|
-| OpenClaw | {{OPENCLAW_HOST}} |
-| n8n | {{N8N_HOST}} |
-| EspoCRM | {{ESPOCRM_HOST}} |
+| Zoho CRM | CRM of record (MCP: `user-ZohoMCP`) |
 | Supabase | wibscqhkvpijzqbhjphg (us-east-1) |
 | NowCerts API | https://api.nowcerts.com/api |
 | NowCerts Agency ID | 09d93486-1536-48d7-9096-59f1f62b6f51 |
@@ -28,13 +26,13 @@ Last updated: 2026-08-14
 
 ## Layer 1: Infrastructure
 
-### hosting platform Cloud (3 VMs)
+### Servers
 
-| Server | Host | Purpose |
+| Server | Provider | Purpose |
 |---|---|---|
-| OpenClaw | {{OPENCLAW_HOST}} | AI agent orchestrator — 15 agents, 13 skills, Slack hub |
-| n8n | {{N8N_HOST}} | Workflow automation — NowCerts/EspoCRM sync, email, error handling |
-| EspoCRM | {{ESPOCRM_HOST}} | CRM — accounts, contacts, leads, opportunities, policies, renewals |
+| Elestio VMs | Elestio | Nextcloud (file hosting), LiteLLM (LLM gateway) |
+| hermes-vps | DigitalOcean | Hermes agent (Penny/Mattermost) — see [[rsg-infrastructure/Hermes-VPS-DigitalOcean]] |
+| Hostinger VPS | Hostinger | Web services via Cloudflare Tunnel `rsg-tunnel` (Hermes, Homebase, Carriers, Command Center) |
 
 ### Supabase
 
@@ -54,7 +52,7 @@ Last updated: 2026-08-14
 | Location | Purpose |
 |---|---|
 | ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian Vault/ | Local — Obsidian app, Claude Code, filesystem |
-| github.com/googrlc/rsg-obsidian-vault | Git mirror — OpenClaw reads skills via GITHUB_VAULT_TOKEN |
+| github.com/googrlc/rsg-obsidian-vault | Git mirror — agents read skills from the GitHub mirror |
 
 ---
 
@@ -65,7 +63,7 @@ Last updated: 2026-08-14
 | System | Truth Domain |
 |---|---|
 | NowCerts | Policy truth (AMS) |
-| EspoCRM | Pipeline truth (CRM) |
+| Zoho CRM | Pipeline truth (CRM) |
 | Supabase | Analytics/rules truth |
 | Obsidian | Knowledge truth |
 
@@ -74,81 +72,10 @@ Last updated: 2026-08-14
 - Token expiry: ~60 min — remint per session
 - Key data: policies, premiums, expiration dates, carriers, insureds
 
-### EspoCRM (CRM)
-- API: https://{{ESPOCRM_HOST}}/api/v1
-- Auth: X-Api-Key header
-- Modules: Account, Contact, Lead, Opportunity, Policy, Renewal, Commission, Task, Call, Meeting
-- Redesign spec: v1.7, 20 sections, 80 acceptance criteria
-
-#### Layout — Account Detail (2026-04-02)
-7-tab structure replacing broken legacy layout:
-
-| Tab | Label | Key Panels |
-|-----|-------|-----------|
-| 0 | Overview | Account Info, Key Metrics, Stream |
-| 1 | Contacts | Contacts |
-| 2 | Policies | Policies, Renewals |
-| 3 | Activity | Activity Logs, Emails, Meetings, Calls, Tasks |
-| 4 | Business Profile | Business Details, AI Assessment, Identity, BBB, Fleet, Risk, Gaps, Opportunities |
-| 5 | Group Benefits | Census, Medical, Ancillary, Disability, Notes |
-| 6 | Internal | AI Intel Pack, Internal IDs, Cases, Commissions |
-
-- CSS overflow containment added to `momentum.css` (all views: list, detail, kanban, modal)
-- `dynamicLogicVisible` conditionals preserved (Commercial vs Personal vs Group Benefits)
-
-#### Lead Pipeline — Pre-Qualification Kanban (2026-04-02)
-
-| Stage | Purpose |
-|-------|---------|
-| New / Uncontacted | Just entered |
-| Attempting Contact | Reached out, no response |
-| Connected | Conversation started |
-| Gathering Info | Collecting details + X-Date |
-| Qualified | Ready → triggers handoff to Opportunity |
-| Nurture | Not ready now, has X-Date |
-| DNC | Hidden from kanban |
-| Converted | Hidden from kanban |
-
-- `xDate` field added for nurture loop automation
-- New PHP filter classes: `Dnc.php`, `Nurture.php`; `Actual.php` updated to exclude DNC + Converted
-
-#### Opportunity Pipeline — Sales Cycle Kanban (2026-04-02)
-
-| Stage | Probability |
-|-------|------------|
-| Discovery | 10% |
-| Quoting | 30% |
-| Proposal Presented | 60% |
-| Negotiation | 80% |
-| Closed Won | 100% (hidden from kanban) |
-| Closed Lost | 0% (hidden from kanban) |
-
-- `WonBoundValidation` hook: requires Bind Date, Written Premium, Effective Date on "Closed Won"
-- Renewal stages preserved: Renewal Notice Sent → Bound/Renewed, Non-Renewal/Lost
-- All 5 Opportunity PHP filter classes updated (Open, Won, Lost, NewBusiness, Stalled)
-
-#### EspoCRM Kanban Customizations (2026-04-02)
-Pushed to `main` on `rsg-infrastructure` repo.
-
-**Kanban Layout Format Fix**
-- All 7 kanban layouts corrected from `{"rows": [...]}` (broken) to flat array format `[{...}, ...]`
-- Affected: Lead, Opportunity (New Business), Opportunity (Renewal), and all related list/detail kanban views
-
-**Stage Bar (stage-bar.js)**
-- Now uses correct live stage names: `Won - Bound`, `Lost`, etc.
-- Auto-detects New Business vs Renewal pipeline from opportunity field values
-- Templates: `detail.tpl` + `list.tpl` added for stage bar rendering
-
-**Opportunity Entity Config**
-- `entityDefs`: correct `kanbanOrder` and `kanbanStatusIgnoreList` applied
-- `scopes`: `kanbanStatusIgnoreList` corrected to match live stage names
-
-**CSS (momentum.css)**
-- Kanban table resets appended — prevents column overflow and layout breakage in kanban view
-
-**Export Script (export-espocrm.sh)**
-- Now also syncs `client/custom/` directory from Docker container to repo
-- Ensures custom JS, templates, and CSS are captured in version control
+### Zoho CRM (CRM of record)
+- Access: MCP server `user-ZohoMCP` (live 2026-08-14)
+- Modules: Accounts, Contacts, Leads, Deals, Tasks, Cases
+- Custom modules: `Policies`, `Renewals`, `Renewal_Events`, `AMS_Write_Queue`
 
 ### Supabase Tables — Commercial Insurance
 
@@ -186,7 +113,7 @@ Pushed to `main` on `rsg-infrastructure` repo.
 Obsidian Vault/
 ├── 00-Inbox/
 ├── AI_Knowledge/
-│   ├── Skills/               ← crm-manager, nowcerts-skill, prospect-researcher,
+│   ├── Skills/               ← nowcerts-skill, prospect-researcher,
 │   │                            renewal-prep, carrier-appetite, outreach-templates,
 │   │                            commission-reconciliation, linkedin-prospecting,
 │   │                            email-triage, vin-lookup, property-lookup,
@@ -202,8 +129,6 @@ Obsidian Vault/
 ├── RSG/
 │   ├── Infrastructure/
 │   ├── Workflows/
-│   │   └── OpenClaw Build/
-│   ├── EspoCRM/
 │   ├── SOPs/
 │   ├── Templates/
 │   └── Clients/
@@ -221,55 +146,32 @@ Obsidian Vault/
 └── _System/
     ├── RSG-Architecture-2026.md   ← THIS FILE
     ├── RSG Vault Index.md
-    ├── RSG Workflow Registry.md
     ├── data dictionary.txt
     └── Credentials/
 ```
 
 ---
 
-## Layer 4: OpenClaw — "The Walled Garden"
+## Layer 4: AI Access Points
 
-Docker container on hosting platform. Slack Socket Mode. 15 agents, 13 skills.
+| Tool | Where | Purpose |
+|---|---|---|
+| Claude Code | Mac CLI / VS Code | Development, architecture, skill authoring |
+| Claude (claude.ai) | Web + Obsidian Local REST API | Knowledge work, vault read/write |
+| Hermes | DigitalOcean hermes-vps + Hostinger | Internal agent — Slack hub, scheduled briefings |
+| ChatGPT | Web | Ad-hoc AI work |
+| Amy | Microsoft 365 Copilot Chat | Sole user-facing interface — specialists are hidden sub-agents |
+| LiteLLM | Elestio | LLM gateway — model routing for agents |
+| Nextcloud | Elestio | File hosting / document exchange |
 
-### Container Layout
-```
-/home/node/.openclaw/
-├── openclaw.json
-├── agents/           ← 15 agent configs
-├── skills/           ← 15 skill .md files
-├── references/
-├── workspace/
-│   ├── HEARTBEAT.md
-│   ├── IDENTITY.md
-│   ├── TOOLS.md
-│   ├── USER.md
-│   ├── memory/
-│   ├── agency-goals/
-│   ├── coverages/
-│   └── carriers/
-└── identity/device.json
-```
-
-### MCP Servers (in-container)
-- supabase — direct Supabase access (class codes, commission, Medicare)
-
-### Environment Variables
-```
-ANTHROPIC_API_KEY
-OPENAI_API_KEY
-SLACK_BOT_TOKEN
-SLACK_APP_TOKEN
-GITHUB_VAULT_TOKEN
-GITHUB_VAULT_REPO        googrlc/rsg-obsidian-vault
-GITHUB_VAULT_BRANCH      main
-NOWCERTS_PASSWORD
-SUPABASE_SERVICE_ROLE_KEY
-```
+### Environment / Secrets
+All API keys and tokens live in 1Password. Never commit credentials to the vault.
 
 ---
 
-## Layer 5: Agents (15 Personas)
+## Layer 5: Agent Personas (15)
+
+Persona prompts are platform-agnostic and live in [[03-Systems/Agents/Persona-Design]]. They run through Claude, Hermes, or Amy sub-agents.
 
 ### Revenue & Sales
 
@@ -284,7 +186,7 @@ SUPABASE_SERVICE_ROLE_KEY
 | Agent | Role | Channel |
 |---|---|---|
 | Morning Commander | Daily briefing, 3 non-negotiables, routing | #the-morning-commander |
-| Renewal Watchdog | Expiring policy monitoring, EspoCRM renewal sync | #service-brief |
+| Renewal Watchdog | Expiring policy monitoring, Zoho renewal sync | #service-brief |
 | Operations Foreman | Delegation, SOP gaps | #client-service |
 | Data Entry Assistant | Structured CRM/AMS data entry | — |
 | Automation Triage Nurse | Broken workflow triage | #systems-check |
@@ -308,11 +210,10 @@ SUPABASE_SERVICE_ROLE_KEY
 
 ---
 
-## Layer 6: Skills (13 Registered)
+## Layer 6: Skills (12 Registered)
 
 | Skill | File | Category |
 |---|---|---|
-| crm-manager | crm-manager.md | CRM/AMS |
 | nowcerts-skill | nowcerts-skill.md | CRM/AMS |
 | prospect-researcher | prospect-researcher.md | Sales |
 | carrier-appetite | carrier-appetite.md | Sales |
@@ -349,7 +250,7 @@ SUPABASE_SERVICE_ROLE_KEY
 | #growth-finance | C0AP89NDTHA | Commission flash, deal logging |
 | #sales-brief | C0AP1BCEURK | New business, quotes |
 | #the-task-list | C0AH4KJAYTU | Task digests, brain dump output |
-| #systems-check | C0AFHN83ZE3 | Health checks, WC gaps, n8n errors |
+| #systems-check | C0AFHN83ZE3 | Health checks, WC gaps, automation errors |
 | #the-study | C0AP89HLJKE | Ministry prep |
 
 ---
@@ -360,74 +261,26 @@ SUPABASE_SERVICE_ROLE_KEY
 |---|---|
 | "brief me" | Renewals + pipeline + tasks + 3 non-negotiables |
 | "run renewal scan" | NowCerts 90-day expiring → #service-brief |
-| "pipeline status" | Open EspoCRM opportunities by stage |
-| "systems check" | NowCerts + EspoCRM connectivity test |
+| "pipeline status" | Open Zoho Deals by stage |
+| "systems check" | NowCerts + Zoho CRM connectivity test |
 | "brain dump: [text]" | Triage → Act / Schedule / Park / Release |
-| "prep me for [company]" | EspoCRM search + prospect brief |
-| "commission log: [deal]" | Find/create opportunity + commission calc |
-| "what's Gretchen working on" | Gretchen's open EspoCRM tasks |
-| "task list" | Lamar tasks (EspoCRM + Supabase) |
-| "task list Gretchen" | Gretchen's EspoCRM tasks |
+| "prep me for [company]" | Zoho search + prospect brief |
+| "commission log: [deal]" | Find/create deal + commission calc |
+| "what's Gretchen working on" | Gretchen's open Zoho tasks |
+| "task list" | Lamar tasks (Zoho + Supabase) |
+| "task list Gretchen" | Gretchen's Zoho tasks |
 
 ---
 
-## Layer 9: n8n Workflows (18 total)
+## Layer 9: Automation
 
-### Working (8)
-
-| # | Name | ID | Trigger |
-|---|---|---|---|
-| 2 | NB-WF2 Day 0/1 Onboarding | qbMMleTF4xQDJNGo | Won deal |
-| 3 | NB-WF3 Long-term Nurture | J9lZZBwUA2888qkP | Post-onboarding |
-| 5 | Renewal Auto-Create | 0npEnsS6D2hpjBfK | Nightly |
-| 10 | Nightly Policy Updates | lsgUVFg7RoeDtOLF | Nightly |
-| 11 | NowCerts Client Lookup | sIYk2ZQObh8GqCpo | On-demand |
-| 12 | Account Rollup Fields | Kyjizvgp5fHKKR6z | Every 6hr |
-| 15 | Gmail RSG-Task to EspoCRM | 23kKCvM0tddkVMGk | Gmail label |
-| 18 | Global Error Workflow | lWeQqSjVGaDEqTsS | Any error |
-
-### Broken (1)
-
-| # | Name | ID | Root Cause |
-|---|---|---|---|
-| 6 | Renewal Outreach | ptlLTDUBj0XhTRTH | Unfilled MANUS_AI_PERSONALIZATION placeholder |
-
-### Fixed (2026-04-02)
-
-| # | Name | Fix Applied |
-|---|---|---|
-| 1 | NB-WF1 Deal Won Intake | Stage filter corrected: `Won - Bound` → `Closed Won` |
-| 2 | NB Commission Auto-Create | EspoCRM webhook created (`Opportunity.update` → n8n) + stage guard (`Closed Won`) added to Extract Fields node |
-| 7 | Renewal Stage Auto-Update | EspoCRM stages confirmed correct (`Identified`, `Outreach Sent`) — no fix needed |
-| 8 | Renewal Commission Auto-Create | EspoCRM webhook created (`Renewal.update` → n8n) + stage guard (`Renewed - Won`) added to Extract Fields node |
-
-**EspoCRM Webhooks (created 2026-04-02):**
-- `Opportunity.update` → `https://{{N8N_HOST}}/webhook/wf2-opportunity-won` (webhook ID: 69cec087572729879)
-- `Renewal.update` → `https://{{N8N_HOST}}/webhook/wf3-renewal-won` (webhook ID: 69cec0876d2737c84)
-
-### Untested (4)
-
-| # | Name | ID | Trigger |
-|---|---|---|---|
-| 9 | Renewal Retention & Commission Report | NQCSJ2YzT3CK5Mjb | — |
-| 13 | Task Complete Thank You | bsm2iy6m1Tjx2MJz | — |
-| 19 | Lead Qualification Handoff | — | Lead status → "Qualified" |
-| 20 | X-Date Nurture Loop | — | Daily 7:00 AM ET |
-
-**WF19 — Lead Qualification Handoff:** When Lead status changes to "Qualified" → creates Opportunity in "Discovery" stage + sets Lead to "Converted".
-
-**WF20 — X-Date Nurture Loop:** Daily at 7:00 AM ET → scans Nurture leads + Closed Lost opps for approaching X-Dates (Personal Lines: 30-day window; Commercial: 60-day window) → creates urgent EspoCRM Tasks assigned to account owner.
-
-### Deleted (3)
-- WF14: Escalation Watchdog → replaced by Renewal Watchdog agent
-- WF16: Afternoon Pulse → replaced by Morning Commander agent
-- WF17: Personal OS Task Reminders → replaced by Task Finisher + Focus Guard
+> **2026-08-14:** Legacy workflow automation is retired. Automation now runs through Claude/Hermes scheduled tasks and Zoho-native workflows/blueprints. Rebuild any still-needed automation (onboarding emails, renewal outreach, policy sync) against Zoho CRM before relying on it.
 
 ---
 
 ## Layer 10: Scheduled Automations
 
-### OpenClaw Heartbeat
+### Scheduled Tasks (Hermes / Claude)
 
 | Schedule | Task | Output |
 |---|---|---|
@@ -438,14 +291,6 @@ SUPABASE_SERVICE_ROLE_KEY
 | Monday 9am ET | Pipeline Health | #agency-ops |
 | Monday 9am ET | Stale Task Sweep (5+ days) | #the-boss |
 | Friday 4pm ET | Commission Flash | #growth-finance |
-
-### n8n Scheduled
-
-| Schedule | Workflow |
-|---|---|
-| Nightly | Policy Updates (#10) |
-| Nightly | Renewal Auto-Create (#5) |
-| Every 6hr | Account Rollup (#12) |
 
 ### RSG Slack Bot (Mac)
 
@@ -464,21 +309,21 @@ SUPABASE_SERVICE_ROLE_KEY
     → prospect-researcher: class codes + carrier appetite
     → Deal Coach: pre-call brief (60 sec)
     → Lamar calls
-    → Post-call: EspoCRM Lead/Opportunity created
+    → Post-call: Zoho Lead/Deal created
     → Quote → Follow-up sequence (outreach-templates)
-    → Won → n8n WF2/WF3 → commission_ledger
+    → Won → Zoho workflow → commission_ledger
 ```
 
 ### Renewal Cycle
 ```
-Day -90: n8n detects expiry → EspoCRM Renewal (Identified)
+Day -90: expiry detected → Zoho Renewal (Identified)
 Day -60 commercial / -30 personal: renewal-prep skill
     → route to Lamar (commercial) or Gretchen (personal)
     → first touch email (Template 4)
 Day -30/-14: Options delivery
     → current carrier + 2-3 alternatives
     → renewal proposal (Template 5)
-    → EspoCRM stage: Proposal Sent
+    → Zoho stage: Proposal Sent
 Day -21/-10: Close call
     → Won: bind + NowCerts + commission tracking
     → Lost: re-quote task in 10 months
@@ -519,7 +364,6 @@ Client inquiry
 | Stale deals | 14-day auto-stall + digest | #deals |
 | Commission deltas | Tolerance-based flagging | #growth-finance |
 | System health | "systems check" trigger | #systems-check |
-| n8n errors | Global Error Workflow (#18) | #systems-check |
 | Overdue tasks | 3pm daily check | #the-boss |
 | Stale tasks | Monday sweep 5+ days | #the-boss |
 
@@ -529,16 +373,15 @@ Client inquiry
 
 | Credential | Storage | Rotates |
 |---|---|---|
-| NowCerts password | OpenClaw .env, n8n .env | Manual |
-| EspoCRM API key | HEARTBEAT.md, n8n .env | Manual |
-| Supabase service role key | OpenClaw .env, n8n .env, 1Password | On project recreate |
-| Slack bot/app tokens | OpenClaw .env, openclaw.json | Manual |
-| GitHub vault token | OpenClaw .env | On expiry |
-| Anthropic API key | OpenClaw .env, n8n .env | Manual |
-| SSH keys (hosting platform) | 1Password (ed25519) | Manual |
+| NowCerts password | 1Password | Manual |
+| Zoho CRM | MCP `user-ZohoMCP` (OAuth) | OAuth refresh |
+| Supabase service role key | 1Password | On project recreate |
+| Slack bot/app tokens | 1Password | Manual |
+| GitHub vault token | 1Password | On expiry |
+| Anthropic API key | 1Password | Manual |
+| SSH keys (Elestio / DigitalOcean / Hostinger) | 1Password (ed25519) | Manual |
 
-- OpenClaw: GATEWAY_TOKEN auth
-- EspoCRM: API key (no user RBAC yet)
+- Zoho CRM: OAuth via MCP
 - Supabase: service role key (RLS disabled)
 - Obsidian: local filesystem + private GitHub repo
 
@@ -557,10 +400,9 @@ Client inquiry
 | GL class codes | 1,154 |
 | WC class codes | 156 |
 | Commission rules | 216 |
-| OpenClaw agents | 15 |
-| Registered skills | 13 |
+| Agent personas | 15 |
+| Registered skills | 12 |
 | Slack channels | 11 |
 | Supabase tables | 18 |
-| n8n workflows | 20 (8 working, 5 broken, 4 untested) |
 | Obsidian vault files | 2,109+ |
 | States active | GA, AL, FL, SC, TN |

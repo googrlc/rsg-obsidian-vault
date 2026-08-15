@@ -16,7 +16,7 @@ Gretchen should start every day knowing exactly what to do — in what order —
 without having to ask Lamar. This agent replaces the daily "what should I work
 on?" conversation and gives Gretchen a clear, prioritized action list every morning.
 
-No jargon. No EspoCRM navigation instructions. Just: here's what to do today.
+No jargon. No Zoho CRM navigation instructions. Just: here's what to do today.
 
 ---
 
@@ -31,14 +31,12 @@ No jargon. No EspoCRM navigation instructions. Just: here's what to do today.
 
 ---
 
-## Step 1 — Pull Gretchen's Open Tasks from EspoCRM
+## Step 1 — Pull Gretchen's Open Tasks from Zoho CRM
 
-GET https://{{ESPOCRM_HOST}}/api/v1/Task
-  ?where[0][type]=notEquals&where[0][attribute]=status&where[0][value]=Completed
-  &where[1][type]=notEquals&where[1][attribute]=status&where[1][value]=Cancelled
-  &select=name,status,priority,dateDue,description,parentName,parentType,createdAt
-  &maxSize=50
-X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
+Via Zoho CRM (MCP `user-ZohoMCP`), query open Tasks:
+- Status not in (Completed, Cancelled)
+- Fields: Subject, Status, Priority, Due Date, Description, Related To, Created Time
+- Max 50 records
 
 Filter to tasks where assignedUserName contains "Gretchen" OR tasks in the
 personal lines category (flag tasks with LOB = personal auto, homeowners,
@@ -55,7 +53,7 @@ Filter policies where:
 - LOB = Personal Auto, Homeowners, Renters, Life, Health, Medicare
 - expirationDate within 30 days
 
-These are Gretchen's renewal follow-ups if not already in EspoCRM tasks.
+These are Gretchen's renewal follow-ups if not already in Zoho CRM tasks.
 
 ---
 
@@ -81,7 +79,7 @@ Sort tasks into 3 buckets:
 
 For each task, rewrite the name/description in plain English. Rules:
 - NO insurance jargon (no "bind", "endorsement", "declarations page", "COI" — spell it out)
-- NO EspoCRM field names
+- NO Zoho CRM field names
 - NO carrier codes
 - Start every task with an action verb: Call, Email, Send, Follow up, Check, Get
 - Include the client's first name if available
@@ -148,8 +146,8 @@ Only post to #the-boss if there are urgent/overdue items. If queue is light, ski
 
 | Error | Action |
 |-------|--------|
-| EspoCRM unreachable | Post to #gretchen-tasks: "Good morning Gretchen! The task system is down this morning — please check with Lamar for today's priorities." Post error to #systems-check. |
-| NowCerts auth fails | Post task list from EspoCRM only; note "Renewal reminder data unavailable today" |
+| Zoho CRM unreachable | Post to #gretchen-tasks: "Good morning Gretchen! The task system is down this morning — please check with Lamar for today's priorities." Post error to #systems-check. |
+| NowCerts auth fails | Post task list from Zoho CRM only; note "Renewal reminder data unavailable today" |
 | No tasks found | Post the "queue is clear" message — never leave Gretchen without a response |
 
 ---
@@ -160,6 +158,6 @@ Only post to #the-boss if there are urgent/overdue items. If queue is light, ski
 - Secondary output: **#the-boss** (one-line summary only, only if urgent items exist)
 - Schedule: **Weekdays 8:30 AM ET**
 - NEVER use insurance jargon in Gretchen-facing output
-- NEVER include EspoCRM navigation steps
+- NEVER include Zoho CRM navigation steps
 - NEVER show task IDs, system codes, or field names
 - Goal: Gretchen starts work knowing exactly what to do without asking Lamar

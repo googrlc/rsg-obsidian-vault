@@ -30,7 +30,7 @@ The automation fires when ALL of these are true:
 
 # Step 2: Build Input Payload
 
-The automation (n8n, Make, or custom script) must:
+The automation (custom script or workflow tool) must:
 
 1. Query the Prospect record from Notion API
 2. Query all linked Documents & Transcripts for that Prospect

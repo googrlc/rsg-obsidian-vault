@@ -3,9 +3,9 @@
 
 ---
 
-## Quick Access — hosting platform Servers
+## Quick Access — Cloud Servers
 
-All RSG servers are hosting platform-hosted. SSH format:
+RSG servers run on Elestio, DigitalOcean, and Hostinger. SSH format:
 
 ```
 ssh [user]@[hostname] -p [port]
@@ -13,11 +13,11 @@ ssh [user]@[hostname] -p [port]
 
 | Server | Hostname | Notes |
 |--------|----------|-------|
-| OpenClaw | `vm.hosting platform.app` (see hosting platform dashboard) | Claude agents live here |
-| n8n | `vm.hosting platform.app` (see hosting platform dashboard) | Automations |
-| EspoCRM | `{{ESPOCRM_HOST}}` | CRM |
+| Elestio VMs | `vm.elestio.app` (see Elestio dashboard) | Nextcloud + LiteLLM live here |
+| hermes-vps | See [[rsg-infrastructure/Hermes-VPS-DigitalOcean]] | Hermes agent (DigitalOcean) |
+| rsg-vps | `100.111.105.90` (Tailscale) | Hostinger VPS — see [[rsg-infrastructure/SSH-Config]] |
 
-> 📌 **Find exact SSH details:** hosting platform Dashboard → Your Service → SSH/SFTP tab
+> 📌 **Find exact SSH details:** Elestio Dashboard → Your Service → SSH/SFTP tab
 
 ---
 
@@ -38,8 +38,8 @@ On **Termius** (iOS/Android): Settings → Keychain → Import or generate key t
 ## Running Claude Code via SSH
 
 ```bash
-# SSH into OpenClaw server
-ssh [user]@[openclaw-host]
+# SSH into an Elestio server
+ssh [user]@[elestio-host]
 
 # Start Claude Code (interactive)
 claude
@@ -93,7 +93,7 @@ tmux kill-session -t rsg
 
 **Termius** (recommended — iOS & Android)
 - Saves hosts, keys, and has a decent keyboard
-- Set up your hosting platform hosts once, one tap to connect
+- Set up your Elestio/DigitalOcean hosts once, one tap to connect
 - Enable "Keep Alive" to reduce drops
 
 **Blink Shell** (iOS power users)
@@ -106,7 +106,7 @@ tmux kill-session -t rsg
 
 | Problem | Fix |
 |---------|-----|
-| Connection refused | Check port number in hosting platform dashboard |
+| Connection refused | Check port number in the Elestio dashboard |
 | Permission denied | SSH key not added to server — use password first, then `ssh-copy-id` |
 | Session dropped | Use tmux (see above) or switch to mosh |
 | `claude` not found | `which claude` — may need full path or `source ~/.bashrc` |

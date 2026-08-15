@@ -1,21 +1,17 @@
 # RSG Unified SSH Config
 
-> **Last updated:** 2026-05-13  
-> **Architecture:** Hostinger VPS is the single origin for all services (via Cloudflare Tunnel `rsg-tunnel`). EspoCRM runs on Elestio.
+> **Last updated:** 2026-08-14  
+> **Architecture:** Hostinger VPS is the single origin for all services (via Cloudflare Tunnel `rsg-tunnel`).
 
 ## Architecture Overview
 
 | Service | Subdomain | Host |
 |---|---|---|
 | Command Center | `command.risk-solutionsgroup.com` | Hostinger VPS |
-| n8n | `n8n.risk-solutionsgroup.com` | Hostinger VPS |
 | Budibase | `budibase.risk-solutionsgroup.com` | Hostinger VPS |
-| OpenClaw | `openclaw.risk-solutionsgroup.com` | Hostinger VPS |
-| OpenWebUI | `ai.risk-solutionsgroup.com` | Hostinger VPS |
 | Hermes | `hermes.risk-solutionsgroup.com` | Hostinger VPS |
 | Homebase | `home.risk-solutionsgroup.com` | Hostinger VPS |
 | Carriers | `carriers.risk-solutionsgroup.com` | Hostinger VPS |
-| EspoCRM | `espocrm-ts` (Tailscale) | Elestio |
 
 ## Cloudflare Tunnel
 
@@ -35,16 +31,6 @@
 | Tailscale IP | `100.111.105.90` |
 | SSH User | `root` |
 | Location | United States - Boston 2 |
-
-## EspoCRM (Elestio) Details
-
-| Field | Value |
-|---|---|
-| Service ID | `rrespocrm-rsg-u69864` |
-| IPv4 | `134.199.192.41` |
-| Tailscale IP | `100.117.239.109` |
-| SSH User | `root` |
-| Note | Port 22 requires IP whitelist in Elestio dashboard |
 
 ## SSH Config File
 
@@ -70,10 +56,7 @@ Host github.com
 #  HOSTINGER VPS (KVM 4 / Ubuntu 24.04 / Boston 2)
 #  Origin for all services via Cloudflare Tunnel (rsg-tunnel):
 #    command.risk-solutionsgroup.com
-#    n8n.risk-solutionsgroup.com
 #    budibase.risk-solutionsgroup.com
-#    openclaw.risk-solutionsgroup.com
-#    ai.risk-solutionsgroup.com       (OpenWebUI)
 #    hermes.risk-solutionsgroup.com
 #    home.risk-solutionsgroup.com      (Homebase)
 #    carriers.risk-solutionsgroup.com
@@ -88,20 +71,6 @@ Host rsg-vps-direct
   HostName 177.7.38.146
   User root
   # Public IP fallback: srv1624160.hstgr.cloud
-
-# ============================================================
-#  ELESTIO - EspoCRM (rrespocrm-rsg-u69864)
-# ============================================================
-
-Host espocrm-ts
-  HostName 100.117.239.109
-  User root
-  # Tailscale - preferred
-
-Host espocrm-direct
-  HostName 134.199.192.41
-  User root
-  # Requires IP whitelist in Elestio dashboard
 ```
 
 ## 1Password SSH Agent Config

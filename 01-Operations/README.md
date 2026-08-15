@@ -4,9 +4,9 @@ Day-to-day agency operations, SOPs, workflows, templates, and client service doc
 
 ## Subfolders
 - `SOPs/` - Standard operating procedures
-- `Workflows/` - n8n and agent workflow documentation
+- `Workflows/` - Agent workflow documentation
 - `Templates/` - Email templates, document templates
-- `Clients/` - Account notes (client data of record lives in EspoCRM)
+- `Clients/` - Account notes (client data of record lives in Zoho CRM)
 - `Renewals/` - Renewal process docs and 90/60/30 touchpoint system
 
 ## Key Docs

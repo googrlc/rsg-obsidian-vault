@@ -38,13 +38,13 @@ Score each active client 0–100. Higher = more at risk of non-renewal.
 
 | Factor | Points | How to Detect |
 |--------|--------|---------------|
-| Expiring in ≤30 days with no renewal opportunity in EspoCRM | +35 | NowCerts expiry + EspoCRM renewal pipeline check |
-| Expiring in 31–60 days with no outreach logged | +25 | NowCerts expiry + EspoCRM activity check |
-| No contact logged in EspoCRM in 90+ days | +20 | EspoCRM last activity date on Account |
+| Expiring in ≤30 days with no renewal deal in Zoho CRM | +35 | NowCerts expiry + Zoho CRM renewal pipeline check |
+| Expiring in 31–60 days with no outreach logged | +25 | NowCerts expiry + Zoho CRM activity check |
+| No contact logged in Zoho CRM in 90+ days | +20 | Zoho CRM last activity date on Account |
 | Single policy only (no cross-sell) | +10 | Policy count per client = 1 |
 | Premium increased >15% vs prior term | +15 | NowCerts premium comparison |
-| Prior non-renewal on record | +20 | EspoCRM renewal stage = Lost in past 12mo |
-| No email on file | +5 | EspoCRM contact email blank |
+| Prior non-renewal on record | +20 | Zoho CRM renewal stage = Lost in past 12mo |
+| No email on file | +5 | Zoho CRM contact email blank |
 | Commercial Auto only (highest churn LOB) | +10 | LOB = Commercial Auto |
 
 ### Risk Tiers
@@ -58,7 +58,7 @@ Score each active client 0–100. Higher = more at risk of non-renewal.
 ## Step 1 — Mint NowCerts Token
 
 POST https://api.nowcerts.com/api/token
-Body: grant_type=password&username=lamar@risk-solutionsgroup.com&password=dcp1vwv*RCF9fpz*dfh&client_id=ngAuthApp
+Body: grant_type=password&username=lamar@risk-solutionsgroup.com&password={{NOWCERTS_PASSWORD}}&client_id=ngAuthApp
 
 ---
 
@@ -74,34 +74,24 @@ For each insured, capture:
 
 ---
 
-## Step 3 — Pull Renewal Pipeline from EspoCRM
+## Step 3 — Pull Renewal Pipeline from Zoho CRM
 
-GET https://{{ESPOCRM_HOST}}/api/v1/Opportunity
-  ?where[0][type]=in&where[0][attribute]=stage&where[0][value][]=Identified
-  &where[0][value][]=Outreach Sent&where[0][value][]=Quote Requested
-  &where[0][value][]=Proposal Sent&where[0][value][]=Negotiating
-  &select=name,stage,accountId,closeDate,assignedUserName
-  &maxSize=100
-X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
+Via Zoho CRM (MCP `user-ZohoMCP`), query Deals:
+- Stage in (Identified, Outreach Sent, Quote Requested, Proposal Sent, Negotiating)
+- Fields: Deal Name, Stage, Account, Closing Date, Owner
+- Max 100 records
 
-Build a set of accountIds that already have active renewal opportunities.
+Build a set of account IDs that already have active renewal deals.
 
 ---
 
-## Step 4 — Pull Last Activity Dates from EspoCRM
+## Step 4 — Pull Last Activity Dates from Zoho CRM
 
-GET https://{{ESPOCRM_HOST}}/api/v1/Account
-  ?select=id,name,lastActivityDate,emailAddress,assignedUserName
-  &maxSize=200
-X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
+Via Zoho CRM (MCP `user-ZohoMCP`), query Accounts:
+- Fields: Account Name, Last Activity Date, Email, Owner
+- Max 200 records
 
-Also pull recent lost renewals (last 12 months):
-GET https://{{ESPOCRM_HOST}}/api/v1/Opportunity
-  ?where[0][type]=in&where[0][attribute]=stage&where[0][value][]=Lost
-  &where[1][type]=after&where[1][attribute]=closeDate&where[1][value]=12_months_ago
-  &select=accountId,name,closeDate
-  &maxSize=100
-X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
+Also pull recent lost renewals (last 12 months): Deals where Stage = Lost and Closing Date is within the last 12 months.
 
 ---
 
@@ -109,7 +99,7 @@ X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
 
 For each active client in NowCerts:
 1. Find their soonest expiring policy
-2. Check if they have an active renewal opportunity in EspoCRM
+2. Check if they have an active renewal deal in Zoho CRM
 3. Check last activity date
 4. Count their policies (cross-sell indicator)
 5. Check for prior lost renewal
@@ -161,24 +151,20 @@ For each CRITICAL and HIGH client, generate a specific action:
 
 ---
 
-## Step 7 — Create EspoCRM Tasks for CRITICAL Clients
+## Step 7 — Create Zoho CRM Tasks for CRITICAL Clients
 
-For each CRITICAL client with no renewal opportunity:
+For each CRITICAL client with no renewal deal, create a Task via Zoho CRM (MCP `user-ZohoMCP`):
 
-POST https://{{ESPOCRM_HOST}}/api/v1/Task
-X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
-Content-Type: application/json
-
+```
 {
-  "name": "⚠️ RETENTION RISK: {client_name} — renewal outreach needed",
-  "status": "Inbox",
-  "priority": "High",
-  "dateStart": "{today}",
-  "dateDue": "{today + 2 days}",
-  "description": "Risk score: {score}. Exp: {exp_date}. Premium: ${premium}. Reason: {top_risk_reason}. No active renewal opportunity found — create one and initiate outreach immediately.",
-  "parentType": "Account",
-  "parentId": "{account_id}"
+  "Subject": "⚠️ RETENTION RISK: {client_name} — renewal outreach needed",
+  "Status": "Not Started",
+  "Priority": "High",
+  "Due_Date": "{today + 2 days}",
+  "Description": "Risk score: {score}. Exp: {exp_date}. Premium: ${premium}. Reason: {top_risk_reason}. No active renewal deal found — create one and initiate outreach immediately.",
+  "What_Id": "{account_id}"
 }
+```
 
 Only create tasks if no open task already exists for this client re: renewal.
 
@@ -189,7 +175,7 @@ Only create tasks if no open task already exists for this client re: renewal.
 | Error | Action |
 |-------|--------|
 | NowCerts token fails | Post to #systems-check: "❌ Retention Risk Scout: NowCerts auth failed" |
-| EspoCRM unreachable | Post report using NowCerts data only; flag "⚠️ CRM data unavailable — scores may be incomplete" |
+| Zoho CRM unreachable | Post report using NowCerts data only; flag "⚠️ CRM data unavailable — scores may be incomplete" |
 | No clients score ≥30 | Post: "✅ Retention scan complete — no high-risk clients detected. Book looks stable." |
 | Task creation fails | Log to #systems-check; continue with report |
 
@@ -199,7 +185,7 @@ Only create tasks if no open task already exists for this client re: renewal.
 - LLM: **Anthropic** (revenue-critical — directly tied to retention rate)
 - Primary output: **#the-boss (C0ANQUENX4P)**
 - Secondary output: **#service-brief (C0AP2MML9L6)**
-- EspoCRM tasks: auto-created for CRITICAL clients only
+- Zoho CRM tasks: auto-created for CRITICAL clients only
 - Schedule: **Wednesday 9:00 AM ET** (mid-week action window)
 - Gretchen receives the #service-brief version (plain English, no jargon)
 - This is the single highest-leverage agent for fixing the 54.92% retention problem

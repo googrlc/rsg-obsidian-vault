@@ -4,7 +4,7 @@
 
 A fully automated pre-call intelligence workflow for RSG. Given a company name, this skill runs a
 structured 10-source research sweep, extracts every usable data point (SIC, NAICS, SOS entity data,
-LinkedIn, BBB, FMCSA, OSHA, news, social), writes all fields directly into the EspoCRM Account and
+LinkedIn, BBB, FMCSA, OSHA, news, social), writes all fields directly into the Zoho CRM Account and
 Lead records using exact field names, and delivers a pre-call brief to Slack. Lamar gets an opener,
 objection handler, and pain points — all before he picks up the phone.
 
@@ -17,7 +17,7 @@ objection handler, and pain points — all before he picks up the phone.
 - "Prep me for [Company]"
 - "What do we know about [Company]?"
 - "assess: [Company]" (triggers full assessment + intel pack)
-- A new Lead is created in EspoCRM (automated trigger)
+- A new Lead is created in Zoho CRM (automated trigger)
 - "intel: [Company]" or "run intel on [Company]"
 
 ---
@@ -42,8 +42,7 @@ Default = Full Pack unless Lamar says "quick."
 | NowCerts username | lamar@risk-solutionsgroup.com |
 | NowCerts password | {{NOWCERTS_PASSWORD}} |
 | NowCerts agency ID | 09d93486-1536-48d7-9096-59f1f62b6f51 |
-| EspoCRM base URL | https://{{ESPOCRM_HOST}}/api/v1 |
-| EspoCRM API key | 3d34836b07bb327db8d8fa6b63430c4e |
+| Zoho CRM | MCP `user-ZohoMCP` (OAuth) |
 | Supabase URL | https://wibscqhkvpijzqbhjphg.supabase.co |
 | Supabase key | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpYnNjcWhrdnBpanpxYmhqcGhnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDE0NTkyNiwiZXhwIjoyMDg5NzIxOTI2fQ.VnacqnPjUzxnqTh9Sxt0YXEc4CWjeLeTRYedsRM003I |
 
@@ -55,17 +54,16 @@ Before researching, confirm:
 1. **Business name** — exact legal name if known, or DBA
 2. **State of operation** — determines which SOS records to pull
 3. **Line of business interest** — what coverage are we targeting?
-4. **EspoCRM check** — search Accounts + Leads before creating anything
+4. **Zoho CRM check** — search Accounts + Leads before creating anything
 
-Search EspoCRM first:
-```
-GET /api/v1/Account?searchParams[name]={company_name}&maxSize=5
-GET /api/v1/Lead?searchParams[accountName]={company_name}&maxSize=5
-```
+Search Zoho CRM first (via MCP `user-ZohoMCP`):
+- Accounts where Account Name contains {company_name}
+- Leads where Company contains {company_name}
+
 If Account exists → update it. If Lead exists → update it. If neither → create Account first, then Lead.
 
 **Guard:** If Account field `intelRun` = true AND `intelRunDate` is within last 7 days →
-STOP and post: "⚠️ Intel already run for {company_name} on {intelRunDate}. Check EspoCRM Account."
+STOP and post: "⚠️ Intel already run for {company_name} on {intelRunDate}. Check Zoho CRM Account."
 Unless Lamar says "re-run" → proceed anyway.
 
 
@@ -80,7 +78,7 @@ Work through every source. For each one, record what you found, what was NOT fou
 ### SOURCE 1 — Business Website
 Navigate to company website. Read: homepage, /about, /services, /contact, /team.
 
-**Extract → EspoCRM fields:**
+**Extract → Zoho CRM fields:**
 | Data Point | Field Name |
 |---|---|
 | DBA / trade name | `intelDba` |
@@ -106,7 +104,7 @@ Navigate to company website. Read: homepage, /about, /services, /contact, /team.
 - SC: https://businessfilings.sc.gov
 - TN: https://tnbear.tn.gov/ECommerce/FilingSearch.aspx
 
-**Extract → EspoCRM fields:**
+**Extract → Zoho CRM fields:**
 | Data Point | Field Name |
 |---|---|
 | Legal entity name (exact) | `intelLegalName` |
@@ -130,7 +128,7 @@ SOS is authoritative for legal name and entity type. Use it over website data if
 - SIC: https://siccode.com or https://www.osha.gov/data/sic-manual
 - Cross-reference: https://www.census.gov/naics/
 
-**Extract → EspoCRM fields:**
+**Extract → Zoho CRM fields:**
 | Data Point | Field Name |
 |---|---|
 | 6-digit NAICS code + description | `intelNaics` |
@@ -171,7 +169,7 @@ Note matched codes in `intelWebsiteNotes`.
 ### SOURCE 4 — LinkedIn
 **URL:** https://www.linkedin.com/search/results/companies/?keywords={company_name}
 
-**Extract → EspoCRM fields:**
+**Extract → Zoho CRM fields:**
 | Data Point | Field Name |
 |---|---|
 | Company page URL | `intelLinkedinUrl`, `linkedinUrl` |
@@ -193,7 +191,7 @@ Note matched codes in `intelWebsiteNotes`.
 ### SOURCE 5 — Google Business Profile + Reviews
 Search Google: `"{company_name}" {city} {state}`
 
-**Extract → EspoCRM fields:**
+**Extract → Zoho CRM fields:**
 | Data Point | Field Name |
 |---|---|
 | Verified address + phone | Confirm / update `billingAddress`, `phoneNumber` |
@@ -206,7 +204,7 @@ Search Google: `"{company_name}" {city} {state}`
 ### SOURCE 6 — BBB (Better Business Bureau)
 **URL:** https://www.bbb.org/search?find_text={company_name}&find_country=USA
 
-**Extract → EspoCRM fields:**
+**Extract → Zoho CRM fields:**
 | Data Point | Field Name |
 |---|---|
 | BBB rating (A+, A, B, C, D, F, NR) | `intelBbbRating`, `bbbRating` |
@@ -235,7 +233,7 @@ GET https://mobile.fmcsa.dot.gov/qc/services/carriers/{dot_number}?webKey={{FMCS
 GET https://mobile.fmcsa.dot.gov/qc/services/carriers?name={company_name}&webKey={{FMCSA_WEB_KEY}}
 ```
 
-**Extract → EspoCRM fields:**
+**Extract → Zoho CRM fields:**
 | Data Point | Field Name |
 |---|---|
 | Number of power units | `intelFleetSize` |
@@ -261,7 +259,7 @@ GET https://mobile.fmcsa.dot.gov/qc/services/carriers?name={company_name}&webKey
 
 Search by company name and state.
 
-**Extract → EspoCRM field:**
+**Extract → Zoho CRM field:**
 | Data Point | Field Name |
 |---|---|
 | Inspection history, citations, penalties | `intelOshaViolations` |
@@ -274,7 +272,7 @@ Search by company name and state.
 Search: `"{company_name}" {city} (lawsuit OR fire OR accident OR settlement OR "workers comp" OR claim)`
 Also: `"{company_name}" site:news.google.com`
 
-**Extract → EspoCRM fields:**
+**Extract → Zoho CRM fields:**
 | Data Point | Field Name |
 |---|---|
 | Lawsuits, legal actions | `intelNewsNotes`, `intelUnderwritingFlag` |
@@ -289,7 +287,7 @@ Also: `"{company_name}" site:news.google.com`
 - Instagram: https://www.instagram.com/{handle} (guess from website or name)
 - X: https://x.com/search?q={company_name}
 
-**Extract → EspoCRM field:**
+**Extract → Zoho CRM field:**
 | Data Point | Field Name |
 |---|---|
 | Active profiles (URLs) | `intelLinkedinNotes` (append other social URLs here) |
@@ -376,14 +374,10 @@ Enum: High / Medium / Low
 
 ## Phase 4 — CRM Write: Account Record
 
-Navigate to EspoCRM Account. If none exists, create at `{base}/#Account/create` first.
-Use API for programmatic updates:
-```
-PUT https://{{ESPOCRM_HOST}}/api/v1/Account/{id}
-Header: X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
-```
+Navigate to the Zoho CRM Account. If none exists, create it first via `user-ZohoMCP`.
+Use the Zoho CRM API (via `user-ZohoMCP`) for programmatic updates.
 
-Write ALL of the following fields in a single PATCH/PUT call:
+Write ALL of the following fields in a single update call:
 
 ```json
 {
@@ -457,11 +451,7 @@ Write ALL of the following fields in a single PATCH/PUT call:
 
 ## Phase 5 — Lead Record Create / Update
 
-If Lead doesn't exist, create it:
-```
-POST https://{{ESPOCRM_HOST}}/api/v1/Lead
-Header: X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
-```
+If Lead doesn't exist, create it via Zoho CRM (MCP `user-ZohoMCP`).
 
 ```json
 {
@@ -486,11 +476,11 @@ Header: X-Api-Key: 3d34836b07bb327db8d8fa6b63430c4e
   "estimatedPremium": "{rough estimate in dollars}",
   "description": "Intel Pack v2.0 — {date}\n\nPAIN POINTS:\n{intelPainPoints}\n\nCROSS-SELL:\n{intelCrossSell}\n\nSOURCES HIT: {count}/{total}",
   "aiSummary": "{intelAiSummary full text}",
-  "assignedUserId": "69bdad92458da2204"
+  "Owner": "{Lamar's Zoho CRM user ID}"
 }
 ```
 
-After creating Lead → link it to the Account in EspoCRM.
+After creating Lead → link it to the Account in Zoho CRM.
 After creating Account → confirm Lead appears in related panel. If not, link manually.
 
 ---
@@ -543,7 +533,7 @@ BBB: {intelBbbRating} | Accredited: {intelBbbAccredited} | Open Complaints: {int
 {insightRelationship}
 
 🔎 Confidence: {intelConfidence} | Sources hit: {intelSourcesHit}/11
-✅ EspoCRM Account + Lead updated
+✅ Zoho CRM Account + Lead updated
 ```
 
 If existing RSG client → add: "⚡ EXISTING CLIENT — {existing policies summary}"
@@ -556,7 +546,7 @@ If existing RSG client → add: "⚡ EXISTING CLIENT — {existing policies summ
 | Scenario | Action |
 |---|---|
 | Intel already run within 7 days | STOP, post warning, unless Lamar says "re-run" |
-| Business not in EspoCRM | Create Account first, then Lead |
+| Business not in Zoho CRM | Create Account first, then Lead |
 | No website found | Note in `intelWebsite` = "No website" — this is a signal (informal operation). Set confidence Low/Medium. |
 | SOS returns no record | Note "Not found in {state} SOS — may be sole prop or registered elsewhere." Try neighboring states. |
 | LinkedIn shows 0 employees | Use "1–5 estimated" — note unconfirmed |

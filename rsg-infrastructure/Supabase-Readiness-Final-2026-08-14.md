@@ -205,7 +205,6 @@ Applied to: `search_carrier_appetite`, `get_open_cases`, contacts subquery.
 | **Zoho CRM** | CRM of record | `user-ZohoMCP` |
 | **NowCerts** | Policy truth | `nowcerts` |
 | **Supabase** | Intelligence / analytics / RAG | `plugin-supabase-supabase` |
-| EspoCRM | **Retired** | Do not use |
 
 ---
 

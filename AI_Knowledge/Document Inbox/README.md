@@ -42,11 +42,11 @@ Goes to: Supabase knowledge_chunks (domain=ministry)
 
 | Table | What Goes In | Who Writes It |
 |---|---|---|
-| knowledge_chunks | Chunked text from any document + vector embedding | n8n ingestion workflow |
-| documents | Document metadata (title, type, source, domain) | n8n ingestion workflow |
-| commercial_documents | Parsed client policy docs (dec pages, quotes) | n8n ingestion workflow |
-| commission_rules | Parsed commission rates by carrier + LOB | n8n or manual |
-| carrier_appetite | Carrier appetite by LOB + state | n8n or manual |
+| knowledge_chunks | Chunked text from any document + vector embedding | Ingestion workflow |
+| documents | Document metadata (title, type, source, domain) | Ingestion workflow |
+| commercial_documents | Parsed client policy docs (dec pages, quotes) | Ingestion workflow |
+| commission_rules | Parsed commission rates by carrier + LOB | Manual |
+| carrier_appetite | Carrier appetite by LOB + state | Manual |
 | email_templates | Email sequence templates | Manual via Supabase UI |
 
 ---
@@ -54,7 +54,7 @@ Goes to: Supabase knowledge_chunks (domain=ministry)
 ## HOW CHUNKING WORKS
 
 1. File lands in the drop folder
-2. n8n Document Inbox workflow picks it up (runs every hour — NOT YET BUILT, see below)
+2. Document Inbox ingestion workflow picks it up (NOT YET BUILT, see below)
 3. Text extracted (PDF → text, DOCX → text, MD → text)
 4. Split into 500-token chunks with 50-token overlap
 5. Each chunk embedded via Claude/OpenAI embedding API
@@ -86,16 +86,16 @@ For carrier appetite:
 
 ## INGESTION WORKFLOW — STATUS
 
-Document Inbox n8n workflow: NOT YET BUILT
+Document Inbox ingestion workflow: NOT YET BUILT
 Priority: Medium — manual entry works for now
 When built it will: watch the Document Inbox folder via Google Drive or local path,
 parse each file type, chunk, embed, write to Supabase, move to processed/
 
 ---
 
-## WHAT OPENCLAW CAN QUERY
+## WHAT AGENTS CAN QUERY
 
-Once chunks are in Supabase knowledge_chunks, OpenClaw agents can query via:
+Once chunks are in Supabase knowledge_chunks, Claude agents can query via:
 POST https://wibscqhkvpijzqbhjphg.supabase.co/rest/v1/rpc/match_knowledge_chunks
 Body: { query_embedding: [...], match_threshold: 0.7, match_count: 5, domain: 'carrier' }
 

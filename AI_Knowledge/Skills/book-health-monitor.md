@@ -2,7 +2,7 @@
 name: book-health-monitor
 description: >
   Weekly agency book health scorecard for RSG. Pulls live data from NowCerts,
-  EspoCRM, and Supabase to generate a single boss-level snapshot of premium,
+  Zoho CRM, and Supabase to generate a single boss-level snapshot of premium,
   retention, pipeline, renewals, and Gate progress. Posts to #the-boss.
   Triggers on "book health", "book check", "how's the book", "agency scorecard",
   "weekly scorecard", or on the Monday 10am ET auto-schedule.
@@ -35,7 +35,7 @@ question every Monday before the week kicks off — and on demand any time he as
 | Source | What We Pull |
 |--------|-------------|
 | NowCerts | Active premium, policy count, client count, retention rate, expiring policies |
-| EspoCRM | Open opportunity pipeline value + stage breakdown |
+| Zoho CRM | Open deal pipeline value + stage breakdown |
 | Supabase (agency_snapshots) | Prior snapshot for week-over-week delta |
 
 ---
@@ -99,5 +99,5 @@ question every Monday before the week kicks off — and on demand any time he as
 ## Related
 - [[HEARTBEAT]] — scheduled task registration
 - [[nowcerts-skill]] — NowCerts API integration
-- [[crm-manager]] — EspoCRM pipeline pull
+- Zoho CRM — pipeline pull via MCP `user-ZohoMCP`
 - [[commission-reconciliation]] — Supabase agency_snapshots

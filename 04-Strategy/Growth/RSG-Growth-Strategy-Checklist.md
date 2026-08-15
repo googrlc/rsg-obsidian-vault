@@ -23,7 +23,7 @@ North Star: **$1M Annual Premium**
 Target: Raise retention from ~55% to 80%+
 
 - [ ] **Project 85 - Renewal Enforcement**
-  - [ ] Deploy 90/60/30 day renewal touchpoint automation in n8n
+  - [ ] Deploy 90/60/30 day renewal touchpoint automation in Zoho CRM
   - [ ] Build Hermes renewal risk scoring (flag at-risk accounts)
   - [ ] Create Gretchen daily renewal queue (auto-generated task list)
   - [ ] Establish renewal review SOP (who does what, when)
@@ -46,12 +46,12 @@ Target: +$100K premium from existing clients
 
 - [ ] **Commercial Auto Cross-Sell Campaign**
   - [ ] Identify commercial auto clients missing GL, WC, or umbrella
-  - [ ] Build OpenClaw research packs for top 20 cross-sell opportunities
+  - [ ] Build Claude research packs for top 20 cross-sell opportunities
   - [ ] Draft personalized outreach templates
   - [ ] Track conversion rate per campaign wave
 
 - [ ] **Coverage Gap Analysis**
-  - [ ] Run book-wide coverage gap report (EspoCRM query)
+  - [ ] Run book-wide coverage gap report (Zoho CRM query)
   - [ ] Prioritize by revenue opportunity (premium gap x close probability)
   - [ ] Assign top 10 gaps to Lamar pipeline this quarter
 
@@ -67,12 +67,12 @@ Target: +$200K premium from net-new clients
 
 - [ ] **Commercial Auto / Trucking Niche**
   - [ ] Formalize trucking specialization positioning
-  - [ ] Build DOT/FMCSA-powered lead research workflow (OpenClaw)
+  - [ ] Build DOT/FMCSA-powered lead research workflow (Claude agents)
   - [ ] Carrier appetite matrix for commercial auto (Progressive, CNA, etc.)
   - [ ] Target: 5 new commercial auto accounts/month
 
 - [ ] **Lead Pipeline System**
-  - [ ] EspoCRM lead-to-opportunity workflow documented
+  - [ ] Zoho lead-to-deal workflow documented
   - [ ] Lead scoring model (industry, fleet size, premium potential)
   - [ ] Weekly pipeline review ritual (30 min, Fridays)
   - [ ] Track: leads in -> quotes out -> policies bound -> premium written
@@ -105,8 +105,8 @@ Target: Infrastructure that supports $1M+ without burning out
 
 - [ ] **Agent Operational Maturity**
   - [ ] Hermes: anti-ghosting + renewal alerts + KPI reporting
-  - [ ] OpenClaw: field research + underwriting support
-  - [ ] Dify: client-facing intake and portal
+  - [ ] Claude agents: field research + underwriting support
+  - [ ] Zoho: client-facing CRM workflows and portal
   - [ ] All agents documented with SKILL.md files in vault
 
 ---
@@ -131,7 +131,7 @@ Year 2 push to $1M with compounding retention + pipeline maturity
 
 | Day | Block | Duration | Focus |
 |---|---|---|---|
-| Monday | Pipeline Review | 30 min | Review EspoCRM opportunities, prioritize week |
+| Monday | Pipeline Review | 30 min | Review Zoho Deals, prioritize week |
 | Tue-Thu | Outreach Block | 2 hrs/day | New business calls, cross-sell touches |
 | Wednesday | Gretchen Sync | 15 min | Service queue, renewal status, blockers |
 | Friday | Book Health | 30 min | Review Hermes scorecard, adjust strategy |

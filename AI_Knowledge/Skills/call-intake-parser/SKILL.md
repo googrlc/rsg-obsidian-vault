@@ -8,7 +8,7 @@ description: >
   or pastes a block of call notes/transcript text.
 
   On trigger: extracts all commercial intake fields from the transcript, writes
-  a lean Account + Opportunity stub to EspoCRM, generates a PDF + Excel intake
+  a lean Account + Deal stub to Zoho CRM, generates a PDF + Excel intake
   report saved to ~/Documents/rsg-intake-parser/output/, and fires a Slack
   summary to #lamar-alerts.
 
@@ -18,11 +18,11 @@ description: >
   ALWAYS ask for client name and call date if not provided. NEVER skip the
   transcript — paste it in or provide a file path.
 
-  Dependencies: Python service at ~/Documents/rsg-intake-parser/, EspoCRM API,
+  Dependencies: Python service at ~/Documents/rsg-intake-parser/, Zoho CRM API,
   Anthropic API, Slack. Uses Anthropic (revenue-critical).
 ---
 
-# Call Intake Parser — OpenClaw Skill
+# Call Intake Parser — Claude Skill
 
 ## What This Does
 Takes a raw call transcript or intake notes → parses into structured data →
@@ -124,7 +124,7 @@ After the command runs successfully, report back:
 
 📄 PDF: ~/Documents/rsg-intake-parser/output/[filename].pdf
 📊 Excel: ~/Documents/rsg-intake-parser/output/[filename].xlsx
-🔗 CRM: https://{{ESPOCRM_HOST}}/#Account/view/[account_id]
+🔗 CRM: Zoho CRM Account record
 
 Slack alert sent to #lamar-alerts.
 ```
@@ -164,7 +164,7 @@ open ~/Documents/rsg-intake-parser/output/[CLIENT]-Intake-[DATE].xlsx
 Gretchen doesn't need to know the command. She says:
 > "I finished a call with ABC Landscaping. Here are my notes: [paste notes]"
 
-OpenClaw responds:
+Claude responds:
 > "Got it — running intake for ABC Landscaping. What's today's date and is this a new prospect or existing client?"
 
 Then runs automatically once confirmed.
@@ -191,4 +191,4 @@ Naming: `[Client-Name]-Intake-[YYYY-MM-DD].pdf` and `.xlsx`
 
 ## LLM: Anthropic (revenue-critical)
 ## Slack: #lamar-alerts
-## CRM: EspoCRM Account + Opportunity + 1 Task
+## CRM: Zoho CRM Account + Deal + 1 Task

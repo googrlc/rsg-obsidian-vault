@@ -109,7 +109,7 @@ Run these first — they directly feed agent intelligence:
 
 1. `Carriers/Appetites/` — feeds Prospect Researcher + Renewal agents
 2. `Carriers/Commisions/` — feeds Commission Reconciliation agent
-3. `AI_Knowledge/Skills/` — feeds all OpenClaw agents
+3. `AI_Knowledge/Skills/` — feeds all agents (Claude, Hermes)
 4. `AI_Knowledge/Lines of Business/` — feeds underwriting + quoting context
 
 ---

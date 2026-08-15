@@ -6,7 +6,7 @@ description: >
 
 # Outreach Templates — RSG Sales & Retention
 
-**Usage:** Agent selects the appropriate template, fills variables from EspoCRM + NowCerts + Supabase data, and drafts the message. All messages should sound like Lamar — direct, knowledgeable, no fluff.
+**Usage:** Agent selects the appropriate template, fills variables from Zoho CRM + NowCerts + Supabase data, and drafts the message. All messages should sound like Lamar — direct, knowledgeable, no fluff.
 
 ## Template 1: Cold Outreach — Contractor
 
@@ -170,7 +170,7 @@ Thanks for connecting, {FIRST_NAME}. I specialize in {LOB_LIST} for {INDUSTRY} o
 ## Personalization Rules
 
 Before sending any template:
-1. **Check EspoCRM** (via crm-manager skill) — pull account, contact, and opportunity data
+1. **Check Zoho CRM** — pull account, contact, and deal data
 2. **Check NowCerts** (via nowcerts-skill) — pull current policy details if they're an existing client
 3. **Check carrier appetite** (via carrier-appetite skill) — reference specific carriers and rates
 4. **Customize** — replace generic industry language with specific details from their business

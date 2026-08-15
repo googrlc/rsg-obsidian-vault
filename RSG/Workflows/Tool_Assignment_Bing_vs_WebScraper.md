@@ -71,4 +71,4 @@ Update Parse Web Research Results LLM user prompt to include:
 ## NO CHANGE NEEDED
 - Vehicle Web Search — Bing only is correct
 - Carrier Appetite Lookup — Supabase direct, no search needed
-- EspoCRM nodes — API calls, no search needed
+- Zoho CRM access — via `user-ZohoMCP`, no search needed

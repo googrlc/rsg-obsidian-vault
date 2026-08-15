@@ -1,12 +1,11 @@
 {
   "vocabularyWords": [
     "General Liability",
-    "Workers\u2019 Comp",
+    "Workers’ Comp",
     "NowCerts",
     "RSG",
     "Risk Solutions Group",
     "Gretchen",
-    "n8n",
     "OCP",
     "ACORD",
     "BTIS",
@@ -168,7 +167,6 @@
   "version": "1.71",
   "wordReplacements": {
     "Now certs.": "Nowcerts",
-    "NADN.": "N8N",
     "e and o": "E&O"
   }
 }

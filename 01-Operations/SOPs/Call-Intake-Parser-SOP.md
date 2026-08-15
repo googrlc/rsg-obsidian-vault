@@ -1,7 +1,7 @@
 # Call Intake Parser - SOP
 **Last Updated:** 2026-04-01
 **Owner:** Lamar Coates - Risk Solutions Group
-**Purpose:** End-to-end workflow for recording a client intake call, parsing it with AI, writing results to EspoCRM, and generating a PDF intake report.
+**Purpose:** End-to-end workflow for recording a client intake call, parsing it with AI, writing results to Zoho CRM, and generating a PDF intake report.
 
 ---
 
@@ -10,13 +10,13 @@
 ```
 Phone Call Recording
         |
-  Upload transcript (text or audio) to OpenClaw
+  Upload transcript (text or audio) to Claude
         |
   call-intake-parser skill parses transcript via Claude API
         |
   Structured JSON output (all commercial intake fields)
         |
-  n8n workflow writes Account + Opportunity to EspoCRM
+  Write Account + Opportunity to Zoho CRM
         |
   PDF intake report generated and saved to SharePoint/client folder
         |
@@ -37,18 +37,18 @@ Phone Call Recording
 
 ---
 
-## Step 2 - Submit Transcript to OpenClaw
+## Step 2 - Submit Transcript to Claude
 
 Paste or upload the transcript text and trigger the `call-intake-parser` skill with:
 > "Parse this intake call transcript for [Client Name] and write to CRM"
 
-The skill will return a structured JSON object and confirm what was written to EspoCRM.
+The skill will return a structured JSON object and confirm what was written to Zoho CRM.
 
 ---
 
 ## Step 3 - Review Missing Fields
 
-OpenClaw will output a **Missing Fields List** - everything required for submission that wasn't mentioned on the call. These become your follow-up task items in EspoCRM, auto-created by the skill.
+Claude will output a **Missing Fields List** - everything required for submission that wasn't mentioned on the call. These become your follow-up task items in Zoho CRM, auto-created by the skill.
 
 ---
 
@@ -67,5 +67,4 @@ The skill auto-generates a PDF intake report saved to `/outputs/intake-reports/`
 ## Related Files
 
 - [[02-Underwriting/Commercial-Data-Model/Commercial-Client-Intake-Schema]] - master field reference
-- OpenClaw skill: `call-intake-parser`
-- n8n workflow: `Commercial Intake -> EspoCRM` (see workflow registry)
+- Claude skill: `call-intake-parser`

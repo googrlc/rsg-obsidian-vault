@@ -161,7 +161,7 @@ UNDERWRITING FLAGS:
 ## Integration with Other Skills
 - After property brief, check **carrier-appetite.md** for Homeowners/BOP carrier appetite
 - Feed results to **prospect-researcher.md** if this is a new commercial prospect
-- Log property details on the EspoCRM Account via **crm-manager.md**
+- Log property details on the Zoho CRM Account
 
 ## Error Handling
 - Census geocoder returns no match → address may be new construction or rural. Ask client to verify.

@@ -3,7 +3,7 @@
 ## Overview
 Daily automated document processor for Risk Solutions Group.
 Watches `/Users/lamarcoates/Documents/RSG/00 Inbox` for new files,
-parses them with Claude AI, and routes extracted data to Supabase + EspoCRM.
+parses them with Claude AI, and routes extracted data to Supabase + Zoho CRM.
 
 ## Folder Structure
 ```
@@ -16,12 +16,12 @@ parses them with Claude AI, and routes extracted data to Supabase + EspoCRM.
 ## Supported Document Types
 | Type | What gets extracted | Destination |
 |---|---|---|
-| Dec Page (PDF) | Client, carrier, LOB, premium, policy#, eff/exp dates | Supabase risk_assessments + EspoCRM Account |
+| Dec Page (PDF) | Client, carrier, LOB, premium, policy#, eff/exp dates | Supabase risk_assessments + Zoho CRM Account |
 | ACORD Application | Business info, exposures, vehicles, payroll | Triggers full assessment |
 | Commission Statement | Carrier, policy#, premium, commission amount | Supabase commission_ledger |
-| Call Transcript | Client name, pain points, coverage discussed, next steps | EspoCRM Note + Lead update |
+| Call Transcript | Client name, pain points, coverage discussed, next steps | Zoho CRM Note + Lead update |
 | Loss Run | Claim history, total incurred, loss ratio | Risk assessment red flags |
-| COI | Certificate holder, coverage limits, expiry | EspoCRM Account note |
+| COI | Certificate holder, coverage limits, expiry | Zoho CRM Account note |
 
 ## Schedule
 Runs daily at 9:00 AM via launchd (macOS cron alternative)

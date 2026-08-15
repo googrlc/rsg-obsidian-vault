@@ -129,7 +129,7 @@ FULL SCHEDULE:
 ## Integration with Other Skills
 - After decode, check **carrier-appetite.md** for Commercial Auto carriers by GVWR class
 - For fleet prospects, feed results to **prospect-researcher.md** for full pre-call brief
-- Log fleet details in EspoCRM via **crm-manager.md** on the Account record
+- Log fleet details in Zoho CRM on the Account record
 
 ## Error Handling
 - Invalid VIN (bad check digit) → vPIC returns partial data with `ErrorCode` field. Flag as "⚠️ VIN check digit invalid — verify with client"

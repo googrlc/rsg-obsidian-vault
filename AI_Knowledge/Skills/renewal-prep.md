@@ -1,7 +1,7 @@
 ---
 name: renewal-prep
 description: >
-  Renewal pipeline workflow skill. Manages 60-day commercial / 30-day personal thresholds, coordinates NowCerts policy data with EspoCRM renewals pipeline. Targets improving RSG's 54.92% retention rate.
+  Renewal pipeline workflow skill. Manages 60-day commercial / 30-day personal thresholds, coordinates NowCerts policy data with Zoho CRM renewals pipeline. Targets improving RSG's 54.92% retention rate.
 ---
 
 # Renewal Prep — Pipeline Workflow
@@ -21,10 +21,10 @@ Read `AI_Knowledge/Skills/nowcerts-skill.md` for auth and endpoints.
 - Pull expiring policies via InsuredDetailList
 - Key fields: `expirationDate`, `premium`, `carrierName`, `lineOfBusiness`, `commercialName`
 
-### EspoCRM (Pipeline Tracking)
-Read `AI_Knowledge/Skills/crm-manager.md` for auth and endpoints.
-- Module: `Renewal` — tracks pipeline stage, urgency, notes
-- Module: `Policy` — links to account, tracks status
+### Zoho CRM (Pipeline Tracking)
+Access via MCP `user-ZohoMCP`.
+- Module: `Renewals` — tracks pipeline stage, urgency, notes
+- Module: `Policies` — links to account, tracks status
 
 ### Supabase (Commission Intelligence)
 - **Base URL:** `https://wibscqhkvpijzqbhjphg.supabase.co/rest/v1`
@@ -42,22 +42,22 @@ Filter into urgency tiers:
 - **🟢 WATCH:** 31–60 days
 - **📋 PIPELINE:** 61–90 days
 
-### Step 2: Match to EspoCRM Renewals
+### Step 2: Match to Zoho CRM Renewals
 For each expiring policy:
-1. Search EspoCRM `Renewal` by account name + LOB
+1. Search Zoho CRM `Renewals` by account name + LOB
 2. If renewal exists → check stage, update if stale
 3. If no renewal → create one:
 ```
-POST /api/v1/Renewal
+POST Zoho CRM API / Renewals
 {
-  "accountId": "{ACCOUNT_ID}",
-  "expiringPolicyId": "{POLICY_ID}",
-  "lineOfBusiness": "{LOB}",
-  "currentCarrier": "{CARRIER}",
-  "pipelineStage": "Identified",
-  "urgency": "{TIER}",
-  "expirationDate": "{EXP_DATE}",
-  "currentPremium": {PREMIUM}
+  "Account_Name": "{ACCOUNT_ID}",
+  "Expiring_Policy_Id": "{POLICY_ID}",
+  "Line_of_Business": "{LOB}",
+  "Current_Carrier": "{CARRIER}",
+  "Pipeline_Stage": "Identified",
+  "Urgency": "{TIER}",
+  "Expiration_Date": "{EXP_DATE}",
+  "Current_Premium": {PREMIUM}
 }
 ```
 
@@ -116,11 +116,11 @@ Revenue at risk: ${total}
 - Carrier appetite downgraded for this class
 
 ### Win-Back for Lost Renewals
-- If renewal lost → update EspoCRM Renewal stage to "Lost", fill `lostReason`
-- Set EspoCRM Task: re-quote in 10 months
+- If renewal lost → update Zoho CRM Renewal stage to "Lost", fill lost reason
+- Set Zoho CRM Task: re-quote in 10 months
 - Log to commission_ledger as lost revenue for tracking
 
 ## Error Handling
 - NowCerts token failure → alert #systems-check, skip NowCerts data
-- EspoCRM 404 on account → create Account first, then Renewal
+- Zoho CRM 404 on account → create Account first, then Renewal
 - Duplicate renewal detected → update existing, don't create new

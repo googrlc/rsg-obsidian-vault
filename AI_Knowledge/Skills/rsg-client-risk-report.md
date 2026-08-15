@@ -2,14 +2,14 @@
 name: rsg-client-risk-report
 description: >
   Client-facing risk profile generator. Reads dec pages (PDF or manual entry) or a completed RSG pre-screen assessment and produces a hosted HTML report. Leads with what the client has and what it means in plain English, then flags gaps, then presents RSG's action plan. Also runs web lookups for personal auto market value and Georgia home rebuild cost estimates.
-platform: Dify (Chatflow)
+platform: Claude agent
 model: claude-sonnet-4-20250514
 tools: Web Search, PDF Upload
 used_by: Lamar Coates, Gretchen Coates
 output: Client-facing HTML report (hosted link or Assembly iframe)
 status: spec-ready
 created: 2026-04-08
-related_agents: Quote Pre-Screen (n8n uY9G3kTxTchOZ5UG + Dify dataset 450fb20c)
+related_agents: Quote Pre-Screen
 ---
 
 # RSG Client Risk Report Agent
@@ -126,7 +126,7 @@ NOTES: [Anything specific to flag or highlight]
 
 ---
 
-## Dify Configuration
+## Agent Configuration
 
 | Setting | Value |
 |---|---|
@@ -164,11 +164,11 @@ This is the **retention tool** — client sees their risk score improve and ties
 
 | Agent | Relationship |
 |---|---|
-| Quote Pre-Screen (n8n uY9G3kTxTchOZ5UG) | Upstream — its output PDF feeds this agent in Scenario B |
+| Quote Pre-Screen | Upstream — its output PDF feeds this agent in Scenario B |
 | Prospect Researcher | Separate — pre-call intel only, no overlap |
 | Renewal Watchdog | Downstream — post-close report supports renewal retention story |
 
 ---
 
 ## Full Spec
-See: `RSG/Workflows/rsg-client-risk-report-dify-spec.md` for complete system prompt and HTML template.
+The complete system prompt and HTML template are maintained with this agent's Claude configuration.

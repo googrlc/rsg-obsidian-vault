@@ -6,7 +6,7 @@ NowCerts (also branded as Momentum/InMotionNow) is RSG's system of record for al
 ## Credentials
 - **Login endpoint:** `POST https://api.nowcerts.com/api/AgencyLogin`
 - **Username:** `lamar@risk-solutionsgroup.com`
-- **Password:** `{{NOWCERTS_PASSWORD}}` ← stored in OpenClaw .env
+- **Password:** `{{NOWCERTS_PASSWORD}}` ← stored in 1Password
 - **Agency ID:** `09d93486-1536-48d7-9096-59f1f62b6f51`
 - **Agency Name:** Risk Solutions Group
 
@@ -42,7 +42,7 @@ Authorization: Bearer {access_token}
 ```
 
 ## Key Insured Fields to Extract
-- `databaseId` — NowCerts GUID (use as foreign key in EspoCRM)
+- `databaseId` — NowCerts GUID (use as foreign key in Zoho CRM)
 - `commercialName` — business name (use for commercial accounts)
 - `firstName` + `lastName` — personal name (use for personal lines clients)
 - `expirationDate` — policy expiration (ISO format)
@@ -54,7 +54,7 @@ Authorization: Bearer {access_token}
 ## Name Resolution Logic
 - If `commercialName` is populated → use it as account name
 - If `commercialName` is blank → use `firstName + ' ' + lastName`
-- EspoCRM stores names as First Last — NowCerts personal names may be Last, First — always normalize before matching
+- Zoho CRM stores names as First Last — NowCerts personal names may be Last, First — always normalize before matching
 
 ## Renewal Urgency Tiers (RSG Standard)
 - **🔴 CRITICAL:** expiring in 0–14 days
@@ -62,7 +62,7 @@ Authorization: Bearer {access_token}
 - **🟢 WATCH:** expiring in 31–60 days
 - **📋 PIPELINE:** expiring in 61–90 days
 
-## LOB Routing (which EspoCRM pipeline to update)
+## LOB Routing (which Zoho CRM pipeline to update)
 - Commercial Auto → `Commercial_Auto_Renewals`
 - General Liability → `Commercial_PC_Renewals`
 - Workers Comp → `Commercial_PC_Renewals`
