@@ -1,0 +1,3307 @@
+{
+  "stats": {
+    "folders_created": 35,
+    "copied": 371,
+    "moved": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "entries": [
+    {
+      "time": "2026-08-16T22:55:43.414263+00:00",
+      "action": "create_folder",
+      "source": "01-Carriers/Appetites",
+      "target": "01-Carriers/Appetites",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:44.452854+00:00",
+      "action": "create_folder",
+      "source": "01-Carriers/Commissions",
+      "target": "01-Carriers/Commissions",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:45.786042+00:00",
+      "action": "create_folder",
+      "source": "01-Carriers/Contacts",
+      "target": "01-Carriers/Contacts",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:47.358304+00:00",
+      "action": "create_folder",
+      "source": "02-Lines-of-Business/Commercial-Auto",
+      "target": "02-Lines-of-Business/Commercial-Auto",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:48.498016+00:00",
+      "action": "create_folder",
+      "source": "02-Lines-of-Business/General-Liability",
+      "target": "02-Lines-of-Business/General-Liability",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:49.520745+00:00",
+      "action": "create_folder",
+      "source": "02-Lines-of-Business/Workers-Comp",
+      "target": "02-Lines-of-Business/Workers-Comp",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:50.526784+00:00",
+      "action": "create_folder",
+      "source": "02-Lines-of-Business/Property",
+      "target": "02-Lines-of-Business/Property",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:51.503760+00:00",
+      "action": "create_folder",
+      "source": "02-Lines-of-Business/BOP",
+      "target": "02-Lines-of-Business/BOP",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:52.529897+00:00",
+      "action": "create_folder",
+      "source": "02-Lines-of-Business/Medicare",
+      "target": "02-Lines-of-Business/Medicare",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:54.142812+00:00",
+      "action": "create_folder",
+      "source": "03-Operations/SOPs",
+      "target": "03-Operations/SOPs",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:55.103111+00:00",
+      "action": "create_folder",
+      "source": "03-Operations/Workflows",
+      "target": "03-Operations/Workflows",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:56.224955+00:00",
+      "action": "create_folder",
+      "source": "03-Operations/Roles",
+      "target": "03-Operations/Roles",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:57.316308+00:00",
+      "action": "create_folder",
+      "source": "03-Operations/Finance",
+      "target": "03-Operations/Finance",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:58.253821+00:00",
+      "action": "create_folder",
+      "source": "03-Operations/Current-Projects",
+      "target": "03-Operations/Current-Projects",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:55:59.519475+00:00",
+      "action": "create_folder",
+      "source": "04-Client-Service/Intake-Templates",
+      "target": "04-Client-Service/Intake-Templates",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:00.548913+00:00",
+      "action": "create_folder",
+      "source": "04-Client-Service/Call-Scripts",
+      "target": "04-Client-Service/Call-Scripts",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:01.702087+00:00",
+      "action": "create_folder",
+      "source": "04-Client-Service/FAQ",
+      "target": "04-Client-Service/FAQ",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:04.086450+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Brand-Guide/Branding-Files",
+      "target": "05-Marketing/Brand-Guide/Branding-Files",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:05.331912+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Brand-Guide/Images",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:06.723093+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Brand-Guide/Logos",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:08.040799+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Brand-Guide/Documents",
+      "target": "05-Marketing/Brand-Guide/Documents",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:09.402203+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Brand-Guide/Social-Media",
+      "target": "05-Marketing/Brand-Guide/Social-Media",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:10.377551+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Marketing-Assets",
+      "target": "05-Marketing/Marketing-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:11.345305+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Newsletters",
+      "target": "05-Marketing/Newsletters",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:12.543825+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Presentations",
+      "target": "05-Marketing/Presentations",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:13.704101+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Press-Kit",
+      "target": "05-Marketing/Press-Kit",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:14.662594+00:00",
+      "action": "create_folder",
+      "source": "05-Marketing/Widget-Assets",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:16.107848+00:00",
+      "action": "create_folder",
+      "source": "06-Training/Onboarding",
+      "target": "06-Training/Onboarding",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:17.101798+00:00",
+      "action": "create_folder",
+      "source": "06-Training/Insurance-Education",
+      "target": "06-Training/Insurance-Education",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:18.422698+00:00",
+      "action": "create_folder",
+      "source": "07-Compliance/Licenses",
+      "target": "07-Compliance/Licenses",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:19.456545+00:00",
+      "action": "create_folder",
+      "source": "07-Compliance/Policies-Coverages",
+      "target": "07-Compliance/Policies-Coverages",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:20.906348+00:00",
+      "action": "create_folder",
+      "source": "08-CRM-and-Systems/CRM-Setup",
+      "target": "08-CRM-and-Systems/CRM-Setup",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:22.053634+00:00",
+      "action": "create_folder",
+      "source": "08-CRM-and-Systems/Codes-and-Prompts",
+      "target": "08-CRM-and-Systems/Codes-and-Prompts",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:24.333983+00:00",
+      "action": "create_folder",
+      "source": "09-Archive/Migrated-from/BrandGuide",
+      "target": "09-Archive/Migrated-from/BrandGuide",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:26.076150+00:00",
+      "action": "create_folder",
+      "source": "09-Archive/Migrated-from/Root-Intranet",
+      "target": "09-Archive/Migrated-from/Root-Intranet",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:27.783908+00:00",
+      "action": "move",
+      "source": "Current projects",
+      "target": "03-Operations/Current-Projects",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:29.240028+00:00",
+      "action": "move",
+      "source": "Marketing assets",
+      "target": "05-Marketing/Marketing-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:30.835960+00:00",
+      "action": "move",
+      "source": "Newsletters",
+      "target": "05-Marketing/Newsletters",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:32.388048+00:00",
+      "action": "move",
+      "source": "Onboarding",
+      "target": "06-Training/Onboarding",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:33.759065+00:00",
+      "action": "move",
+      "source": "Presentations",
+      "target": "05-Marketing/Presentations",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:35.117094+00:00",
+      "action": "move",
+      "source": "Press kit",
+      "target": "05-Marketing/Press-Kit",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:41.697484+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/allcarriers.jpg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:47.220160+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/all-free-thank-you-gif-cool-dog.gif",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:50.141416+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Auto.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:52.702273+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/carriers 2024-01-21 16_42_49.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:55.323600+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/carriers.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:56:57.650325+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Commercial Lines Photo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:00.416471+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Commercial.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:02.870899+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/content (20).png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:05.264693+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/content (21).png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:07.965521+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/DALL\u00b7E June 26 2024.webp",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:10.408434+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/DALL\u00b7E June 26 Banner (1).webp",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:13.492006+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/DALL\u00b7E June 26 Banner.webp",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:15.957068+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/DALL\u00b7E New Business Banner.webp",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:19.500703+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Download (1).jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:22.084645+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/download.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:25.172712+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Follow up.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:27.585580+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/getpreview.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:30.866234+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Gradient Icon Map Navigation App Logo.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:34.351543+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/homeowners (US) (Landscape)).png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:37.801411+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/HomeOwners.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:40.200817+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/House.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:42.630223+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/housedesign.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:45.088032+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/idea.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:47.243022+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/igital Product.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:49.490999+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/images.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:51.894491+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Insurance lines of business collage.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:54.735662+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Insurance lines of business collage.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:57:57.979678+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Launcher.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:00.335628+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Learn more arrow vector.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:02.579465+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Life Insurance.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:04.900303+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Life Insurance2.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:08.237240+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/life.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:12.766540+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/login  Profile Frame).png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:16.145729+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/login (Facebook Profile Frame).png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:19.411080+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Login Here.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:21.550329+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Login Here2.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:24.210589+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/login.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:26.528420+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Looking for the Best Solution For your Client.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:29.369241+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Modern California Home Front Exterior.jpg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:32.704659+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Operations Icon Workflow.webp",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:35.022044+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Operations Thumbnail.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:38.003760+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/PA.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:40.440068+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/personal lines.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:43.884476+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/pesonalsutudy.webp",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:47.023054+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/pets-3.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:49.201725+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/PL.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:53.014368+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/PowerofDataCollectio.mp4",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:55.430760+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Profile Frame).png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:58:57.791773+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Property thumbnail.jpg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:00.128845+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/prospects App Logo.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:02.727669+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Red 3 Door Hatchback Thumbnail.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:06.193290+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/renewal-time-to-renew-shutterstock.jpg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:08.526106+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/request.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:10.815181+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/resources.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:13.176716+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Risk Solutions Group.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:15.701261+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/rmat.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:17.868770+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Roof shape.webp",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:20.171148+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/roof.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:22.361165+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screen Shot 2022-08-03 at 1.56.28 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:24.732379+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-14 at 3.07.56 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:26.902080+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-14 at 3.19.26 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:29.353387+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-15 at 7.21.44 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:32.900542+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-16 at 7.53.43 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:35.044952+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-19 at 5.25.35 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:37.540243+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-19 at 6.35.08 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:39.786739+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-20 at 1.28.01 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:42.505790+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-20 at 1.46.45 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:46.054665+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-20 at 2.02.06 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:48.350926+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-20 at 3.16.08 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:50.689162+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-30 at 8.28.13 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:53.874411+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-11-30 at 8.59.29 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T22:59:56.396048+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-01 at 8.41.32 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:00.423249+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-01 at 8.54.44 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:03.004487+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-01 at 8.56.55 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:05.366162+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-01 at 8.59.42 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:07.789930+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-01 at 9.01.07 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:10.159281+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-01 at 9.03.07 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:14.340435+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-09 at 6.25.50 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:16.900975+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-22 at 1.19.55 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:19.081655+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-22 at 1.28.13 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:21.578778+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-22 at 2.20.18 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:24.080420+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-22 at 4.22.50 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:26.588469+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-22 at 5.02.04 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:30.640312+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-22 at 5.25.01 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:33.303723+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-22 at 5.30.13 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:35.733645+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-22 at 5.36.32 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:37.994173+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2022-12-27 at 7.21.53 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:40.564354+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-04-30 at 6.31.29 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:42.797846+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-26 at 10.53.17 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:46.177747+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-26 at 2.10.48 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:49.661800+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-30 at 10.37.08 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:51.773052+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-30 at 10.46.05 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:54.088805+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-30 at 10.47.14 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:56.393636+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-30 at 10.52.39 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:00:58.953613+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-30 at 10.53.54 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:03.099979+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-30 at 10.54.58 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:05.435405+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-30 at 10.55.47 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:07.645807+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-05-30 at 10.57.48 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:09.952032+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-12 at 4.51.04 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:13.519589+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-21 at 11.04.13 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:17.165177+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-27 at 3.08.19 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:20.339705+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-27 at 6.22.40 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:22.767722+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-28 at 6.42.06 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:25.579075+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-28 at 7.44.48 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:27.883202+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-28 at 8.03.01 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:30.232239+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-28 at 8.04.18 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:32.552015+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-28 at 8.08.23 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:35.141074+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-28 at 8.19.45 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:37.636839+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-28 at 8.36.12 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:40.059638+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-07-28 at 8.44.10 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:42.362063+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-02 at 12.29.16 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:46.100075+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-03 at 9.59.44 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:48.363828+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-05 at 11.46.58 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:50.867992+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-05 at 3.04.01 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:53.241318+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-05 at 3.06.36 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:56.117361+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-06 at 12.10.03 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:01:58.416393+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-06 at 12.46.11 AM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:01.564059+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-07 at 4.08.52 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:04.065907+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-07 at 4.11.18 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:07.646477+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2023-08-07 at 4.12.23 PM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:11.357464+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Screenshot 2025-02-27 at 6.55.20\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:13.621561+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/shutterstock_179796398.jpg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:15.810018+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/Small Business Word Cloud.jpg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:18.067347+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/spritualRoutine.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:20.159125+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/SUV busy street.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:22.588103+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/SUV busy street.webp",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:25.673606+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/WC.jpeg",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:28.185539+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/zohodrive.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:31.349995+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Images/ZohoWork logo.png",
+      "target": "05-Marketing/Brand-Guide/Images",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:35.365797+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Social Media Posting Guide/Step-by-Step Social Media Posting Guide.docx",
+      "target": "05-Marketing/Brand-Guide/Social-Media",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:40.141766+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Circular Logo - Color copy.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:42.270971+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Circular Logo - Color.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:44.705278+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Circular Logo (Final) (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:47.162046+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Circular Logo (Final) 2024-01-21 16_43_00 (1).jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:49.518095+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Circular Logo (Final) 2024-01-21 16_43_00.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:51.922845+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Circular Logo (Final).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:54.527170+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Favicon.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:02:57.136384+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Long Logo - Color faebook.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:01.556160+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/Long Logo - Color.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:03.846530+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/nmlPDGCIeZv1Fq1JTAilDQWMbCNoFny2 2024-01-21 16_42_52.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:06.361501+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Agency Logos/nmlPDGCIeZv1Fq1JTAilDQWMbCNoFny2.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:08.649365+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/1_G_upPgC7ks0uni5uzyfcIw.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:10.983364+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/AE.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:13.223491+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/aegis.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:15.342289+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/agencyzoom.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:17.661396+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/AIG logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:19.826248+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Allstate.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:22.035539+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/alternativebenefits.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:24.620708+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/American modern logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:27.040040+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Amerisafe.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:29.523864+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/amg.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:31.947819+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Amsuisse.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:34.380030+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/amtrust1.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:36.727082+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Amwins insurance logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:40.174339+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/answerthepublic.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:42.538720+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Appalachian Underwriters Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:44.842466+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Ascend Finance Logo (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:47.203414+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/ascend.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:49.449735+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Attune logo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:51.646573+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/autoowners1.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:54.291984+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/bassunderwirters.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:56.866024+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/beambenefits.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:03:59.513817+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/bhhc.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:02.091723+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Bluevine logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:04.565879+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/BreckGen.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:06.853718+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Bristol West Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:10.398615+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Btis logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:12.587790+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/burns.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:14.961470+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/carriers 2024-01-21 16_42_49.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:18.021310+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/carriers.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:20.557185+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/ChatGPT logo.svg.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:23.220833+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/chenago.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:25.636605+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Chubb.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:27.333842+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Circular Logo (Final) (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:29.116277+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Circular Logo (Final) 2024-01-21 16_43_00.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:30.927699+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Circular Logo (Final).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:33.138751+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/clear.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:35.292853+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Clearcover_Wordmark_RGB_Cobalt-EmailSignature.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:37.465450+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/CNA insurance logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:39.673114+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/cnaM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:41.824286+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/content (11).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:45.851459+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Core Specialty Logo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:48.160330+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Coterie logo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:50.350484+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Coterie Specialty Logo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:53.083294+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Cowerwhale logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:55.337090+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/CRC.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:04:57.829887+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/dfis.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:00.003416+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Digital World.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:02.670503+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Docu.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:04.822208+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/docusign.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:06.954700+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/ds.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:09.443388+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/epremium.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:11.545713+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/facebook.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:13.977528+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/fairmatic.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:15.618264+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Favicon.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:17.678527+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/fb.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:20.527130+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/firstconnect.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:22.854174+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Formost Logo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:25.151145+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/formst.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:27.331872+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/formstack.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:29.648434+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/formstack1.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:31.753203+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Gainsco logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:34.121001+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/gram.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:36.719985+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Great American Insurance Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:39.447795+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Hanover Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:41.551910+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Hawksoft logo.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:43.786141+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/hippo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:46.644476+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Hiscox Brokers Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:50.494772+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/honeycomb.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:52.812547+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/ics.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:55.027595+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Instagram logo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:57.338243+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/instagram.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:05:59.564208+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Insurance XDate Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:02.460672+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/integritypeo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:05.909258+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/ivans.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:08.246599+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/ivans-insurance-press-release-1200x630.webp",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:10.759900+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Jencap logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:14.151888+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/LEO.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:16.543488+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Lexis Nexis logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:19.240034+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/lexisnexis.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:21.976111+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Liberty Mutual Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:24.649153+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/lightspeed.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:28.414022+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/linkedin.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:31.186059+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Loom logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:33.528193+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Lossrunspro logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:36.384853+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Markel logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:38.629345+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Mile Auto Logo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:41.314063+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Mutual of Omaha logo.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:44.104075+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Naics logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:46.671963+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/naics.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:48.912788+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/National General logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:51.326544+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Nationwide Brokerage Service Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:54.504366+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/NCCI Slogo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:56.831606+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/ncci.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:06:59.529152+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/next.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:01.946032+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/NHTSA logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:05.095872+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/nhtsa.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:06.763539+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/nmlPDGCIeZv1Fq1JTAilDQWMbCNoFny2 2024-01-21 16_42_52.jpg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:09.275711+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Northpoint.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:11.481814+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/novella.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:14.102332+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/OIP.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:16.642592+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/omahanational.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:18.806524+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Orchid.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:21.595981+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Orion180 logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:23.867511+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/orion180.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:26.049845+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/pathpoint.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:28.598467+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/PDFF.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:30.890363+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/pdffiller.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:33.158095+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/peoplekeep.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:35.563678+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/persoanlumbrella.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:37.785813+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/pic.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:40.324164+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/pictory.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:42.726504+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Pie Insurance logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:45.216833+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/pie1.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:47.388583+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/pieinsurance.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:49.908807+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Pouch Appetite Guide (1).pdf",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:52.686755+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/pouch.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:55.124752+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Prime insurance.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:57.610521+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Primeinsfull.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:07:59.692876+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Progressive logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:01.805390+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Propeller Bonds.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:03.991104+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/qq.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:06.406199+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/RA.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:08.788987+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/redfin.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:11.552528+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/rps.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:13.736326+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/RR.jpeg",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:16.117333+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Safeco Insurance Logo (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:18.211807+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Safer Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:20.505886+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/scottsdale.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:22.666650+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-16 at 7.34.43 AM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:24.710877+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 1.50.38 PM 2024-01-21 16_43_00.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:27.154143+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 1.51.30 PM (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:29.515684+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.12.42 PM (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:31.829697+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.12.42 PM 2024-01-21 16_43_00 (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:34.072362+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.12.42 PM 2024-01-21 16_43_00.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:36.425682+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.12.42 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:38.660681+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.15.57 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:41.995521+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.26.03 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:44.116917+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.30.36 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:46.284846+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.35.34 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:48.625377+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.37.49 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:51.920108+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-11-20 at 2.41.17 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:54.160464+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-12-21 at 6.09.46 PM 2024-01-21 16_42_56 (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:56.277548+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-12-21 at 6.23.09 PM (1).png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:08:58.517767+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-12-22 at 1.35.18 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:00.579029+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2022-12-22 at 1.47.42 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:03.075226+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-08-05 at 2.13.25 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:05.280903+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-08-05 at 7.41.09 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:07.554061+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-25 at 5.48.36 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:09.817050+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-25 at 5.56.36 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:13.020644+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-25 at 6.50.59 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:15.311709+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-25 at 7.19.56 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:17.730296+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-25 at 7.58.02 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:19.916062+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-25 at 8.11.32 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:22.031685+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-25 at 9.26.00 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:24.096668+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-25 at 9.32.13 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:26.429936+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-09-28 at 4.28.26 PM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:30.064541+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-10-30 at 5.07.38\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:32.899787+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2023-12-05 at 11.27.17\u202fAM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:35.341251+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 1.47.30\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:37.652891+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 2.39.17\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:39.713544+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 2.39.35\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:43.101176+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 2.43.22\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:45.778221+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 2.48.12\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:48.244268+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 2.51.00\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:50.405812+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 2.56.02\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:52.697470+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 2.58.37\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:55.333549+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 3.00.11\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:09:57.875873+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 3.07.31\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:00.093998+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 3.15.10\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:02.442284+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 3.16.31\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:04.583981+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 3.21.02\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:07.746385+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 3.26.57\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:09.911023+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 3.37.26\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:12.147194+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 3.51.06\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:14.455682+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 4.35.45\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:16.602026+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-01-01 at 5.17.00\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:19.193671+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-08-25 at 6.43.39\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:21.554707+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-09-24 at 9.37.26\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:23.854471+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-11-09 at 9.33.34\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:26.059097+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-11-09 at 9.36.57\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:28.449683+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Screenshot 2024-11-09 at 9.41.08\u202fPM.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:31.215218+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Scribe logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:33.572521+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/scribe.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:35.835269+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/sed.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:38.540234+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/sedera.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:40.910233+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/shield.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:43.249425+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/smartchoice.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:45.680079+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/solepro.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:49.168421+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/st.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:51.651651+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/staples.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:53.896940+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/State Auto Insurance Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:56.238805+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/state auto1.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:10:58.453489+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/steadily.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:00.477108+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/stillwater.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:03.852846+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Stonemark logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:06.671779+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/stonemark.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:09.060265+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/symtra.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:11.216223+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/Tapco Insurance Logo.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:13.684391+00:00",
+      "action": "copy",
+      "source": "BrandGuide/Logos/tapco.png",
+      "target": "05-Marketing/Brand-Guide/Logos",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:16.384336+00:00",
+      "action": "copy",
+      "source": "root/Talk Tracks/Renewal Consult Talk Track .pdf",
+      "target": "04-Client-Service/Call-Scripts",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:19.721766+00:00",
+      "action": "copy",
+      "source": "root/Media library/RSG NB Lead Tracker.xlsx",
+      "target": "03-Operations/SOPs",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:23.036591+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/boards-yellow.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:25.128974+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/Coffee Supply Breach.pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:27.243496+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/Coffee%20Supply%20Breach.pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:29.378543+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/default-board-background-cover.jpeg",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:31.440324+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/default-board-background-cover-dark.jpg",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:33.391728+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/default-board-logo-dark.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:35.286136+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/hr-policies.jpg",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:37.265394+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/HubSpot-logo.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:40.116879+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/icon_color-nw.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:42.149628+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/icon_outline-template.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:44.204968+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/medical-benefits (1).pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:46.199634+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/medical-benefits.pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:48.930021+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/medical-benefits-preview.jpeg",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:50.977129+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/onboard-preview.jpeg",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:53.049560+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/podcast.jpg",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:55.183111+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/podcast-intranet (1).png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:57.053640+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/podcast-intranet.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:11:59.021908+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/service-desk-app.pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:02.041260+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/social-feed.jpg",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:04.146174+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/Stock.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:06.042500+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/update-password.pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:09.148414+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/urgent-messages-zoom.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:11.293133+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/Weather-small.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:13.660464+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/Welcome (1).pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:15.648435+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/Welcome.pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:17.402757+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/welcome-preview.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:19.288277+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/work-remotely (1).pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:21.304454+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/work-remotely.pptx",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "time": "2026-08-16T23:12:23.416434+00:00",
+      "action": "copy",
+      "source": "root/WidgetBoard_Assets/zoom-edit-profile.png",
+      "target": "05-Marketing/Widget-Assets",
+      "status": "ok",
+      "detail": ""
+    }
+  ]
+}
