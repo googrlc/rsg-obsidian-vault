@@ -1,0 +1,4 @@
+{
+  "name": "RSG Obsidian Vault",
+  "install": "pip3 install --user -r requirements.txt"
+}
