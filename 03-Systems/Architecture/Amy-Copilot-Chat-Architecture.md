@@ -1,12 +1,13 @@
 ---
 title: Amy — Copilot Chat as the Sole Interface
-updated: 2026-08-14
+updated: 2026-08-18
 tags: [rsg, architecture, amy, copilot-studio, copilot-chat, supabase]
 ---
 
 # Amy — Copilot Chat as the Sole Interface
 
-**Decision date:** 2026-08-14
+**Decision date:** 2026-08-14  
+**Updated:** 2026-08-18 (client service desk)
 **Status:** Locked
 **Owner:** Lamar Coates
 
@@ -112,6 +113,8 @@ Copilot Chat can still suggest a specialist via in-conversation agent recommenda
 
 Amy's CRM/service answers and task writes go through Zoho.
 
+**Client service (locked 2026-08-18):** Outlook email → Amy (confirm first) → Zoho Case + step Tasks (or a standalone Task) → Cases Kanban → **Zoho Creator Client Service Desk**. Creator is a workbench, not a second CRM. NowCerts is a monthly additive backup. Agency client work only. See [[03-Systems/Architecture/Client-Service-Desk]] and [CLIENT-SERVICE-HANDOFF.md](https://github.com/googrlc/agency-knowledge-build/blob/main/CLIENT-SERVICE-HANDOFF.md).
+
 ## Daily function (target UX)
 
 Amy handles morning desk, mid-day placement ("who writes GL for plumbing in Georgia?"), commission discrepancies, and agency-bill exposure — all in one Copilot Chat thread. Writes go to `agency_crm_tasks`, `commission_escalations`, and related Supabase tables. See [[rsg-infrastructure/Supabase-Recon-2026-08-14]] for live table readiness.
@@ -150,7 +153,8 @@ Amy handles morning desk, mid-day placement ("who writes GL for plumbing in Geor
 - Supabase is the intelligence layer. SharePoint/Nextcloud hold source documents only.
 - Do not deploy Teams or SharePoint as agent channels.
 - Hermes / Slack / **Zoho CRM** / NowCerts remain systems of record; this does not replace them.
-- **CRM of record is Zoho CRM.**
+- **CRM of record is Zoho CRM.** EspoCRM is retired — historical vault docs that mention Espo are legacy, not live.
+- Client service intake is Outlook + Amy → Zoho Cases/Tasks. The workstation is Zoho Creator reading those CRM records. Admin/ops is a separate planner.
 
 ## Supabase status (2026-08-14)
 

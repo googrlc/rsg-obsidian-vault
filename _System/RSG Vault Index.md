@@ -1,5 +1,5 @@
 # RSG Obsidian Vault — Index
-Last Updated: 2026-08-14
+Last Updated: 2026-08-18
 
 ## Source of Truth
 Full ops architecture: [[_System/RSG-Architecture-2026]] - systems, agents, workflows, credentials
@@ -7,7 +7,9 @@ Amy user interface (locked 2026-08-14): [[03-Systems/Architecture/Amy-Copilot-Ch
 
 | Path | Description | Updated |
 |---|---|---|
-| [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]] | Locked decision: Copilot Chat is Amy's sole interface; specialists are hidden sub-agents; Supabase is the intelligence layer | 2026-08-14 |
+| [[03-Systems/Architecture/Amy-Copilot-Chat-Architecture]] | Locked decision: Copilot Chat is Amy's sole interface; specialists are hidden sub-agents; Supabase is the intelligence layer | 2026-08-18 |
+| [[03-Systems/Architecture/Client-Service-Desk]] | Outlook + Amy → Zoho Case+steps → Creator workstation; monthly AMS backup; client work only | 2026-08-18 |
+| [[RSG/SOPs/Client-Service-Request-Desk]] | Gretchen SOP: work the Creator desk, check off steps, completed list is client + policy | 2026-08-18 |
 | [[rsg-infrastructure/Supabase-Recon-2026-08-14]] | Live schema recon of rsg-infrastructure for Amy: 206 tables, pgvector ready, embeddings empty, agency-bill empty | 2026-08-14 |
 | [[rsg-infrastructure/Hermes-VPS-DigitalOcean]] | DigitalOcean hermes-vps (Penny/Mattermost): SSH aliases, Tailscale IP, isolation from hermes-gretch | 2026-08-11 |
 | [[rsg-infrastructure/SSH-Config]] | Unified SSH hosts including hermes-vps vs hermes-gretch | 2026-08-11 |
