@@ -1,0 +1,5 @@
+# Python dependencies for the RSG vault's runnable utilities.
+# - reportlab: used by AI_Knowledge/Skills/call-intake-parser/generate_intake_pdf.py
+# - requests:  used by RSG/SOPs/Intake Pipeline/rsg-intake-pipeline.py
+reportlab>=4.0.0
+requests>=2.31.0
