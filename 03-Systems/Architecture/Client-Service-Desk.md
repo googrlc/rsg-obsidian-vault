@@ -1,18 +1,19 @@
 ---
 title: Client Service Desk — Outlook to Zoho Creator
-updated: 2026-08-18
+updated: 2026-08-19
 tags: [rsg, architecture, amy, zoho, creator, service-request, outlook]
 ---
 
 # Client Service Desk
 
 **Decision date:** 2026-08-18  
+**Updated:** 2026-08-19 (live Zoho create + retrieve)  
 **Status:** Locked for client work. Admin/ops is a later planner.  
 **Owner:** Lamar Coates
 
 ## One-sentence summary
 
-From Outlook, Amy turns a client email into a Zoho Task or a Service Request (Case plus the steps to finish it). The pipeline lives in Zoho Cases. Gretchen and Lamar zoom into a Zoho Creator workstation to work open requests and see a running completed summary (client + policy). NowCerts gets an additive monthly backup.
+From Outlook, Amy turns a client email into a Zoho Task or a Service Request (Case plus the steps to finish it). She writes **and reads live Zoho CRM** — not the Supabase case mirror. The pipeline is Cases.`Service_Request_Status`. Gretchen and Lamar zoom into a Zoho Creator workstation. NowCerts gets an additive monthly backup.
 
 ## What this is (and is not)
 
@@ -32,10 +33,14 @@ This replaces n8n **WF-F** (Gmail `RSG-Task` → EspoCRM). Espo stays retired. D
 ```
 Outlook email
     → Amy (preview → confirm)
-    → Zoho Note (activity) + Task  OR  Case + child Tasks
-    → Cases Kanban (pipeline)
+    → live Zoho Note + Task  OR  Case + child Tasks
+    → Cases Kanban (Service_Request_Status)
     → Creator Client Service Desk (work the queue)
     → monthly AMS_Write_Queue → NowCerts (additive)
+
+Amy retrieve
+    → Zoho MCP Data Insights / Data Operations
+    → the same live Cases and Tasks
 ```
 
 **Hard rule:** Creator reads and writes CRM Cases, Tasks, Account, and Policy. It does not store its own service-request records.
@@ -48,7 +53,7 @@ Personal-lines service → Gretchen. Claim, commercial, bind, cancellation → L
 
 ## Build spec
 
-Canonical session doc (repo): [agency-knowledge-build/CLIENT-SERVICE-HANDOFF.md](https://github.com/googrlc/agency-knowledge-build/blob/main/CLIENT-SERVICE-HANDOFF.md)
+Canonical session docs (repo): [CLIENT-SERVICE-HANDOFF.md](https://github.com/googrlc/agency-knowledge-build/blob/main/CLIENT-SERVICE-HANDOFF.md) and `AMY-INSTRUCTIONS.md` (Zoho MCP wiring + paste-ready Amy prompt).
 
 Gretchen-facing: [[RSG/SOPs/Client-Service-Request-Desk]]
 

@@ -1,13 +1,13 @@
 ---
 title: Amy — Copilot Chat as the Sole Interface
-updated: 2026-08-18
+updated: 2026-08-19
 tags: [rsg, architecture, amy, copilot-studio, copilot-chat, supabase]
 ---
 
 # Amy — Copilot Chat as the Sole Interface
 
 **Decision date:** 2026-08-14  
-**Updated:** 2026-08-18 (client service desk)
+**Updated:** 2026-08-19 (Zoho MCP on Amy + live create/retrieve)
 **Status:** Locked
 **Owner:** Lamar Coates
 
@@ -29,7 +29,7 @@ SharePoint remains a **document store** (carrier appetite PDFs, policy examples,
 
 This front door does **not** replace Hermes, Slack, **Zoho CRM**, or NowCerts. Those remain systems of record and ops channels. Copilot Chat is the sole interface for Amy and her specialists.
 
-**CRM of record is Zoho CRM** (MCP: `user-ZohoMCP`). All CRM reads and writes go through Zoho.
+**CRM of record is Zoho CRM.** Amy in Copilot Studio uses Zoho MCP **Data Insights** (read) and **Data Operations** (write). Cursor `user-ZohoMCP` is for Hermes, not Amy. All CRM reads and writes go through Zoho.
 
 ## Access model
 
@@ -109,9 +109,9 @@ Copilot Chat can still suggest a specialist via in-conversation agent recommenda
 
 ## CRM of record
 
-**Zoho CRM is live.** MCP: `user-ZohoMCP`. Confirmed 2026-08-14 — 39 visible modules including standard Leads / Contacts / Accounts / Deals / Tasks / Cases plus RSG custom modules: `Policies`, `Renewals`, `Renewal_Events`, `AMS_Write_Queue`.
+**Zoho CRM is live.** Confirmed 2026-08-14 — 39 visible modules including Leads / Contacts / Accounts / Deals / Tasks / Cases plus `Policies`, `Renewals`, `Renewal_Events`, `AMS_Write_Queue`.
 
-Amy's CRM/service answers and task writes go through Zoho.
+Amy in Copilot Studio uses Zoho MCP **Data Insights** (read) and **Data Operations** (write). Paste-ready instructions live in the agency-knowledge-build repo: `AMY-INSTRUCTIONS.md`. Cursor `user-ZohoMCP` is Hermes, not Amy. Do not use Supabase `get_open_cases` for client-service retrieve.
 
 **Client service (locked 2026-08-18):** Outlook email → Amy (confirm first) → Zoho Case + step Tasks (or a standalone Task) → Cases Kanban → **Zoho Creator Client Service Desk**. Creator is a workbench, not a second CRM. NowCerts is a monthly additive backup. Agency client work only. See [[03-Systems/Architecture/Client-Service-Desk]] and [CLIENT-SERVICE-HANDOFF.md](https://github.com/googrlc/agency-knowledge-build/blob/main/CLIENT-SERVICE-HANDOFF.md).
 
