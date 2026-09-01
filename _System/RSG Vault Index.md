@@ -11,6 +11,7 @@ Amy user interface (locked 2026-08-14): [[03-Systems/Architecture/Amy-Copilot-Ch
 | [[03-Systems/Architecture/Client-Service-Desk]] | Outlook + Amy → Zoho Case+steps → Creator workstation; monthly AMS backup; client work only | 2026-08-18 |
 | [[RSG/SOPs/Client-Service-Request-Desk]] | Gretchen SOP: work the Creator desk, check off steps, completed list is client + policy | 2026-08-18 |
 | [[RSG/SOPs/Gretchen-Renewals]] | Gretchen SOP: weekday Momentum queues, then personal-lines renewals in Cliq #renewals and CRM Tasks 1–2 | 2026-09-01 |
+| [[RSG/SOPs/Carrier-Knowledge-Ingest]] | Lamar SOP: file or upload carrier/MGA PDFs to SharePoint, run Hermes writer, fix keys, approve before Amy can cite | 2026-09-01 |
 | [[rsg-infrastructure/Supabase-Recon-2026-08-14]] | Live schema recon of rsg-infrastructure for Amy: 206 tables, pgvector ready, embeddings empty, agency-bill empty | 2026-08-14 |
 | [[rsg-infrastructure/Hermes-VPS-DigitalOcean]] | DigitalOcean hermes-vps (Penny/Mattermost): SSH aliases, Tailscale IP, isolation from hermes-gretch | 2026-08-11 |
 | [[rsg-infrastructure/SSH-Config]] | Unified SSH hosts including hermes-vps vs hermes-gretch | 2026-08-11 |
