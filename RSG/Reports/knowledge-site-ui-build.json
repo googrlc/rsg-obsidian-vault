@@ -1,0 +1,27 @@
+{
+  "log": [
+    "Renamed site to RSG Knowledge Base",
+    "Scanned 01-Carriers: 0 files",
+    "Scanned 02-Lines-of-Business: 0 files",
+    "Scanned 03-Operations: 1 files",
+    "Scanned 04-Client-Service: 1 files",
+    "Scanned 05-Marketing: 50 files",
+    "Scanned 06-Training: 0 files",
+    "Scanned 07-Compliance: 0 files",
+    "Delete Culture.aspx: 204",
+    "Delete Our-Leadership.aspx: 204",
+    "Delete Our-teams.aspx: 204",
+    "Delete Vision-and-Priorities.aspx: 204",
+    "Delete DepartmentHome.aspx: 204",
+    "Homepage updated: 204 {'page_id': '8fd2a290-4d29-4134-b7fd-e6cbfbadfee2', 'name': 'Home.aspx', 'publish': {}}",
+    "Section 01-Carriers.aspx created: 204",
+    "Section 02-Lines-of-Business.aspx created: 204",
+    "Section 03-Operations.aspx created: 204",
+    "Section 04-Client-Service.aspx created: 204",
+    "Section 05-Marketing.aspx created: 204",
+    "Section 06-Training.aspx created: 204",
+    "Section 07-Compliance.aspx created: 204"
+  ],
+  "site_path": "/sites/RSG",
+  "home_page": "SitePages/Home.aspx"
+}
